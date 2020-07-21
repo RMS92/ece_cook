@@ -338,4 +338,12 @@ document.addEventListener('DOMContentLoaded', function() {
         infinite: true
 
     })
+
+    new Carousel(document.querySelector('#carousel2'), {
+        slidesVisible: 1,
+        slidesToScroll: 1,
+        pagination: true,
+        infinite: true
+
+    })
 })

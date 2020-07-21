@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}ECE COOK{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    {{ encore_entry_link_tags('app') }}
+    {% block stylesheets %}
+    {% endblock %}
+</head>
+<body>
+<header class="header" id="hamburger">
+    <div class="logo">
+        <a href="#">Ece cook</a>
+    </div>
+    <nav class="menu" id="hamburger-content">
+        <a href="#" class="menu-item">Home</a>
+        <a href="#" class="menu-item">Recettes</a>
+        <a href="#" class="menu-item">Evénements</a>
+        <a href="#" class="menu-item">Boutique</a>
+    </nav>
+    <button id="hamburger-button">&#9776; <span>Menu</span></button>
+    <div id="hamburger-sidebar">
+        <button class="btn btn-close has-icon" id="hamburger-button-close"><span>close</span></button>
+        <input type="text" placeholder="Search..." class="search-field"/>
+        <div id="hamburger-sidebar-body"></div>
+    </div>
+    <div id="hamburger-overlay"></div>
+</header>
+
+{% block baseline %}{% endblock %}
+
+
+{% block body %}
+{% endblock %}
+
+
+{{ encore_entry_script_tags('app') }}
+{% block javascripts %}
+{% endblock %}
+</body>
+</html>

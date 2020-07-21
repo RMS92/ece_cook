@@ -1,0 +1,396 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 14px;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    line-height: 1.625;
+    /*font size de 16 divisé par le line-height du projet */
+    margin: 0;
+    color: #6F6F6F;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+    clear: both;
+    color: inherit;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+h1, h2, h3, h4, h5, h6, .primary-font {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color .35s ease-in-out, opacity .35s ease-in-out, background-color .35s ease-in-out;
+}
+
+ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: #121212;
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+    padding: 30px;
+}
+
+.logo {
+    width: 100%;
+    margin: 15px 0 30px;
+    text-align: center;
+    font-size: 1.57rem;
+    text-transform: uppercase;
+}
+
+.logo a {
+    background-color: transparent;
+}
+
+.btn {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    background: none;
+    color: #FFF;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-close {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #969696;
+    margin-bottom: 30px;
+}
+
+.btn-close::before {
+    content: "\f00d";
+    margin-right: .15rem;
+}
+
+.btn-close:hover {
+    color: #FFF;
+}
+
+.search-field {
+    width: 80%;
+    background: rgba(255, 255, 255, .1);
+    border: 1px solid rgba(255, 255, 255, .03);
+    color: #d9d8d5;
+    font-weight: 400;
+    height: 38px;
+    padding: 0 10px;
+    margin-bottom: 30px;
+}
+
+#hamburger-button {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    height: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    background: none;
+    color: #FFF;
+    border: none;
+    padding: 0;
+}
+
+#hamburger-overlay {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .4);
+}
+
+#hamburger-sidebar {
+    display: none;
+    text-align: center;
+    position: fixed;
+    width: 250px;
+    z-index: 20;
+    padding-top: 15px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #17181a;
+    transform: translateX(-100%);
+    transition: transfor .3s ease-out;
+}
+
+#hamburger-sidebar a {
+    z-index: 30;
+    display: block;
+    color: #969696;
+    line-height: 65px;
+    border-top: 1px solid rgb(0, 0, 0);
+    border-bottom: 1px solid rgb(0, 0, 0);
+    transition: color .3s, border .1s;
+}
+
+#hamburger-sidebar a:hover {
+    text-decoration: none;
+    color: #FFF;
+    background: rgb(0, 0, 0);
+}
+
+#hamburger-content {
+    display: none;
+}
+
+#hamburger-button, #hamburger-sidebar, .hamburger-activated #hamburger-overlay {
+    display: block;
+
+}
+
+.hamburger-activated #hamburger-sidebar {
+    transform: translateX(0);
+}
+
+.baseline {
+    background: #212121;
+}
+
+.item {
+    height: 470px;
+    color: #FFF;
+    padding: 60px 30px;
+    text-align: center;
+}
+
+.item1 {
+    background: linear-gradient(360deg, rgba(0, 0, 0, 0.1), rgba(54, 54, 54, 0.5) 39.24%, rgba(28, 28, 28, 0.4)),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(54, 54, 54, 0.5) 39.24%, rgba(28, 28, 28, 0.4)),
+    url(https://appetitedemo.files.wordpress.com/2015/07/smachno_18.jpg) no-repeat center center;
+}
+
+.item2 {
+    background: linear-gradient(360deg, rgba(0, 0, 0, 0.1), rgba(54, 54, 54, 0.5) 39.24%, rgba(28, 28, 28, 0.4)),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(54, 54, 54, 0.5) 39.24%, rgba(28, 28, 28, 0.4)),
+    url(https://appetitedemo.files.wordpress.com/2015/07/smachno_22.jpg) no-repeat center center;
+}
+
+.item3 {
+    background: linear-gradient(360deg, rgba(0, 0, 0, 0.1), rgba(54, 54, 54, 0.5) 39.24%, rgba(28, 28, 28, 0.4)),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(54, 54, 54, 0.5) 39.24%, rgba(28, 28, 28, 0.4)),
+    url(https://appetitedemo.files.wordpress.com/2015/07/smachno_21.jpg) no-repeat center center;
+}
+
+.item-title {
+    opacity: unset;
+    font-weight: 700;
+    line-height: 1.3;
+    font-size: 1.9rem;
+    margin-bottom: 30px;
+}
+
+.item-description {
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.more-link {
+    -webkit-box-shadow: none;
+    border: 2px solid;
+    box-shadow: none;
+    display: inline-block;
+    font-weight: 700;
+    line-height: 1.1;
+    padding: .7rem 1rem;
+    text-decoration: none;
+}
+
+.more-link:hover {
+    cursor: pointer;
+    color: #c7a84e;
+}
+
+/*Caroussel*/
+.carousel {
+    position: relative;
+}
+
+.carousel__container {
+    transition: transform 0.3s;
+    transform: translate3d(0, 0, 0);
+}
+
+.carousel__container::after {
+    content: '';
+    clear: both;
+    display: table;
+}
+
+.carousel__item {
+    float: left;
+}
+
+.carousel__next, .carousel__prev {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    /*background: #FFF url(right.svg) center center no-repeat;*/
+    background-size: 20px 20px;
+    border-radius: 50%;
+    top: 50%;
+    margin-top: -20px;
+    right: -20px;
+    box-shadow: 0 15px 35px #3232321a, 0 5px 15px #0000001a;
+    cursor: pointer;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.carousel__next:hover, .carousel__prev:hover {
+    transform: scale(1.2)
+}
+
+.carousel__prev {
+    /*background-image: url(left.svg);*/
+    right: auto;
+    left: -20px;
+}
+
+.carousel__next--hidden, .carousel__prev--hidden {
+    opacity: 0;
+}
+
+.carousel__pagination {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    display: block;
+}
+
+.carousel__pagination__button {
+    background-color: transparent;
+    border: 2px solid #FFF;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 3px;
+    box-shadow: 0 2px 5px #3232321a;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.carousel__pagination__button--active, .carousel__pagination__button:hover {
+    background: #FFF;
+    transform: scale(1.4);
+}
+
+.home-section {
+    padding: 60px 0;
+}
+
+.container-small {
+    padding: 60px 15px;
+    background: #f4f2e6;
+}
+
+.recipe {
+    margin-top: 30px;
+    width: 100%;
+}
+
+.recipe img {
+    width: 100%;
+    height: auto;
+}
+
+.big-title {
+    font-size: 1.802rem;
+    text-transform: uppercase;
+    margin: 0 0 30px 0;
+    text-align: center;
+    padding: 0 15px;
+}
+
+.entry-meta {
+    display: inline-block;
+}
+
+.entry-meta a:hover {
+    color: #c7a84e;
+}
+
+.entry-meta>*+* {
+    margin-left: .85rem;
+}
+
+.entry-title {
+    font-size: 1.42rem;
+    text-transform: uppercase;
+}
+
+.entry-title:hover {
+    color: #c7a84e;
+}
+
+.description {
+    color: #969696;
+    text-transform: uppercase;
+    font-size: .79rem;
+}
+
+.posted-on::before {
+    content: "\f073";
+    margin-right: 6px;
+}
+
+.byline::before {
+    content: "\f007";
+    margin-right: 4px;
+}
+
+.comments-link::before {
+    content: "\f075";
+    margin-right: 6px;
+}
+
+.has-icon {
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-family: FontAwesome, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    text-decoration: inherit;
+}
+
+.entry-meta::after {
+    border-bottom: 1px solid #383a3b;
+    content: "";
+    display: block;
+    margin: 25px 0 -5px;
+    width: 100px;
+}
+
+.entry-summary {
+    margin-top: 30px;
+    color: #383a3b;
+}
+
+@media screen and (min-width: 500px) {
+    .carousel__pagination {
+        display: block;
+    }
+}

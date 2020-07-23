@@ -90,6 +90,8 @@ class Carousel {
      * @param {boolean} [options.loop=false]
      * @param {boolean} [options.infinite=false]
      * @param {boolean} [options.pagination=false]
+     * @param {boolean} [options.navigation=false]
+     * @param {boolean} [options.onResize=false]
      *
      */
     constructor(element, options = {}) {
@@ -100,12 +102,16 @@ class Carousel {
             loop: false,
             infinite: false,
             pagination: false,
+            navigation: false,
+            onResize: false
         }, options)
         if (this.options.loop && this.options.infinite) {
             throw new Error("Un carousel ne peut être à la fois en boucle et en infinie !")
         }
         let children = [].slice.call(element.children)
         this.isMobile = false
+        this.isTablette = false
+        this.isDesktop = false
         this.currentItem = 0
         this.moveCallBacks = []
         this.offset = 0
@@ -172,27 +178,29 @@ class Carousel {
     }
 
     createNavigation() {
-        let nextButton = this.createDivWithClass('carousel__next')
-        let prevButton = this.createDivWithClass('carousel__prev')
-        this.root.appendChild(nextButton)
-        this.root.appendChild(prevButton)
-        nextButton.addEventListener('click', this.next.bind(this))
-        prevButton.addEventListener('click', this.prev.bind(this))
-        if (this.options.loop === true) {
-            return
+        if(this.options.navigation) {
+            let nextButton = this.createDivWithClass('carousel__next')
+            let prevButton = this.createDivWithClass('carousel__prev')
+            this.root.appendChild(nextButton)
+            this.root.appendChild(prevButton)
+            nextButton.addEventListener('click', this.next.bind(this))
+            prevButton.addEventListener('click', this.prev.bind(this))
+            if (this.options.loop === true) {
+                return
+            }
+            this.onMove(index => {
+                if (index === 0) {
+                    prevButton.classList.add('carousel__prev--hidden')
+                } else {
+                    prevButton.classList.remove('carousel__prev--hidden')
+                }
+                if (this.items[this.currentItem + this.slidesVisible] === undefined) {
+                    nextButton.classList.add('carousel__next--hidden')
+                } else {
+                    nextButton.classList.remove('carousel__next--hidden')
+                }
+            })
         }
-        this.onMove(index => {
-            if (index === 0) {
-                prevButton.classList.add('carousel__prev--hidden')
-            } else {
-                prevButton.classList.remove('carousel__prev--hidden')
-            }
-            if (this.items[this.currentItem + this.slidesVisible] === undefined) {
-                nextButton.classList.add('carousel__next--hidden')
-            } else {
-                nextButton.classList.remove('carousel__next--hidden')
-            }
-        })
     }
 
     createPagination() {
@@ -273,9 +281,23 @@ class Carousel {
     }
 
     onWindowResize() {
-        let mobile = window.innerWidth < 800
+        let mobile = window.innerWidth < 770
+        let tablet = window.innerWidth < 995
+        let desktop = window.innerWidth > 995
         if (mobile !== this.isMobile) {
             this.isMobile = mobile
+            this.setStyle()
+            this.moveCallBacks.forEach(cb => cb(this.currentItem))
+        }
+
+        if(tablet !== this.isTablette) {
+            this.isTablette = tablet
+            this.setStyle()
+            this.moveCallBacks.forEach(cb => cb(this.currentItem))
+        }
+
+        if(desktop !== this.isDesktop) {
+            this.isDesktop = desktop
             this.setStyle()
             this.moveCallBacks.forEach(cb => cb(this.currentItem))
         }
@@ -304,14 +326,40 @@ class Carousel {
      * @returns {number}
      */
     get slidesToScroll() {
-        return this.isMobile ? 1 : this.options.slidesToScroll
+        if(this.isMobile) {
+            return 1
+        }
+        if(this.options.onResize) {
+            if(this.isTablette) {
+                return 1
+            }
+            if(this.isDesktop) {
+                return 1
+            }
+        }
+        else {
+            return this.options.slidesToScroll
+        }
     }
 
     /**
      * @returns {number}
      */
     get slidesVisible() {
-        return this.isMobile ? 1 : this.options.slidesVisible
+        if(this.isMobile) {
+            return 1
+        }
+        if(this.options.onResize) {
+            if(this.isTablette) {
+                return 2
+            }
+            if(this.isDesktop) {
+                return 3
+            }
+        }
+        else {
+            return this.options.slidesVisible
+        }
     }
 
     /**
@@ -340,10 +388,11 @@ document.addEventListener('DOMContentLoaded', function() {
     })
 
     new Carousel(document.querySelector('#carousel2'), {
-        slidesVisible: 1,
+        slidesVisible: 3,
         slidesToScroll: 1,
-        pagination: true,
-        infinite: true
+        infinite: true,
+        navigation: true,
+        onResize: true
 
     })
 })

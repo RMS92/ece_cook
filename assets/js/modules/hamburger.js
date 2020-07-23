@@ -37,7 +37,18 @@ closebutton.addEventListener('click', function (e) {
 })
 
 
-var dropdownmenu = document.querySelectorAll('#hamburger-sidebar-body #dropdown-menu')
+window.addEventListener('scroll', function (e) {
+
+    e.preventDefault()
+    let pos = window.scrollY
+    if(window.innerWidth > 750 && pos > 0) {
+        parent.classList.add('header-move')
+    }else {
+        parent.classList.remove('header-move')
+    }
+})
+
+/*var dropdownmenu = document.querySelectorAll('#hamburger-sidebar-body #dropdown-menu')
 var dropdownli = document.querySelectorAll('#hamburger-sidebar-body #dropdown-li')
 
 window.onresize = function () {
@@ -67,4 +78,5 @@ window.addEventListener('scroll', function (e) {
     if (pos < 200) {
         parent.classList.remove('hidden')
     }
-});
+});*/
+

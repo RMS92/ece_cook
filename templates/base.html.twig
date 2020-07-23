@@ -19,14 +19,16 @@
         <a href="#" class="menu-item">Recettes</a>
         <a href="#" class="menu-item">Evénements</a>
         <a href="#" class="menu-item">Boutique</a>
+        <button class="clean-button has-icon search-button" id="hamburger-search-button"></button>
     </nav>
-    <button id="hamburger-button">&#9776; <span>Menu</span></button>
+    <button id="hamburger-button" class="has-icon"><span>Menu</span></button>
     <div id="hamburger-sidebar">
         <button class="btn btn-close has-icon" id="hamburger-button-close"><span>close</span></button>
         <input type="text" placeholder="Search..." class="search-field"/>
         <div id="hamburger-sidebar-body"></div>
     </div>
     <div id="hamburger-overlay"></div>
+
 </header>
 
 {% block baseline %}{% endblock %}
@@ -37,32 +39,36 @@
 
 <footer class="footer" id="footer">
     <div class="container-footer">
-        <div class="footer-area">
-            <div class="infos">
-                <h4 class="widget-title">Opening hours</h4>
-                <ul>
-                    <li>Weekdays: 08:00am - 22:00pm</li>
-                    <li>Saturday: 09:00am - 02:00am</li>
-                    <li>Sunday: 08:00am - 10:00pm</li>
-                    <li>Holidays: 10:00am - 10:00pm</li>
-                    <li>Happy Hours: 8:00pm - 11:00pm</li>
-                </ul>
-            </div>
+        <div class="container transparent">
 
-            <div class="infos widget_recent_entries">
-                <h4 class="widget-title">Recent post</h4>
-                <ul>
-                    <li><a href="#">How to Make Sushi at Home</a></li>
-                    <li><a href="#">5-Minute Breakfasts That Are Actually Healthy</a></li>
-                    <li><a href="#">Everything You Want to Know About Pizza</a></li>
-                </ul>
-            </div>
+            <div class="footer-area">
+                <div class="infos">
+                    <h4 class="widget-title">Opening hours</h4>
+                    <ul>
+                        <li>Weekdays: 08:00am - 22:00pm</li>
+                        <li>Saturday: 09:00am - 02:00am</li>
+                        <li>Sunday: 08:00am - 10:00pm</li>
+                        <li>Holidays: 10:00am - 10:00pm</li>
+                        <li>Happy Hours: 8:00pm - 11:00pm</li>
+                    </ul>
+                </div>
 
-            <div class="infos widget_recent_entries">
-                <h4 class="widget-title">ABOUT APPETITE</h4>
-                <p>Dummy text is text that is used in the publishing industry or by web designers to occupy the space
-                    which will later be filled with ‘real’ content. This is required when the final text is not yet
-                    available.</p>
+                <div class="infos widget_recent_entries">
+                    <h4 class="widget-title">Recent post</h4>
+                    <ul>
+                        <li><a href="#">How to Make Sushi at Home</a></li>
+                        <li><a href="#">5-Minute Breakfasts That Are Actually Healthy</a></li>
+                        <li><a href="#">Everything You Want to Know About Pizza</a></li>
+                    </ul>
+                </div>
+
+                <div class="infos widget_recent_entries">
+                    <h4 class="widget-title">ABOUT APPETITE</h4>
+                    <p>Dummy text is text that is used in the publishing industry or by web designers to occupy the
+                        space
+                        which will later be filled with ‘real’ content. This is required when the final text is not yet
+                        available.</p>
+                </div>
             </div>
         </div>
 

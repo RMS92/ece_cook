@@ -7,6 +7,9 @@
 
 // any CSS you import will output into a single css file (app.css in this case)
 import '../css/app.css';
+import  '../css/caroussel.css'
+import  '../css/hamburger.css'
+
 import './modules/hamburger'
 import './modules/caroussel'
 

@@ -12,11 +12,11 @@
 <body>
 <header class="header" id="hamburger">
     <div class="logo">
-        <a href="#">Ece cook</a>
+        <a href="{{ path('home') }}">Ece cook</a>
     </div>
     <nav class="menu" id="hamburger-content">
-        <a href="#" class="menu-item">Home</a>
-        <a href="#" class="menu-item">Recettes</a>
+        <a href="{{ path('home') }}" class="menu-item">Home</a>
+        <a href="{{ path('recipe.index') }}" class="menu-item">Recettes</a>
         <a href="#" class="menu-item">Evénements</a>
         <a href="#" class="menu-item">Boutique</a>
         <button class="clean-button has-icon search-button" id="hamburger-search-button"></button>

@@ -155,6 +155,17 @@ ul, li {
     background-color: #f4f2e6;
 }
 
+
+.big-title {
+    color: #383a3b;
+    font-size: 1.802rem;
+    text-transform: uppercase;
+    margin: 0 0 30px 0;
+    text-align: center;
+    padding: 0 15px;
+}
+
+
 .block-recipe, .block-event {
     margin-top: 30px;
     width: 100%;
@@ -168,15 +179,6 @@ ul, li {
 .block-recipe img, .block-event img {
     width: 100%;
     height: auto;
-}
-
-.big-title {
-    color: #383a3b;
-    font-size: 1.802rem;
-    text-transform: uppercase;
-    margin: 0 0 30px 0;
-    text-align: center;
-    padding: 0 15px;
 }
 
 .entry-meta {
@@ -377,6 +379,89 @@ ul, li {
     padding: 30px;
 }
 
+.border-top {
+    border-top: 1px solid #e5e5e5;
+    margin-top: 45px;
+    padding-top: 45px;
+}
+
+.border-top-main {
+    border-top: 1px solid #e5e5e5;
+    margin-top: 30px;
+    padding-top: 30px;
+}
+
+.border-top:first-child {
+    border-top: none;
+    margin: 0;
+    padding: 0;
+}
+
+.more-item {
+    background: 0 0;
+    border: 2px solid rgba(0,0,0,.05);
+    color: #969696;
+    display: inline-block;
+    font-size: .813em;
+    font-weight: 700;
+    line-height: 1.1;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 1px;
+    padding: .7rem 1rem;
+}
+
+.aside {
+    padding-bottom: 60px;
+    color: #000;
+}
+
+.aside h4 {
+    color: #383a3b;
+}
+
+.infos-main {
+    width: 100%;
+}
+
+.infos-main a {
+    color: inherit;
+    font-weight: 400;
+    text-decoration: none;
+    transition: color .35s ease-in-out, opacity .35s ease-in-out, background-color .35s ease-in-out;
+}
+
+.infos-main a:hover {
+    color: #c7a84e;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.category-link {
+    display: block;
+    -webkit-transition: color .35s ease-in-out,opacity .35s ease-in-out,background-color .35s ease-in-out;
+    color: #c7a84e;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Lato',-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;;
+    transition: color .35s ease-in-out,opacity .35s ease-in-out,background-color .35s ease-in-out;
+}
+
+.category-link:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+.mt-10{
+   margin-top: 10px;
+}
+
+.mt-30 {
+    margin-top: 30px;
+}
+
+
 /**/
 @media screen and (min-width: 500px) {
 
@@ -402,6 +487,19 @@ ul, li {
 
     .description {
         font-size: .85rem;
+    }
+
+    .footer ul {
+        font-size: 1.14rem;
+    }
+
+    /*recipe.index*/
+    .aside h4 {
+        font-size: 1.14rem;
+    }
+
+    .infos-main ul {
+        font-size: 1.14rem;
     }
 
 }
@@ -443,6 +541,31 @@ ul, li {
         margin-right: auto;
         max-width: 49rem;
     }
+
+    /*recipe.index*/
+    .block-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .block-flex .category-link {
+        margin-top: 0;
+    }
+
+    .block-img-recipes {
+        display: block;
+    }
+
+    .block-flex img {
+        width: 250px;
+        height: 250px;
+    }
+
+    .p-img-30 {
+        padding-right: 30px;
+    }
+
 }
 
 @media screen and (min-width: 810px) {
@@ -524,6 +647,7 @@ ul, li {
     .p-left {
         padding-left: 30px;
     }
+
     .block-img {
         width: 50%;
     }
@@ -555,6 +679,34 @@ ul, li {
 
     .container-footer {
         padding: 0;
+    }
+
+    /*recipe.index*/
+    .sidebar-flex {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 60px;
+    }
+
+    .aside-left {
+        width: 66.666667%;
+        -webkit-box-ordinal-group: 2;
+        order: 1;
+        padding-right: 60px;
+    }
+
+    .aside-right {
+        -webkit-box-ordinal-group: 3;
+        border-left: 1px solid #e5e5e5;
+        order: 2;
+        padding-left: 60px;
+        width: 33.333333%;
+    }
+
+    .b-0 {
+        border-top: none;
+        padding-top: 0;
+        margin-top: 0;
     }
 
 }

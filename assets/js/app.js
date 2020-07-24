@@ -9,6 +9,7 @@
 import '../css/app.css';
 import  '../css/caroussel.css'
 import  '../css/hamburger.css'
+import '../css/ui.css'
 
 import './modules/hamburger'
 import './modules/caroussel'

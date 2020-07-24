@@ -41,7 +41,7 @@ window.addEventListener('scroll', function (e) {
 
     e.preventDefault()
     let pos = window.scrollY
-    if(window.innerWidth > 750 && pos > 0) {
+    if(window.innerWidth > 750 && pos > 110.717) {
         parent.classList.add('header-move')
     }else {
         parent.classList.remove('header-move')

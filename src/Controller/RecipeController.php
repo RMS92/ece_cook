@@ -14,8 +14,17 @@ class RecipeController extends AbstractController
      * @Route("/recettes", name="recipe.index")
      * @return Response
      */
-    public function index(): Response
+    public function index (): Response
     {
-        return $this->render('recipes/index.html.twig');
+        return $this->render('recipe/index.html.twig');
+    }
+
+    /**
+     * @Route("/recettes/item-id", name="recipe.show")
+     * @return Response
+     */
+    public function show (): Response
+    {
+        return $this->render('recipe/show.html.twig');
     }
 }

@@ -8,20 +8,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HomeController extends AbstractController
+class ArticleController extends AbstractController
 {
-    public function __construct()
-    {
-    }
-
     /**
-     * @Route("/", name="home")
+     * @Route("/boutique", name="article.index")
      * @return Response
      */
-    public function index(): Response
+    public function index (): Response
     {
-        return $this->render('pages/home.html.twig', [
-            'current_menu' => 'home'
+        return $this->render('article/index.html.twig', [
+            'current_menu' => 'article'
         ]);
     }
 }

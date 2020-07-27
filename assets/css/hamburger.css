@@ -30,6 +30,7 @@
 
 #hamburger-sidebar {
     display: none;
+    visibility: hidden;
     text-align: center;
     position: fixed;
     width: 250px;
@@ -47,10 +48,15 @@
     z-index: 30;
     display: block;
     color: #969696;
+    text-transform: uppercase;
     line-height: 65px;
     border-top: 1px solid rgb(0, 0, 0);
     border-bottom: 1px solid rgb(0, 0, 0);
     transition: color .3s, border .1s;
+}
+
+#hamburger-sidebar .active {
+    color: #FFF;
 }
 
 #hamburger-sidebar a:hover {
@@ -70,6 +76,7 @@
 
 .hamburger-activated #hamburger-sidebar {
     transform: translateX(0);
+    visibility: inherit;
 }
 
 @media screen and (min-width: 500px) {
@@ -95,5 +102,4 @@
     #hamburger-content {
         display: initial;
     }
-
 }

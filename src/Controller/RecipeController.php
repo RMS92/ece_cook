@@ -16,15 +16,19 @@ class RecipeController extends AbstractController
      */
     public function index (): Response
     {
-        return $this->render('recipe/index.html.twig');
+        return $this->render('recipe/index.html.twig', [
+            'current_menu' => 'recipe'
+        ]);
     }
 
     /**
-     * @Route("/recettes/item-id", name="recipe.show")
+     * @Route("/recettes/recette-id", name="recipe.show")
      * @return Response
      */
     public function show (): Response
     {
-        return $this->render('recipe/show.html.twig');
+        return $this->render('recipe/show.html.twig', [
+            'current_menu' => 'recipe'
+        ]);
     }
 }

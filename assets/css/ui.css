@@ -30,6 +30,26 @@
     margin-bottom: 30px;
 }
 
+.mb-60 {
+    margin-bottom: 60px;
+}
+
+.mr-0 {
+    margin-right: 0;
+}
+
+.mr-10 {
+    margin-right: 10px;
+}
+
+.mr-15 {
+    margin-right: 15px;
+}
+
+.mr-30 {
+    margin-right: 30px;
+}
+
 .pr-0 {
     padding-right: 0;
 }
@@ -62,3 +82,17 @@
     padding-left: 30px;
 }
 
+.pb-0 {
+    padding-bottom: 0;
+}
+
+.pb-10 {
+    padding-bottom: 10px;
+}
+.pb-15 {
+    padding-bottom: 15px;
+}
+
+.pb-30 {
+    padding-bottom: 30px;
+}

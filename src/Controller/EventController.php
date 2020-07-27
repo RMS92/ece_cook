@@ -16,6 +16,19 @@ class EventController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('event/index.html.twig');
+        return $this->render('event/index.html.twig', [
+            'current_menu' => 'event'
+        ]);
+    }
+
+    /**
+     * @Route("/évènements/évènement-id", name="event.show")
+     * @return Response
+     */
+    public function show (): Response
+    {
+        return $this->render('event/show.html.twig', [
+            'current_menu' => 'event'
+        ]);
     }
 }

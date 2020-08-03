@@ -1,59 +1,72 @@
 theme: https://wordpress.com/theme/appetite/setup
-
-Home
--new recipes
--recent event
--the staff
--testimonials
+set COMPOSER_MEMORY_LIMIT=-1
 
 Recipe
--title
--caption
--content
--video
--tags
--comment//
--category//
--madeBy//
--publishedAt
--filename
--updated_at
+-title / string
+-caption /text
+-description / text
+-difficulty / float
+-duration / int
+-categories / relation / many-to-one -> category
+-comments / relation / one-to-many -> comment
+-author / relation / many-to-one -> member
+-pictures / relation / one-to-many -> recipe_picture
+-created-at / datetime
+-updated_at / datetime
+
+Recipe_picture
+-filename / string
 
 Comment
--content
--publishedAt
--User//
+-content / text
+-children / one-to-many / self
+-updated_at / datetime
+-created_at / datetime
 
 Category
--name
--filename
--createdAt
--updatedAt
--recipe_id//
+-title
+-picture / relation / one-to-many -> category_picture
+-created_at /datetime
 
-tags
--name
--recipes_id//
-
-Testimonial
--content
--user//
+Category_picture
+-filename / string
 
 Event
--title
--content
--filename
--takesPlaceAt
--publishedAt
--updatedAt
--lat
--lng
+-title / string
+-caption /text
+-description / text
+-city
+-address
+-postal_code
+-lat /float
+-lng /float
+-pictures / relation / one-to-many -> event_picture
+-takesPlace_at / datetime
+-created_at / datetime
+-updated_at / datetime
+
+Event_picture
+-filename / string
+
+Article
+-title /string 
+-caption / text 
+-description / text
+-pictures / relation / one-to-many -> article_picture
+-created_at / datetime
+-updated_at / datetime
+
+Article_picture
+-filename /string
 
 User
--username
--email
--password
--position
--role
-
-Shop
+-username / string
+-email / string
+-firstname / string
+-lastname / string
+-password / string
+-function / string
+-role / string
+-filename / string
+-created_at / datetime
+-updated_at / datetime

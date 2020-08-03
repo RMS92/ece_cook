@@ -65,6 +65,12 @@
         <!-- Event !-->
         <div class="container">
 
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+
             <!-- Events !-->
             <h2 class="big-title" style="margin-bottom: 60px">Next events</h2>
             <div class="block-event">
@@ -210,7 +216,7 @@
 
 
                         <div class="entry-card">
-                            <h3 class="entry-title"><a href="#">JONATAN DOE</a></h3>
+                            <h3 class="entry-title mt-0"><a href="#">JONATAN DOE</a></h3>
                             <div class="entry-meta">
                                 <span class="description"><a href="#">Executive Chef</a></span>
                             </div>
@@ -220,7 +226,6 @@
                                     food
                                     preparation...
                                 </p>
-                                <a class="more-link">Read more</a>
                             </div>
                         </div>
                     </div>
@@ -236,7 +241,7 @@
                                     alt="card-recipe"/></a>
 
                         <div class="entry-card">
-                            <h3 class="entry-title"><a href="#">CHRISTINA SMITH</a></h3>
+                            <h3 class="entry-title mt-0"><a href="#">CHRISTINA SMITH</a></h3>
                             <div class="entry-meta">
                                 <span class="description"><a href="#">Corporate Pastry Chef</a></span>
                             </div>
@@ -246,7 +251,6 @@
                                     food
                                     preparation...
                                 </p>
-                                <a class="more-link">Read more</a>
                             </div>
                         </div>
                     </div>
@@ -262,7 +266,7 @@
                                     alt="card-recipe"/></a>
 
                         <div class="entry-card">
-                            <h3 class="entry-title"><a href="#">JIMMY COLE</a></h3>
+                            <h3 class="entry-title mt-0"><a href="#">JIMMY COLE</a></h3>
                             <div class="entry-meta">
                                 <span class="description"><a href="#">Chef De Cuisine</a></span>
                             </div>
@@ -271,7 +275,6 @@
                                     includes
                                     menu creation...
                                 </p>
-                                <a class="more-link">Read more</a>
                             </div>
                         </div>
                     </div>
@@ -290,7 +293,7 @@
 
 
                         <div class="entry-card">
-                            <h3 class="entry-title"><a href="#">JONATAN DOE</a></h3>
+                            <h3 class="entry-title mt-0"><a href="#">JONATAN DOE</a></h3>
                             <div class="entry-meta">
                                 <span class="description"><a href="#">Executive Chef</a></span>
                             </div>
@@ -299,7 +302,6 @@
                                     of
                                     food
                                     preparation...</p>
-                                <a class="more-link">Read more</a>
                             </div>
                         </div>
                     </div>
@@ -315,7 +317,7 @@
                                     alt="card-recipe"/></a>
 
                         <div class="entry-card">
-                            <h3 class="entry-title"><a href="#">CHRISTINA SMITH</a></h3>
+                            <h3 class="entry-title mt-0"><a href="#">CHRISTINA SMITH</a></h3>
                             <div class="entry-meta">
                                 <span class="description"><a href="#">Corporate Pastry Chef</a></span>
                             </div>
@@ -325,7 +327,6 @@
                                     food
                                     preparation...
                                 </p>
-                                <a class="more-link">Read more</a>
                             </div>
                         </div>
                     </div>
@@ -341,7 +342,7 @@
                                     alt="card-recipe"/></a>
 
                         <div class="entry-card">
-                            <h3 class="entry-title"><a href="#">JIMMY COLE</a></h3>
+                            <h3 class="entry-title mt-0"><a href="#">JIMMY COLE</a></h3>
                             <div class="entry-meta">
                                 <span class="description"><a href="#">Chef De Cuisine</a></span>
                             </div>
@@ -350,7 +351,6 @@
                                     includes
                                     menu creation...
                                 </p>
-                                <a class="more-link">Read more</a>
                             </div>
                         </div>
                     </div>

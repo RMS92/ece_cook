@@ -46,7 +46,7 @@ ul, li {
 }
 
 .logo {
-    width: 100%;
+    width: 150px;
     margin: 15px 0 30px;
     text-align: center;
     font-size: 1.57rem;
@@ -226,10 +226,27 @@ ul, li {
     text-transform: uppercase;
     font-size: 1rem;
     color: #c7a84e;
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+.entry-cats .item-info {
+    font-size: .9rem;
 }
 
 .difficulty::after {
     content: "\f005";
+    margin-left: 4px;
+    color: #c7a84e;
+}
+
+.difficulty-empty:after {
+    content: "\f006";
+    margin-left: 4px;
+    color: #c7a84e;
+}
+
+.difficulty-half:after {
+    content: '\f123';
     margin-left: 4px;
     color: #c7a84e;
 }
@@ -675,7 +692,7 @@ b {
     position: relative;
 }
 
-.blocks-gallery-item:nth-child(3), .blocks-gallery-item:nth-child(6), .blocks-gallery-item:nth-child(8) {
+.blocks-gallery-item:nth-child(event) {
     margin-right: 0;
 }
 
@@ -702,7 +719,6 @@ b {
     .logo {
         margin-bottom: 0;
         text-align: inherit;
-        width: 100%;
     }
 
     .big-title {
@@ -824,6 +840,11 @@ b {
     /*event.show*/
     .blocks-gallery-item {
         width: calc(32% - 10px);
+    }
+
+    /*article.show*/
+    .blocks-gallery-item:nth-child(3), .blocks-gallery-item:nth-child(6), .blocks-gallery-item:nth-child(8) {
+        margin-right: 0;
     }
 }
 

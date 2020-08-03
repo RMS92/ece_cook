@@ -17,10 +17,16 @@
         <a href="{{ path('home') }}">Ece cook</a>
     </div>
     <nav class="menu" id="hamburger-content">
-        <a href="{{ path('home') }}" class="menu-item {% if current_menu is defined and current_menu == 'home' %}active{% endif %}">Home</a>
-        <a href="{{ path('recipe.index') }}" class="menu-item {% if current_menu is defined and current_menu == 'recipe' %}active{% endif %}">Recettes</a>
-        <a href="{{ path('event.index') }}" class="menu-item {% if current_menu is defined and current_menu == 'event' %}active{% endif %}">évènements</a>
-        <a href="{{path('article.index')}}" class="menu-item {% if current_menu is defined and current_menu == 'article' %}active{% endif %}">Boutique</a>
+        <a href="{{ path('home') }}"
+           class="menu-item {% if current_menu is defined and current_menu == 'home' %}active{% endif %}">Home</a>
+        <a href="{{ path('recipe.index') }}"
+           class="menu-item {% if current_menu is defined and current_menu == 'recipe' %}active{% endif %}">Recettes</a>
+        <a href="{{ path('event.index') }}"
+           class="menu-item {% if current_menu is defined and current_menu == 'event' %}active{% endif %}">évènements</a>
+        <a href="{{ path('article.index') }}"
+           class="menu-item {% if current_menu is defined and current_menu == 'article' %}active{% endif %}">Boutique</a>
+        <a href="{{ path('admin.dashboard') }}"
+           class="menu-item {% if current_menu is defined and current_menu == 'admin' %}active{% endif %}">Dashboard</a>
         <button class="clean-button has-icon search-button" id="hamburger-search-button"></button>
     </nav>
     <button id="hamburger-button" class="has-icon"><span>Menu</span></button>

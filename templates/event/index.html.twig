@@ -29,6 +29,12 @@
 
                 <div class="grid-event">
 
+                    {% for event in events %}
+                        <div class="block-event flex-none">
+                            {% include "event/_event.html.twig" %}
+                        </div>
+                    {% endfor %}
+
                     <div class="block-event flex-none">
                         <a href="#"><img
                                     src="https://appetitedemo.files.wordpress.com/2015/07/smachno_19.jpg"
@@ -73,7 +79,6 @@
                         </div>
                         <span class="grid-sep"></span>
                     </div>
-
 
                     <div class="block-event flex-none">
 

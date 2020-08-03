@@ -1,3 +1,9 @@
 liip_imagine:
   filter_sets:
     cache : ~
+    event_index:
+      quality: 75
+      filters:
+        thumbnail:
+          size: [335, 220]
+          mode: outbound

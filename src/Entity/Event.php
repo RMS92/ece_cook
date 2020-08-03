@@ -222,6 +222,11 @@ class Event
         return $this->takesPlace_at;
     }
 
+    public function getFormattedTakesPlaceAt(): ?string
+    {
+        return date_format($this->takesPlace_at, 'd-m-Y H:m');
+    }
+
     public function setTakesPlaceAt(\DateTimeInterface $takesPlace_at): self
     {
         $this->takesPlace_at = $takesPlace_at;

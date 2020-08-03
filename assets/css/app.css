@@ -272,6 +272,11 @@ ul, li {
     margin-right: 6px;
 }
 
+.map::before {
+    content: '\f279';
+    margin-right: 6px;
+}
+
 .has-icon {
     -webkit-font-smoothing: antialiased;
     display: inline-block;
@@ -707,6 +712,11 @@ b {
     padding: 1px;
 }
 
+.localisation-map {
+    width: 100%;
+    height: 200px;
+}
+
 /**/
 @media screen and (min-width: 500px) {
 
@@ -837,6 +847,14 @@ b {
         margin-right: auto;
     }
 
+    .entry-meta-event {
+        text-align: center;
+    }
+
+    .entry-meta-event > * + * {
+        margin-left: .85rem;
+    }
+
     /*event.show*/
     .blocks-gallery-item {
         width: calc(32% - 10px);
@@ -914,6 +932,8 @@ b {
     .item-show .container, .item-normal .container {
         width: 750px;
     }
+
+    /*event.show*/
 
 }
 
@@ -1114,5 +1134,10 @@ b {
 
     .container-carousel {
         width: inherit;
+    }
+
+    /*event.show*/
+    .localisation-map {
+        height: 250px;
     }
 }

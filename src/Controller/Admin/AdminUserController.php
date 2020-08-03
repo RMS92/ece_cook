@@ -109,6 +109,8 @@ class AdminUserController extends AbstractController
                 )
             );
 
+            $user->setUpdatedAt(new \DateTime());
+
             $this->em->flush();
             $this->addFlash('success', "L'utilisateur a été correctement modifié.");
             return $this->redirectToRoute('admin.user.index');

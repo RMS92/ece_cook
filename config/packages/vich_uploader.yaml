@@ -7,6 +7,11 @@ vich_uploader:
             upload_destination: '%kernel.project_dir%/public/media/users'
             namer: Vich\UploaderBundle\Naming\UniqidNamer
 
+        event_image:
+            uri_prefix: /media/events
+            upload_destination: '%kernel.project_dir%/public/media/events'
+            namer: Vich\UploaderBundle\Naming\UniqidNamer
+
     #mappings:
     #    products:
     #        uri_prefix: /images/products

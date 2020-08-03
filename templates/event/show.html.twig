@@ -8,7 +8,12 @@
     url(https://appetitedemo.files.wordpress.com/2015/07/smachno_19.jpg?w=1280&h=853&crop=1) no-repeat center center;">
         <div class="container transparent">
             <div class="item-title mt-30 primary-font">
-                <a>WE MAKE FOOD THAT OFFERS VARIETY OF FLAVORS AND TASTES</a>
+                <a>{{ event.title }}</a>
+            </div>
+            <div class="entry-meta entry-meta-baseline">
+                <span class="description posted-on has-icon"><a href="#">{{ event.formattedTakesPlaceAt }}</a></span>
+                <span class="description byline has-icon"><a href="#">ECE COOK</a></span>
+                <span class="description map has-icon"><a href="#">{{ event.city }}</a></span>
             </div>
         </div>
     </div>
@@ -19,60 +24,24 @@
         <div class="sidebar-flex pb-0">
             <div class="aside-left aside-left-show">
                 <div class="entry-summary mt-0 entry-text">
-                    <p class="mt-0 mb-0">Although the terms flavoring and flavorant in common language denote the
-                        combined chemical sensations of taste and smell, the same terms are used in the fragrance and
-                        flavors industry to refer to edible chemicals and extracts that alter the flavor of food and
-                        food products through the sense of smell.
+                    <p class="mt-0 mb-0">
+                        {{ event.caption }}
                     </p>
                 </div>
                 <div class="block-gallery">
                     <ul class="block-gallery-grid">
-                        <li class="blocks-gallery-item">
-                            <img class="wp-image" src="https://appetitedemo.files.wordpress.com/2015/07/smachno_12.jpg"
-                                 alt="">
-                        </li>
-                        <li class="blocks-gallery-item">
-                            <img class="wp-image" src="https://appetitedemo.files.wordpress.com/2015/07/smachno_13.jpg"
-                                 alt="">
-                        </li>
-                        <li class="blocks-gallery-item">
-                            <img class="wp-image" src="https://appetitedemo.files.wordpress.com/2015/07/smachno_02.jpg"
-                                 alt="">
-                        </li>
-                        <li class="blocks-gallery-item">
-                            <img class="wp-image" src="https://appetitedemo.files.wordpress.com/2015/07/smachno_03.jpg"
-                                 alt="">
-                        </li>
-                        <li class="blocks-gallery-item">
-                            <img class="wp-image" src="https://appetitedemo.files.wordpress.com/2015/07/smachno_06.jpg"
-                                 alt="">
-                        </li>
-                        <li class="blocks-gallery-item">
-                            <img class="wp-image" src="https://appetitedemo.files.wordpress.com/2015/07/smachno_05.jpg"
-                                 alt="">
-                        </li>
-                        <li class="blocks-gallery-item">
-                            <img class="wp-image" src="https://appetitedemo.files.wordpress.com/2015/07/tdmacro_02.jpg"
-                                 alt="">
-                        </li>
-                        <li class="blocks-gallery-item">
-                            <img class="wp-image" src="https://appetitedemo.files.wordpress.com/2015/07/smachno_07.jpg"
-                                 alt="">
-                        </li>
+                        {% for picture in event.pictures %}
+                            <li class="blocks-gallery-item">
+                                <img class="wp-image" src="{{ vich_uploader_asset(picture, 'imageFile') }}"
+                                     alt="card-img-top" style="width: 100%; height: auto;">
+                            </li>
+                        {% endfor %}
                     </ul>
                 </div>
-                <h3 class="entry-content-h3">L'évènement Ece cook</h3>
+                <h3 class="entry-content-h3">L'évènement Ece cook {{ event.title }}</h3>
                 <div class="entry-summary mt-30 entry-text">
-                    <p class="mt-0 mb-60">WordPress is software designed for everyone, emphasizing accessibility,
-                        performance, security, and ease of use. We believe great software should work with minimum set
-                        up, so you can focus on sharing your story, product, or services freely. The basic WordPress
-                        software is simple and predictable so you can easily get started. It also offers powerful
-                        features for growth and success.
-                        <br>
-                        <br>
-                        WordPress provides the opportunity for anyone to create and share, from handcrafted personal
-                        anecdotes to world-changing movements. People with a limited tech experience can use it “out of
-                        the box”, and more tech-savvy folks can customize it in remarkable ways.
+                    <p class="mt-0 mb-60">
+                        {{ event.description }}
                     </p>
                 </div>
             </div>
@@ -80,6 +49,13 @@
             <div class="aside-right aside-right-show">
                 <aside class="aside">
                     <div class="infos-main widget_recent_entries border-top-main b-0">
+                        <h4 class="widget-title">Localisation</h4>
+                        <div class="localisation-map" id="map" data-lat="{{ event.lat }}"
+                             data-lng="{{ event.lng }}">
+
+                        </div>
+                    </div>
+                    <div class="infos-main widget_recent_entries border-top-main">
                         <h4 class="widget-title">Recent posts</h4>
                         <ul>
                             <li><a href="#">How to Make Sushi at Home</a></li>

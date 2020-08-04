@@ -73,51 +73,40 @@
 
             <!-- Events !-->
             <h2 class="big-title" style="margin-bottom: 60px">Next events</h2>
-            <div class="block-event">
-                <div class="block-img p-right">
-                    <a href="#"><img
-                                src="https://appetitedemo.files.wordpress.com/2015/07/smachno_19.jpg"
-                                alt="card-recipe"/></a>
-                </div>
-                <div class="main-block main-block-left">
-                    <h3 class="entry-title has-line"><a href="#">WE MAKE FOOD THAT OFFERS VARIETY OF FLAVORS AND
-                            TASTES</a>
-                    </h3>
-                    <div class="entry-summary">
-                        <p>Although the terms flavoring and flavorant in common language denote the combined
-                            chemical
-                            sensations of taste and smell, the same terms are used in the fragrance and flavors
-                            industry
-                            to
-                            refer to edible chemicals and extracts that alter the flavor of food and food products
-                            through
-                            the sense of smell.</p>
-                        <a class="more-link">Read more</a>
-                    </div>
-                </div>
-            </div>
 
-            <div class="block-event">
-                <div class="block-img p-left">
-                    <a href="#"><img
-                                src="https://appetitedemo.files.wordpress.com/2015/07/smachno_20.jpg"
-                                alt="card-recipe"/></a>
-                </div>
-                <div class="main-block main-block-right">
-                    <h3 class="entry-title has-line"><a href="#">BEST HAPPY HOURS IN TOWN</a></h3>
-                    <div class="entry-summary">
-                        <p>Happy hour is a marketing term for a time when a venue offers discounts on alcoholic
-                            drinks.
-                            Free
-                            appetizers and discounted menu items are often served during happy hour. The use of the
-                            phrase
-                            “happy hour,” to refer to a scheduled period of entertainment is, however, of much more
-                            recent
-                            vintage.</p>
-                        <a class="more-link">Read more</a>
+            {% for event in events %}
+                <div class="block-event">
+                    <div class="block-img {% if loop.index is odd %}p-right{% else %}p-left{% endif %}">
+                        {% if  event.pictures is empty %}
+                            <img src="{{ 'images/smachno_07.jpg' }}" alt="card-img-top"
+                                 style="width: 100%; height: auto;">
+                        {% else %}
+                            {% for picture in event.pictures %}
+                                {% if loop.first %}
+                                    <a href="{{ path('event.show', {slug: event.slug, id: event.id}) }}"><img
+                                                src="{{ vich_uploader_asset(picture, 'imageFile') }}"
+                                                alt="card-img-top" style="width: 100%; height: auto;"></a>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="main-block {% if loop.index is odd %}main-block-left{% else %}main-block-right{% endif %}">
+                        <h3 class="entry-title"><a
+                                    href="{{ path('event.show', {slug: event.slug, id: event.id}) }}">{{ event.title }}</a>
+                        </h3>
+                        <div class="entry-meta has-line">
+                            <span class="description posted-on has-icon"><a href="#">{{ event.formattedTakesPlaceAt }}</a></span>
+                            <span class="description byline has-icon"><a href="#">ECE COOK</a></span>
+                            <span class="description map has-icon"><a href="#">{{ event.city }}</a></span>
+                        </div>
+                        <div class="entry-summary">
+                            <p>{{ event.caption }}</p>
+                            <a href="{{ path('event.show', {slug: event.slug, id: event.id}) }}" class="more-link">Read
+                                more</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            {% endfor %}
         </div>
 
         <!-- Recipes !-->

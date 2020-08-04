@@ -22,10 +22,18 @@
                     <div class="infos-main widget_recent_entries border-top-main b-0">
                         <a href="{{ path('admin.dashboard') }}"><h4 class="widget-title">Dashboard</h4></a>
                         <ul>
-                            <li><a href="{{ path('admin.user.index') }}">Users</a></li>
-                            <li><a href="#">Recipes</a></li>
-                            <li><a href="{{ path('admin.event.index') }}">Events</a></li>
-                            <li><a href="#">Articles</a></li>
+                            <li><a href="{{ path('admin.user.index') }}"
+                                   class="{% if current_sub_menu is defined and current_sub_menu == 'admin_user' %}active-dashboard{% endif %}">Users</a>
+                            </li>
+                            <li><a href="#"
+                                   class="{% if current_sub_menu is defined and current_sub_menu == 'admin_recipe' %}active-dashboard{% endif %}">Recipes</a>
+                            </li>
+                            <li><a href="{{ path('admin.event.index') }}"
+                                   class="{% if current_sub_menu is defined and current_sub_menu == 'admin_event' %}active-dashboard{% endif %}">Events</a>
+                            </li>
+                            <li><a href="#"
+                                   class="{% if current_sub_menu is defined and current_sub_menu == 'admin_article' %}active-dashboard{% endif %}">Articles</a>
+                            </li>
                         </ul>
                     </div>
                 </aside>

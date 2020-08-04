@@ -273,7 +273,7 @@ ul, li {
 }
 
 .map::before {
-    content: '\f279';
+    content: '\f277';
     margin-right: 6px;
 }
 
@@ -518,6 +518,14 @@ ul, li {
     width: 100px;
 }
 
+.has-line-auto:after {
+    border-bottom: 1px solid #383a3b;
+    content: "";
+    display: block;
+    margin: 25px 0 -5px;
+    width: 100px;
+}
+
 /*recipe.show*/
 .entry-cats {
     display: block;
@@ -544,7 +552,7 @@ ul, li {
     opacity: .5;
 }
 
-.entry-meta-baseline a, .entry-meta-baseline .comments-link::before, .entry-meta-baseline .byline::before, .entry-meta-baseline .posted-on::before {
+.entry-meta-baseline a, .entry-meta-baseline .comments-link::before, .entry-meta-baseline .byline::before, .entry-meta-baseline .posted-on::before, .entry-meta-baseline .map::before {
     color: #e5e5e5;
 }
 
@@ -714,7 +722,21 @@ b {
 
 .localisation-map {
     width: 100%;
-    height: 200px;
+    height: 250px;
+}
+
+/*admin.dashboard*/
+.active-dashboard {
+    border-radius: 20px;
+    padding: 4px 12px;
+    border: 1px solid #000;
+    transition: color .35s ease-in-out, opacity .35s ease-in-out, background-color .35s ease-in-out;
+}
+
+.active-dashboard:hover {
+    border: 1px solid #FFF;
+    background: #FFF;
+    color: #000;
 }
 
 /**/
@@ -842,22 +864,22 @@ b {
         border-right: 1px solid rgba(0, 0, 0, .05);
     }
 
-    .has-line:after {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .entry-meta-event {
-        text-align: center;
-    }
-
     .entry-meta-event > * + * {
         margin-left: .85rem;
+    }
+
+    .has-line-auto:after {
+        margin-left: auto;
+        margin-right: auto;
     }
 
     /*event.show*/
     .blocks-gallery-item {
         width: calc(32% - 10px);
+    }
+
+    .localisation-map {
+        height: 350px;
     }
 
     /*article.show*/
@@ -1124,6 +1146,10 @@ b {
 
     .pr-30-995 {
         padding-right: 30px;
+    }
+
+    .localisation-map {
+        height: 200px;
     }
 }
 

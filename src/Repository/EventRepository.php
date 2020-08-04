@@ -28,6 +28,14 @@ class EventRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function findLatest(): array
+    {
+        return $this->findVisibleQuery()
+            ->setMaxResults('2')
+            ->getQuery()
+            ->getResult();
+    }
+
 
     private function findVisibleQuery(): QueryBuilder
     {

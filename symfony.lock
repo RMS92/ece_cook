@@ -124,7 +124,11 @@
             "branch": "master",
             "version": "1.8",
             "ref": "5a5bdc2d0e2533ed6935d5ae562f2b318a8fc1ee"
-        }
+        },
+        "files": [
+            "./config/packages/liip_imagine.yaml",
+            "./config/routes/liip_imagine.yaml"
+        ]
     },
     "monolog/monolog": {
         "version": "2.1.0"

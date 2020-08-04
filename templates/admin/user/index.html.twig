@@ -21,12 +21,9 @@
                             <a href="#"> <img src="{{ vich_uploader_asset(user, 'imageFile') }}" alt=""/> </a>
                             {% endif %}#}
 
-                            <h3 class="entry-title mt-30 has-line"><a href="#">{{ user.email }}</a>
-                            </h3>
                             <div class="entry-summary">
-                                <p>{{ user.username }} {{ user.lastname }} {{ user.firstname }}</p>
+                                <p>{{ user.email }}</p>
                             </div>
-                            <span class="grid-sep"></span>
                             <a href="{{ path('admin.user.edit', {id: user.id}) }}" class="more-link">Editer</a>
 
                             <form method="POST" action="{{ path('admin.user.delete', {id: user.id}) }}"
@@ -36,7 +33,7 @@
                                 <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
                                 <button class="more-link">Supprimer</button>
                             </form>
-
+                            <span class="grid-sep"></span>
                         </div>
                     {% endfor %}
                 </div>
@@ -47,38 +44,18 @@
                     <div class="infos-main widget_recent_entries border-top-main b-0">
                         <a href="{{ path('admin.dashboard') }}"><h4 class="widget-title">Dashboard</h4></a>
                         <ul>
-                            <li><a href="{{ path('admin.user.index') }}">Users</a></li>
-                            <li><a href="#">Recipes</a></li>
-                            <li><a href="#">Events</a></li>
-                            <li><a href="#">Articles</a></li>
-                        </ul>
-                    </div>
-                    <div class="infos-main widget_recent_entries border-top-main">
-                        <h4 class="widget-title">Recent posts</h4>
-                        <ul>
-                            <li><a href="#">How to Make Sushi at Home</a></li>
-                            <li><a href="#">5-Minute Breakfasts That Are Actually Healthy</a></li>
-                            <li><a href="#">Everything You Want to Know About Pizza</a></li>
-                        </ul>
-                    </div>
-                    <div class="infos-main widget_recent_entries border-top-main">
-                        <h4 class="widget-title">Recent comments</h4>
-                        <ul>
-                            <li>Taras Dashkevych on <a href="#">How to Make Sushi at Home</a></li>
-                            <li>Julia Doe on <a href="#">How to Make Sushi at Home</a></li>
-                            <li>Taras Dashkevych on <a href="#">How to Make Sushi at Home</a></li>
-                            <li>Taras Dashkevych on <a href="#">Everything You Want to Know About Pizza</a></li>
-                            <li>Julia Doe on <a href="#">Everything You Want to Know About Pizza</a></li>
-                        </ul>
-                    </div>
-                    <div class="infos-main widget_recent_entries border-top-main">
-                        <h4 class="widget-title">Categories</h4>
-                        <ul>
-                            <li><a href="#">Dessert</a></li>
-                            <li><a href="#">Drinks</a></li>
-                            <li><a href="#">Food</a></li>
-                            <li><a href="#">Seafood</a></li>
-                            <li><a href="#">Tips</a></li>
+                            <li><a href="{{ path('admin.user.index') }}"
+                                   class="{% if current_sub_menu is defined and current_sub_menu == 'admin_user' %}active-dashboard{% endif %}">Users</a>
+                            </li>
+                            <li><a href="#"
+                                   class="{% if current_sub_menu is defined and current_sub_menu == 'admin_recipe' %}active-dashboard{% endif %}">Recipes</a>
+                            </li>
+                            <li><a href="{{ path('admin.event.index') }}"
+                                   class="{% if current_sub_menu is defined and current_sub_menu == 'admin_event' %}active-dashboard{% endif %}">Events</a>
+                            </li>
+                            <li><a href="#"
+                                   class="{% if current_sub_menu is defined and current_sub_menu == 'admin_article' %}active-dashboard{% endif %}">Articles</a>
+                            </li>
                         </ul>
                     </div>
                 </aside>

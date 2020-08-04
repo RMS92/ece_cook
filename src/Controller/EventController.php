@@ -36,7 +36,6 @@ class EventController extends AbstractController
     public function index(): Response
     {
         $events = $this->repository->findAllVisibleQuery();
-        dump($events);
         return $this->render('event/index.html.twig', [
             'current_menu' => 'event',
             'events' => $events

@@ -1,5 +1,5 @@
 {% if  event.pictures is empty %}
-    <img src="{{ 'images/image.jpg' }}" alt="card-img-top"
+    <img src="{{ 'images/smachno_07.jpg' }}" alt="card-img-top"
          style="width: 100%; height: auto;">
 {% else %}
     {% for picture in event.pictures %}
@@ -11,9 +11,9 @@
     {% endfor %}
 {% endif %}
 
-<a href="{{ path('event.show', {slug: event.slug, id: event.id}) }}">
-    <h3 class="entry-title mt-30 has-line"><a href="#">{{ event.title }}</a>
-    </h3></a>
+<h3 class="entry-title mt-30 has-line-auto"><a
+            href="{{ path('event.show', {slug: event.slug, id: event.id}) }}">{{ event.title }}</a>
+</h3>
 <div class="entry-summary">
     <p class="mt-0">{{ event.caption }}</p>
     <a class="more-link" href="{{ path('event.show', {slug: event.slug, id: event.id}) }}">Read more</a>

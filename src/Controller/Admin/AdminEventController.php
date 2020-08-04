@@ -46,6 +46,7 @@ class AdminEventController extends AbstractController
 
         return $this->render('admin/event/index.html.twig', [
             'current_menu' => 'admin',
+            'current_sub_menu' => 'admin_event',
             'events' => $events
         ]);
     }
@@ -71,6 +72,7 @@ class AdminEventController extends AbstractController
 
         return $this->render('admin/event/new.html.twig', [
             'current_menu' => 'admin',
+            'current_sub_menu' => 'admin_event',
             'event' => $event,
             'form' => $form->createView(),
         ]);
@@ -99,6 +101,7 @@ class AdminEventController extends AbstractController
 
         return $this->render('admin/event/edit.html.twig', [
             'current_menu' => 'admin',
+            'current_sub_menu' => 'admin_event',
             'event' => $event,
             'form' => $form->createView(),
         ]);

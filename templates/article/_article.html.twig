@@ -1,0 +1,22 @@
+{% if  article.pictures is empty %}
+    <img src="{{ 'images/smachno_07.jpg' }}" alt="card-img-top"
+         style="width: 100%; height: auto;">
+{% else %}
+    {% for picture in article.pictures %}
+        {% if loop.first %}
+            <a href="{{ path('article.show', {slug: article.slug, id: article.id}) }}"><img
+                        src="{{ vich_uploader_asset(picture, 'imageFile') }}"
+                        alt="card-img-top" style="width: 100%; height: auto;"></a>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+<h3 class="entry-title mt-30 has-line-auto"><a
+            href="{{ path('article.show', {slug: article.slug, id: article.id}) }}">{{ article.title }}</a>
+</h3>
+<div class="entry-summary">
+    <p class="mt-0">{{ article.caption }}</p>
+    <a class="more-link" href="{{ path('article.show', {slug: article.slug, id: article.id}) }}">Read more</a>
+</div>
+<span class="grid-sep"></span>
+

@@ -4,17 +4,38 @@
 
 {% block body %}
     <div class="container">
+
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
         <div class="sidebar-flex">
             <div class="aside-left pr-30-995">
-                {{
-                include(
-                    'admin/event/_form.html.twig',
-                    {
-                        form: form,
-                        button: 'Créer'
-                    }
-                )
-                }}
+                <a href="{{ path('admin.category.new') }}" class="more-link">Créer</a>
+                <div class="grid-event">
+                    {% for category in categories %}
+                        <div class="block-event flex-none">
+
+                            <h3 class="entry-title mt-30"><a href="#">{{ category.title }}</a>
+                            </h3>
+                            <div class="entry-summary">
+                                <p></p>
+                            </div>
+                            <a href="{{ path('admin.category.edit', {id: category.id}) }}" class="more-link">Editer</a>
+
+                            <form method="POST" action="{{ path('admin.category.delete', {id: category.id}) }}"
+                                  style="display: inline-block"
+                                  onsubmit="return confirm('Êtes-vous vraiment sûr de vouloir supprimer cette catégorie ?')">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ category.id) }}">
+                                <button class="more-link">Supprimer</button>
+                            </form>
+                            <span class="grid-sep"></span>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
 
             <div class="aside-right pl-30">
@@ -44,6 +65,3 @@
         </div>
     </div>
 {% endblock %}
-
-
-

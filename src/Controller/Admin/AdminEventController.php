@@ -17,6 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class AdminEventController
  * @package App\Controller\Admin
+ * @Route("/admin")
  * @IsGranted("ROLE_ADMIN")
  */
 class AdminEventController extends AbstractController
@@ -37,7 +38,7 @@ class AdminEventController extends AbstractController
     }
 
     /**
-     * @Route("/admin/évènements", name="admin.event.index")
+     * @Route("/évènements", name="admin.event.index")
      * @return Response
      */
     public function index(): Response
@@ -52,7 +53,7 @@ class AdminEventController extends AbstractController
     }
 
     /**
-     * @Route("/admin/évènement/create", name="admin.event.new")
+     * @Route("/évènement/create", name="admin.event.new")
      * @param Request $request
      * @return Response
      */
@@ -79,7 +80,7 @@ class AdminEventController extends AbstractController
     }
 
     /**
-     * @Route("/admin/évènement/{id}", name="admin.event.edit", methods="GET|POST")
+     * @Route("/évènement/{id}", name="admin.event.edit", methods="GET|POST")
      * @param Event $event
      * @param Request $request
      * @return Response
@@ -108,7 +109,7 @@ class AdminEventController extends AbstractController
     }
 
     /**
-     * @Route("/admin/évènement/{id}", name="admin.event.delete", methods="DELETE")
+     * @Route("/évènement/{id}", name="admin.event.delete", methods="DELETE")
      * @param Event $event
      * @param Request $request
      * @return Response

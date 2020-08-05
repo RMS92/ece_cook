@@ -883,7 +883,7 @@ b {
     }
 
     /*article.show*/
-    .blocks-gallery-item:nth-child(3), .blocks-gallery-item:nth-child(6), .blocks-gallery-item:nth-child(8) {
+    .blocks-gallery-item:nth-child(3), .blocks-gallery-item:nth-child(5), .blocks-gallery-item:nth-child(6), .blocks-gallery-item:nth-child(8) {
         margin-right: 0;
     }
 }

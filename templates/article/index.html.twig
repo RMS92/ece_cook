@@ -29,97 +29,12 @@
 
                 <div class="grid-event">
 
-                    <div class="block-event flex-none">
-                        <a href="#"><img
-                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSMl1ntqxIEwcjXJmasY-N9JHRJeBF9jSWhl0mXhDOmL-Lw2a4JJqyUfTwAw_qadljXfs3G5E4&usqp=CAc"
-                                    alt="card-recipe"/></a>
-
-                        <h3 class="entry-title mt-30 has-line"><a href="#">WE MAKE FOOD</a>
-                        </h3>
-                        <div class="entry-summary">
-                            <p>Although the terms flavoring and flavorant in common language denote the combined
-                                chemical
-                                sensations of taste and smell, the same terms are used in the fragrance and flavors
-                                industry
-                                to
-                                refer to edible chemicals and extracts that alter the flavor of food and food
-                                products
-                                through
-                                the sense of smell.</p>
-                            <a class="more-link">Read more</a>
+                    {% for article in articles %}
+                        <div class="block-event flex-none">
+                            {% include "article/_article.html.twig" %}
                         </div>
-                        <span class="grid-sep"></span>
-                    </div>
+                    {% endfor %}
 
-                    <div class="block-event flex-none">
-                        <a href="#"><img
-                                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSMl1ntqxIEwcjXJmasY-N9JHRJeBF9jSWhl0mXhDOmL-Lw2a4JJqyUfTwAw_qadljXfs3G5E4&usqp=CAc"
-                                         alt="card-recipe"/></a>
-
-
-                        <h3 class="entry-title mt-30 has-line"><a href="#">BEST HAPPY HOURS</a></h3>
-                        <div class="entry-summary">
-                            <p>Happy hour is a marketing term for a time when a venue offers discounts on alcoholic
-                                drinks.
-                                Free
-                                appetizers and discounted menu items are often served during happy hour. The use of
-                                the
-                                phrase
-                                “happy hour,” to refer to a scheduled period of entertainment is, however, of much
-                                more
-                                recent
-                                vintage.</p>
-                            <a class="more-link">Read more</a>
-                        </div>
-                        <span class="grid-sep"></span>
-                    </div>
-
-
-                    <div class="block-event flex-none">
-
-                        <a href="#"><img
-                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSMl1ntqxIEwcjXJmasY-N9JHRJeBF9jSWhl0mXhDOmL-Lw2a4JJqyUfTwAw_qadljXfs3G5E4&usqp=CAc"
-                                    alt="card-recipe"/></a>
-
-
-                        <h3 class="entry-title mt-30 has-line"><a href="#">WE MAKE FOOD</a>
-                        </h3>
-                        <div class="entry-summary">
-                            <p>Although the terms flavoring and flavorant in common language denote the combined
-                                chemical
-                                sensations of taste and smell, the same terms are used in the fragrance and flavors
-                                industry
-                                to
-                                refer to edible chemicals and extracts that alter the flavor of food and food
-                                products
-                                through
-                                the sense of smell.</p>
-                            <a class="more-link">Read more</a>
-                        </div>
-                    </div>
-
-                    <div class="block-event flex-none">
-
-                        <a href="#"><img
-                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSMl1ntqxIEwcjXJmasY-N9JHRJeBF9jSWhl0mXhDOmL-Lw2a4JJqyUfTwAw_qadljXfs3G5E4&usqp=CAc"
-                                    alt="card-recipe"/></a>
-
-
-                        <h3 class="entry-title mt-30 has-line"><a href="#">WE MAKE FOOD</a>
-                        </h3>
-                        <div class="entry-summary">
-                            <p>Although the terms flavoring and flavorant in common language denote the combined
-                                chemical
-                                sensations of taste and smell, the same terms are used in the fragrance and flavors
-                                industry
-                                to
-                                refer to edible chemicals and extracts that alter the flavor of food and food
-                                products
-                                through
-                                the sense of smell.</p>
-                            <a class="more-link">Read more</a>
-                        </div>
-                    </div>
                 </div>
             </div>
 

@@ -9,10 +9,11 @@ Recipe
 -duration / int
 -categories / relation / many-to-one -> category
 -comments / relation / one-to-many -> comment
--author / relation / many-to-one -> member
+-author / relation / many-to-one -> user
 -pictures / relation / one-to-many -> recipe_picture
 -created-at / datetime
 -updated_at / datetime
+-active / boolean
 
 Recipe_picture
 -filename / string
@@ -22,14 +23,14 @@ Comment
 -children / one-to-many / self
 -updated_at / datetime
 -created_at / datetime
+-active / boolean
 
 Category
 -title
--picture / relation / one-to-many -> category_picture
+-filename / string 
+-updated_at / datetime
 -created_at /datetime
 
-Category_picture
--filename / string
 
 Event
 -title / string
@@ -44,6 +45,7 @@ Event
 -takesPlace_at / datetime
 -created_at / datetime
 -updated_at / datetime
+-active / boolean
 
 Event_picture
 -filename / string

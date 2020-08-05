@@ -18,6 +18,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 /**
  * Class AdminUserController
  * @package App\Controller\Admin
+ * @Route("/admin")
  * @IsGranted("ROLE_ADMIN")
  */
 class AdminUserController extends AbstractController
@@ -43,7 +44,7 @@ class AdminUserController extends AbstractController
     }
 
     /**
-     * @Route("/admin/utilisateurs", name="admin.user.index")
+     * @Route("/utilisateurs", name="admin.user.index")
      * @return Response
      */
     public function index(): Response
@@ -58,7 +59,7 @@ class AdminUserController extends AbstractController
     }
 
     /**
-     * @Route("/admin/utilisateur/créer", name="admin.user.new")
+     * @Route("/utilisateur/créer", name="admin.user.new")
      * @param Request $request
      * @return Response
      */
@@ -92,7 +93,7 @@ class AdminUserController extends AbstractController
     }
 
     /**
-     * @Route("/admin/utilisateur/{id}", name="admin.user.edit", methods="GET|POST")
+     * @Route("/utilisateur/{id}", name="admin.user.edit", methods="GET|POST")
      * @param User $user
      * @param Request $request
      * @return Response
@@ -127,7 +128,7 @@ class AdminUserController extends AbstractController
     }
 
     /**
-     * @Route("/admin/utilisateur/{id}", name="admin.user.delete", methods="DELETE")
+     * @Route("/utilisateur/{id}", name="admin.user.delete", methods="DELETE")
      * @param User $user
      * @param Request $request
      * @return Response

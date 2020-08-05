@@ -14,6 +14,7 @@ Recipe
 -created-at / datetime
 -updated_at / datetime
 -active / boolean
+A RAJOUTER -active / boolean
 
 Recipe_picture
 -filename / string

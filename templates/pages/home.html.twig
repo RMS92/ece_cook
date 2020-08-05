@@ -62,7 +62,6 @@
 {% block body %}
     <div class="home-section">
 
-        <!-- Event !-->
         <div class="container">
 
             {% for message in app.flashes('success') %}
@@ -115,25 +114,35 @@
 
                 <h2 class="big-title">Recent recipes</h2>
                 <div class="grid">
-                    <div class="block-recipe">
-                        <a href="#"><img
-                                    src="https://appetitedemo.files.wordpress.com/2015/07/smachno_04.jpg?w=800&h=480&crop=1"
-                                    alt="card-recipe"/></a>
-                        <h3 class="entry-title"><a href="#">How to make sushi at home</a></h3>
-                        <div class="entry-meta">
-                            <span class="description posted-on has-icon"><a href="#">July 8, 2015</a></span>
-                            <span class="description byline has-icon"><a href="#">Taras DASHKEVYCH</a></span>
-                            <span class="description comments-link has-icon"><a href="#">3 comments</a></span>
-                        </div>
-                        <div class="entry-summary">
-                            <p>Sushi is a Japanese food consisting of cooked vinegared rice combined with other
-                                ingredients,
-                                seafood, vegetables and sometimes tropical fruits.…</p>
-                            <a class="more-link">Read more</a>
-                        </div>
-                    </div>
 
-                    <div class="block-recipe">
+                    {% for recipe in recipes %}
+                        <div class="block-recipe">
+                            {% if  recipe.pictures is empty %}
+                                <img src="{{ 'images/smachno_07.jpg' }}" alt="card-img-top"
+                                     style="width: 100%; height: auto;">
+                            {% else %}
+                                {% for picture in recipe.pictures %}
+                                    {% if loop.first %}
+                                        <a href="{{ path('recipe.show', {slug: recipe.slug, id: recipe.id}) }}"><img
+                                                    src="{{ vich_uploader_asset(picture, 'imageFile') }}"
+                                                    alt="card-img-top"></a>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                            <h3 class="entry-title mt-30"><a href="{{ path('recipe.show', {slug: recipe.slug, id: recipe.id}) }}">{{ recipe.title }}</a></h3>
+                            <div class="entry-meta">
+                                <span class="description posted-on has-icon"><a href="#">{{ recipe.formattedCreatedAt }}</a></span>
+                                <span class="description byline has-icon"><a href="#">{{ recipe.author.lastname }}</a></span>
+                                <span class="description comments-link has-icon"><a href="#">3 comments</a></span>
+                            </div>
+                            <div class="entry-summary">
+                                <p>{{ recipe.caption }}</p>
+                                <a href="{{ path('recipe.show', {slug: recipe.slug, id: recipe.id}) }}" class="more-link">Read more</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    {#<div class="block-recipe">
                         <a href="#"><img
                                     src="https://appetitedemo.files.wordpress.com/2015/07/smachno_02.jpg?w=800&h=480&crop=1"
                                     alt="card-recipe"/></a>
@@ -186,7 +195,7 @@
                                 seafood, vegetables and sometimes tropical fruits.…</p>
                             <a class="more-link">Read more</a>
                         </div>
-                    </div>
+                    </div>#}
                 </div>
             </div>
         </div>

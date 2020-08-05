@@ -16,6 +16,14 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Recipe
 {
+    const DIFFICULTY = [
+        0 => 1,
+        1 => 2,
+        2 => 3,
+        3 => 4,
+        4 => 5,
+    ];
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -76,6 +84,12 @@ class Recipe
      * @ORM\JoinColumn(nullable=false)
      */
     private $category;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="recipes")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $author;
 
     public function __construct()
     {
@@ -160,6 +174,11 @@ class Recipe
         return $this->created_at;
     }
 
+    public function getFormattedCreatedAt(): ?string
+    {
+        return date_format($this->created_at, 'd-m-Y H:m');
+    }
+
     public function setCreatedAt(\DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
@@ -242,6 +261,18 @@ class Recipe
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): self
+    {
+        $this->author = $author;
 
         return $this;
     }

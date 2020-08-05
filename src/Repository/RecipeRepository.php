@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Recipe;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -17,6 +18,29 @@ class RecipeRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Recipe::class);
+    }
+
+    public function findAllVisibleQuery(): array
+    {
+        return $this->findVisibleQuery()
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findLatest(): array
+    {
+        return $this->findVisibleQuery()
+            ->setMaxResults('4')
+            ->getQuery()
+            ->getResult();
+    }
+
+
+    private function findVisibleQuery(): QueryBuilder
+    {
+        return $this->createQueryBuilder('r')
+            ->select('r')
+            ->orderBy('r.created_at', 'DESC');
     }
 
     // /**

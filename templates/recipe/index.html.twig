@@ -20,7 +20,13 @@
         <div class="sidebar-flex">
             <div class="aside-left">
 
-                <div class="block-recipe block-flex border-top">
+                {% for recipe in recipes %}
+                    <div class="block-recipe block-flex border-top">
+                        {% include "recipe/_recipe.html.twig" %}
+                    </div>
+                {% endfor %}
+
+                {#<div class="block-recipe block-flex border-top">
                     <div class="block-img-recipes p-img-30">
                         <a href="#"><img
                                     src="https://appetitedemo.files.wordpress.com/2015/07/smachno_04.jpg?w=800&h=480&crop=1"
@@ -115,7 +121,7 @@
                             <a class="more-link">Read more</a>
                         </div>
                     </div>
-                </div>
+                </div>#}
 
                 <div class="border-top-main">
                     <button class="more-item">Older posts</button>

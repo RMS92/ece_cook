@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class AdminRecipeController
  * @package App\Controller\Admin
- * @Route("/admin")
+ * @Route("/admin/recettes")
  * @IsGranted("ROLE_ADMIN")
  */
 class AdminRecipeController extends AbstractController
@@ -38,7 +38,7 @@ class AdminRecipeController extends AbstractController
     }
 
     /**
-     * @Route("/recettes", name="admin.recipe.index")
+     * @Route("/", name="admin.recipe.index")
      * @return Response
      */
     public function index(): Response
@@ -53,7 +53,7 @@ class AdminRecipeController extends AbstractController
     }
 
     /**
-     * @Route("/recette/create", name="admin.recipe.new")
+     * @Route("/créer", name="admin.recipe.new")
      * @param Request $request
      * @return Response
      */
@@ -80,7 +80,7 @@ class AdminRecipeController extends AbstractController
     }
 
     /**
-     * @Route("/recette/{id}", name="admin.recipe.edit", methods="GET|POST")
+     * @Route("/{id}", name="admin.recipe.edit", methods="GET|POST")
      * @param Recipe $recipe
      * @param Request $request
      * @return Response
@@ -109,7 +109,7 @@ class AdminRecipeController extends AbstractController
     }
 
     /**
-     * @Route("/recette/{id}", name="admin.recipe.delete", methods="DELETE")
+     * @Route("/{id}", name="admin.recipe.delete", methods="DELETE")
      * @param Recipe $recipe
      * @param Request $request
      * @return Response

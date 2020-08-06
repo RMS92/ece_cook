@@ -48,7 +48,10 @@
                                    class="{% if current_sub_menu is defined and current_sub_menu == 'admin_user' %}active-dashboard{% endif %}">Users</a>
                             </li>
                             <li><a href="{{ path('admin.category.index') }}"
-                                   class="{% if current_sub_menu is defined and current_sub_menu == 'admin_category' %}active-dashboard{% endif %}">Categories</a>
+                                   class="{% if current_sub_menu is defined and current_sub_menu == 'admin_category' %}active-dashboard{% endif %}">Recipes - Categories</a>
+                            </li>
+                            <li><a href="{{ path('admin.ingredient.index') }}"
+                                   class="{% if current_sub_menu is defined and current_sub_menu == 'admin_ingredient' %}active-dashboard{% endif %}">Recipes - Ingredients</a>
                             </li>
                             <li><a href="{{ path('admin.recipe.index') }}"
                                    class="{% if current_sub_menu is defined and current_sub_menu == 'admin_recipe' %}active-dashboard{% endif %}">Recipes</a>

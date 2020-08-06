@@ -27,8 +27,9 @@
             </div>
             <div class="entry-meta entry-meta-baseline">
                 <span class="description posted-on has-icon"><a href="#">{{ recipe.formattedCreatedAt }}</a></span>
-                <span class="description byline has-icon"><a href="#">{{ recipe.author.lastname }}</a></span>
-                <span class="description comments-link has-icon"><a href="#">3 comments</a></span>
+                <span class="description byline has-icon"><a
+                            href="#">{{ recipe.author.firstname }} {{ recipe.author.lastname }}</a></span>
+                {#<span class="description comments-link has-icon"><a href="#">3 comments</a></span>#}
             </div>
         </div>
     </div>
@@ -54,7 +55,7 @@
                         {% endfor %}
                     </ul>
                 </div>
-                <h3 class="entry-content-h3">La recette</h3>
+                <h3 class="entry-content-h3">La préparation</h3>
                 <div class="entry-summary mt-0 entry-text">
                     <p class="mt-0 mb-0">
                         {{ recipe.description }}
@@ -62,27 +63,29 @@
                 </div>
                 <div class="infos-main widget_recent_entries">
                     <h3 class="entry-content-h3">Les ingrédients</h3>
+                    {% if recipe.ingredients %}
                     <ul>
-                        <li class="has-icon ingredient-item">2 Tomates</li>
-                        <li class="has-icon ingredient-item">3 salades</li>
-                        <li class="has-icon ingredient-item">200g de boeuf</li>
-                        <li class="has-icon ingredient-item">500g de riz</li>
-                        <li class="has-icon ingredient-item">3 verres d'eau</li>
+                        {% for ingredient in recipe.ingredients %}
+                            <li class="has-icon ingredient-item">{{ ingredient.name }}</li>
+                        {% endfor %}
                     </ul>
+                    {% endif %}
                 </div>
                 <footer class="entry-footer">
                     <div class="author-container">
+                        {% if recipe.author.filename is empty %}
                         <img src="https://0.gravatar.com/avatar/9bef3042b6797401752a5fdab945e2b7?s=270&d=identicon&r=G"
                              alt=""/>
+                        {% else %}
+                            <img src="{{ vich_uploader_asset(recipe.author, 'imageFile') }}">
+                        {% endif %}
                         <div class="author-bio">
                             <h3>
                                 Written by <br>
-                                <a href="https://appetitedemo.wordpress.com/author/tarasdashkevych/?demo">Taras
-                                    Dashkevych</a>
+                                <a href="https://appetitedemo.wordpress.com/author/tarasdashkevych/?demo">{{ recipe.author.firstname }}
+                                    {{ recipe.author.lastname }}</a>
                             </h3>
-                            <p>My name is Taras Dashkevych and I am a web developer/designer who loves to build simple
-                                and clean websites with WordPress. I was born and raised in Ukraine and currently I live
-                                in Washington state.</p>
+                            <p>{{ recipe.author.description }}</p>
                         </div>
                     </div>
                     <div class="comments">

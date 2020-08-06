@@ -31,8 +31,8 @@
     <h3 class="entry-title mt-10"><a href="#">{{ recipe.title }}</a></h3>
     <div class="entry-meta">
         <span class="description posted-on has-icon"><a href="#">{{ recipe.formattedCreatedAt }}</a></span>
-        <span class="description byline has-icon"><a href="#">{{ recipe.author.lastname }}</a></span>
-        <span class="description comments-link has-icon"><a href="#">3 comments</a></span>
+        <span class="description byline has-icon"><a href="#">{{ recipe.author.firstname }} {{ recipe.author.lastname }}</a></span>
+        {#<span class="description comments-link has-icon"><a href="#">3 comments</a></span>#}
     </div>
     <div class="entry-summary">
         <p>{{ recipe.caption }}</p>

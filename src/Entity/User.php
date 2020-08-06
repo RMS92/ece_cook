@@ -19,7 +19,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  * @Vich\Uploadable()
  */
-class User implements UserInterface
+class User implements UserInterface, \Serializable
 {
     const ROLES = [
         'ROLE_USER' => 'User',
@@ -55,6 +55,11 @@ class User implements UserInterface
     private $firstname;
 
     /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $description;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $function;
@@ -71,8 +76,8 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
      * @var string|null
+     * @ORM\Column(type="string", length=255)
      */
     private $filename;
 
@@ -185,6 +190,18 @@ class User implements UserInterface
         return $this;
     }
 
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
     public function getFunction(): ?string
     {
         return $this->function;
@@ -234,23 +251,6 @@ class User implements UserInterface
     }
 
     /**
-     * @see UserInterface
-     */
-    public function getSalt()
-    {
-        // not needed when using the "bcrypt" algorithm in security.yaml
-    }
-
-    /**
-     * @see UserInterface
-     */
-    public function eraseCredentials()
-    {
-        // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
-    }
-
-    /**
      * @return string|null
      */
     public function getFilename(): ?string
@@ -262,7 +262,7 @@ class User implements UserInterface
      * @param string|null $filename
      * @return User
      */
-    public function setFilename(?string $filename): User
+    public function setFilename(?string $filename): self
     {
         $this->filename = $filename;
         return $this;
@@ -284,9 +284,26 @@ class User implements UserInterface
     {
         $this->imageFile = $imageFile;
         if($this->imageFile instanceof UploadedFile) {
-            $this->updated_at = new DateTime();
+            $this->updated_at = new \DateTime();
         }
         return $this;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getSalt()
+    {
+        // not needed when using the "bcrypt" algorithm in security.yaml
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function eraseCredentials()
+    {
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
     }
 
     /**
@@ -366,5 +383,25 @@ class User implements UserInterface
         }
 
         return $this;
+    }
+
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->username,
+            $this->email,
+            $this->password,
+        ));
+    }
+
+    public function unserialize($serialized)
+    {
+        list(
+            $this->id,
+            $this->username,
+            $this->email,
+            $this->password,
+            ) = unserialize($serialized, ['allowed_classes' => false]);
     }
 }

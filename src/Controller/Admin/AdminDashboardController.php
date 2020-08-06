@@ -12,12 +12,13 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class AdminDashboardController
  * @package App\Controller\Admin
+ * @Route("/admin")
  * @IsGranted("ROLE_ADMIN")
  */
 class AdminDashboardController extends AbstractController
 {
     /**
-     * @Route("/admin", name="admin.dashboard")
+     * @Route("/", name="admin.dashboard")
      * @return Response
      */
     public function index(): Response

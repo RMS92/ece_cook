@@ -20,6 +20,7 @@ class UserType extends AbstractType
             ->add('username')
             ->add('lastname')
             ->add('firstname')
+            ->add('description')
             ->add('function', TextType::class, [
                 'required' => false
             ])
@@ -30,13 +31,13 @@ class UserType extends AbstractType
                 ]
             ])
             ->add('password')
-            ->add('imageFile', FileType::class, [
-                'required' => false,
-                'multiple' => false,
-                'label_attr' => [
-                    'data-browse' => 'Parcourir'
-                ]
-            ]);
+        ->add('imageFile', FileType::class, [
+            'required'=> false,
+            'multiple' => false,
+            'label_attr' => [
+                'data-browse' => 'Parcourir'
+            ]
+        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

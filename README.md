@@ -7,14 +7,15 @@ Recipe
 -description / text
 -difficulty / float
 -duration / int
--categories / relation / many-to-one -> category
+-category / relation / many-to-one -> category
+-ingredients / relation / one-to-many -> ingredient
 -comments / relation / one-to-many -> comment
 -author / relation / many-to-one -> user
 -pictures / relation / one-to-many -> recipe_picture
 -created-at / datetime
 -updated_at / datetime
 -active / boolean
-A RAJOUTER -active / boolean
+A RAJOUTER -active / boolean ***
 
 Recipe_picture
 -filename / string
@@ -32,6 +33,10 @@ Category
 -updated_at / datetime
 -created_at /datetime
 
+Ingredient
+-name / string
+-quantité / int 
+-unité / string
 
 Event
 -title / string
@@ -68,6 +73,7 @@ User
 -firstname / string
 -lastname / string
 -password / string
+-description / string ***
 -function / string
 -role / string
 -filename / string

@@ -35,11 +35,11 @@ class RecipeRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-
     private function findVisibleQuery(): QueryBuilder
     {
         return $this->createQueryBuilder('r')
             ->select('r')
+            ->andWhere('r.active = true')
             ->orderBy('r.created_at', 'DESC');
     }
 

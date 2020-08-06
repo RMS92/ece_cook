@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Category;
+use App\Entity\Ingredient;
 use App\Entity\Recipe;
 use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -30,6 +31,12 @@ class RecipeType extends AbstractType
                 'choice_label' => 'title',
                 'multiple' => false
             ])
+            ->add('ingredients', EntityType::class, [
+                'class' => Ingredient::class,
+                'choice_label' => 'name',
+                'required' => false,
+                'multiple' => true
+            ])
             ->add('author', EntityType::class, [
                 'class' => User::class,
                 'required' => true,
@@ -44,6 +51,7 @@ class RecipeType extends AbstractType
                     'data-browse' => 'Parcourir'
                 ]
             ])
+            ->add('active')
         ;
     }
 

@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class AdminArticleController
  * @package App\Controller\Admin
- * @Route("/admin")
+ * @Route("/admin/articles")
  * @IsGranted("ROLE_ADMIN")
  */
 class AdminArticleController extends AbstractController
@@ -39,7 +39,7 @@ class AdminArticleController extends AbstractController
     }
 
     /**
-     * @Route("/articles", name="admin.article.index")
+     * @Route("/", name="admin.article.index")
      * @return Response
      */
     public function index(): Response
@@ -54,7 +54,7 @@ class AdminArticleController extends AbstractController
     }
 
     /**
-     * @Route("/article/create", name="admin.article.new")
+     * @Route("/créer", name="admin.article.new")
      * @param Request $request
      * @return Response
      */
@@ -81,7 +81,7 @@ class AdminArticleController extends AbstractController
     }
 
     /**
-     * @Route("/article/{id}", name="admin.article.edit", methods="GET|POST")
+     * @Route("/{id}", name="admin.article.edit", methods="GET|POST")
      * @param Article $article
      * @param Request $request
      * @return Response
@@ -110,7 +110,7 @@ class AdminArticleController extends AbstractController
     }
 
     /**
-     * @Route("/article/{id}", name="admin.article.delete", methods="DELETE")
+     * @Route("/{id}", name="admin.article.delete", methods="DELETE")
      * @param Article $article
      * @param Request $request
      * @return Response

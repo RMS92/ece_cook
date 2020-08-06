@@ -76,7 +76,6 @@ class EventPicture
         return $this;
     }
 
-
     public function getEvent(): ?Event
     {
         return $this->event;

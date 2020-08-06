@@ -18,7 +18,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 /**
  * Class AdminUserController
  * @package App\Controller\Admin
- * @Route("/admin")
+ * @Route("/admin/utilisateurs")
  * @IsGranted("ROLE_ADMIN")
  */
 class AdminUserController extends AbstractController
@@ -44,7 +44,7 @@ class AdminUserController extends AbstractController
     }
 
     /**
-     * @Route("/utilisateurs", name="admin.user.index")
+     * @Route("/", name="admin.user.index")
      * @return Response
      */
     public function index(): Response
@@ -59,7 +59,7 @@ class AdminUserController extends AbstractController
     }
 
     /**
-     * @Route("/utilisateur/créer", name="admin.user.new")
+     * @Route("/créer", name="admin.user.new")
      * @param Request $request
      * @return Response
      */
@@ -93,7 +93,7 @@ class AdminUserController extends AbstractController
     }
 
     /**
-     * @Route("/utilisateur/{id}", name="admin.user.edit", methods="GET|POST")
+     * @Route("/{id}", name="admin.user.edit", methods="GET|POST")
      * @param User $user
      * @param Request $request
      * @return Response
@@ -105,12 +105,12 @@ class AdminUserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $user->setPassword(
+            /*$user->setPassword(
                 $this->passwordEncoder->encodePassword(
                     $user,
                     $form->get('password')->getData()
                 )
-            );
+            );*/
 
             $user->setUpdatedAt(new \DateTime());
 
@@ -128,7 +128,7 @@ class AdminUserController extends AbstractController
     }
 
     /**
-     * @Route("/utilisateur/{id}", name="admin.user.delete", methods="DELETE")
+     * @Route("/{id}", name="admin.user.delete", methods="DELETE")
      * @param User $user
      * @param Request $request
      * @return Response

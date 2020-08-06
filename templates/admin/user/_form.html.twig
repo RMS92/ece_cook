@@ -1,4 +1,11 @@
 {{ form_start(form) }}
 {{ form_rest(form) }}
+{% if user.filename %}
+    <div class="col" style="width: 100px; flex: none; margin: 5px">
+        <img src="{{ vich_uploader_asset(user, 'imageFile') }}" width="100">
+    </div>
+{% endif %}
 <button type="submit" class="clean-button">{{ button|default('Enregistrer') }}</button>
 {{ form_end(form) }}
+
+

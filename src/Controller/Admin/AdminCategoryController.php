@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class AdminCategoryController
  * @package App\Controller\Admin
- * @Route("/admin")
+ * @Route("/admin/catégories")
  * @IsGranted("ROLE_ADMIN")
  */
 class AdminCategoryController extends AbstractController
@@ -38,7 +38,7 @@ class AdminCategoryController extends AbstractController
     }
 
     /**
-     * @Route("/catégories", name="admin.category.index")
+     * @Route("/", name="admin.category.index")
      * @return Response
      */
     public function index(): Response
@@ -53,7 +53,7 @@ class AdminCategoryController extends AbstractController
     }
 
     /**
-     * @Route("/catégorie/create", name="admin.category.new")
+     * @Route("/créer", name="admin.category.new")
      * @param Request $request
      * @return Response
      */
@@ -80,7 +80,7 @@ class AdminCategoryController extends AbstractController
     }
 
     /**
-     * @Route("/catégorie/{id}", name="admin.category.edit", methods="GET|POST")
+     * @Route("/{id}", name="admin.category.edit", methods="GET|POST")
      * @param Category $category
      * @param Request $request
      * @return Response
@@ -109,7 +109,7 @@ class AdminCategoryController extends AbstractController
     }
 
     /**
-     * @Route("/catégorie/{id}", name="admin.category.delete", methods="DELETE")
+     * @Route("/{id}", name="admin.category.delete", methods="DELETE")
      * @param Category $category
      * @param Request $request
      * @return Response

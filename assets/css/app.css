@@ -42,11 +42,11 @@ ul, li {
     background-color: #121212;
     color: #fff;
     text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
-    padding: 30px;
+    padding: 15px 30px;
 }
 
 .logo {
-    width: 150px;
+    width: 100%;
     margin: 15px 0 30px;
     text-align: center;
     font-size: 1.57rem;
@@ -765,6 +765,7 @@ b {
     }
 
     .logo {
+        width: 150px;
         margin-bottom: 0;
         text-align: inherit;
     }

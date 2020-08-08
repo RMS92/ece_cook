@@ -39,33 +39,7 @@
                 </div>
             </div>
 
-            <div class="aside-right pl-30">
-                <aside class="aside">
-                    <div class="infos-main widget_recent_entries border-top-main b-0">
-                        <a href="{{ path('admin.dashboard') }}"><h4 class="widget-title">Dashboard</h4></a>
-                        <ul>
-                            <li><a href="{{ path('admin.user.index') }}"
-                                   class="{% if current_sub_menu is defined and current_sub_menu == 'admin_user' %}active-dashboard{% endif %}">Users</a>
-                            </li>
-                            <li><a href="{{ path('admin.category.index') }}"
-                                   class="{% if current_sub_menu is defined and current_sub_menu == 'admin_category' %}active-dashboard{% endif %}">Recipes - Categories</a>
-                            </li>
-                            <li><a href="{{ path('admin.ingredient.index') }}"
-                                   class="{% if current_sub_menu is defined and current_sub_menu == 'admin_ingredient' %}active-dashboard{% endif %}">Recipes - Ingredients</a>
-                            </li>
-                            <li><a href="{{ path('admin.recipe.index') }}"
-                                   class="{% if current_sub_menu is defined and current_sub_menu == 'admin_recipe' %}active-dashboard{% endif %}">Recipes</a>
-                            </li>
-                            <li><a href="{{ path('admin.event.index') }}"
-                                   class="{% if current_sub_menu is defined and current_sub_menu == 'admin_event' %}active-dashboard{% endif %}">Events</a>
-                            </li>
-                            <li><a href="{{ path('admin.article.index') }}"
-                                   class="{% if current_sub_menu is defined and current_sub_menu == 'admin_article' %}active-dashboard{% endif %}">Articles</a>
-                            </li>
-                        </ul>
-                    </div>
-                </aside>
-            </div>
+            {{ adminSidebar() }}
         </div>
     </div>
 {% endblock %}

@@ -29,13 +29,15 @@
         <a href="{{ path('article.index') }}"
            class="menu-item {% if current_menu is defined and current_menu == 'article' %}active{% endif %}">Boutique</a>
         {% if app.user %}
+            <a class="menu-item">Mon compte</a>
             {% for role in app.user.roles %}
+                {#<button class="button-user user-co has-icon"></button>#}
                 {% if role == 'ROLE_ADMIN' %}
                     <a href="{{ path('admin.dashboard') }}"
                        class="menu-item {% if current_menu is defined and current_menu == 'admin' %}active{% endif %}">Dashboard</a>
-                    <a class="menu-item"><button class="button-user user-co has-icon"></button></a>
                 {% endif %}
             {% endfor %}
+            <a href="{{ path('app_logout') }}" class="menu-item">Se déconnecter</a>
         {% endif %}
         <button class="clean-button has-icon search-button" id="hamburger-search-button"></button>
     </nav>

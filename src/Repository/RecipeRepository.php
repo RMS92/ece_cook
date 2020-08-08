@@ -35,6 +35,14 @@ class RecipeRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function findForSidebar(): array
+    {
+        return $this->findVisibleQuery()
+            ->setMaxResults('3')
+            ->getQuery()
+            ->getResult();
+    }
+
     private function findVisibleQuery(): QueryBuilder
     {
         return $this->createQueryBuilder('r')

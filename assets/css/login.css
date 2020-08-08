@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700|Poppins:400,500&display=swap');
+
+.content{
+    text-align: center;
+    padding: 60px 55px;
+    max-width: 450px;
+    -webkit-box-shadow: 0 1px 15px 0 rgba(0, 0, 0, .2);
+    box-shadow: 0 1px 15px 0 rgba(0, 0, 0, .2);
+    background: #fff;
+}
+
+.field{
+    margin: auto;
+    text-align: center;
+    height: 45px;
+    max-width: 75%;
+    display: flex;
+    background: rgba(255,255,255,0.94);
+}
+
+.field span{
+    color: #383a3b;
+    width: 40px;
+    line-height: 45px;
+}
+
+.icon-style {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.field input{
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    border-color: rgba(0, 0, 0, .2);
+    border-radius: 5px;
+    color: #383a3b;
+    font-size: 16px;
+    font-family: 'Poppins',sans-serif;
+}
+
+.space{
+    margin-top: 16px;
+}
+.show{
+    margin-right: 13px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #383a3b;
+    display: none;
+    cursor: pointer;
+    font-family: 'Montserrat',sans-serif;
+}
+.pass-key:valid ~ .show{
+    display: block;
+}
+.pass{
+    text-align: center;
+    margin: 16px 0;
+}
+.pass a{
+    color: #383a3b;
+    text-decoration: none;
+    font-family: 'Poppins',sans-serif;
+}
+.pass:hover a{
+    text-decoration: underline;
+}
+.field input[type="submit"]{
+    background: #383a3b;
+    border: 1px solid #383a3b;
+    color: #FFF;
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Montserrat',sans-serif;
+    transition: color .35s ease-in-out, opacity .35s ease-in-out, background-color .35s ease-in-out;
+
+}
+.field input[type="submit"]:hover{
+    background: rgba(0, 0, 0, .1);
+    color: #383a3b;
+}
+
+.login{
+    color: #383a3b;
+    margin: 20px 0;
+    font-family: 'Poppins',sans-serif;
+}
+.links{
+    display: flex;
+    cursor: pointer;
+    color: #383a3b;
+    margin: 0 0 20px 0;
+}
+.links i{
+    font-size: 17px;
+}
+i span{
+    margin-left: 8px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: 16px;
+    font-family: 'Poppins',sans-serif;
+}
+.signup{
+    text-align: center;
+    font-size: 15px;
+    color: #383a3b;
+    font-family: 'Poppins',sans-serif;
+}
+.signup a{
+    color: #383a3b;
+    text-decoration: none;
+}
+.signup a:hover{
+    text-decoration: underline;
+}

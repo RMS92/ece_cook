@@ -1,0 +1,30 @@
+<div class="aside-right pl-30">
+    <aside class="aside">
+        <div class="infos-main widget_recent_entries border-top-main b-0">
+            <h4 class="widget-title">Les évènements récents</h4>
+            <ul>
+                {% for event in events %}
+                    <li><a href="{{ path('event.show', {slug: event.slug, id: event.id}) }}">{{ event.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="infos-main widget_recent_entries border-top-main">
+            <h4 class="widget-title">Les nouvelles recettes</h4>
+            <ul>
+                {% for recipe in recipes %}
+                    <li><a href="{{ path('recipe.show', {slug: recipe.slug, id: recipe.id}) }}">{{ recipe.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="infos-main widget_recent_entries border-top-main">
+            <h4 class="widget-title">Les catégories</h4>
+            <ul>
+                {% for category in categories %}
+                    <li>
+                        <a href="{{ path('category.show', {slug: category.slug, id: category.id}) }}">{{ category.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </aside>
+</div>

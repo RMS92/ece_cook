@@ -62,13 +62,13 @@
 {% block body %}
     <div class="home-section">
 
-        <div class="container">
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
 
-            {% for message in app.flashes('success') %}
-                <div class="alert alert-success">
-                    {{ message }}
-                </div>
-            {% endfor %}
+        <div class="container">
 
             <!-- Events !-->
             <h2 class="big-title" style="margin-bottom: 60px">Next events</h2>
@@ -83,7 +83,7 @@
                             {% for picture in event.pictures %}
                                 {% if loop.first %}
                                     <a href="{{ path('event.show', {slug: event.slug, id: event.id}) }}"><img
-                                                src="{{ vich_uploader_asset(picture, 'imageFile') }}"
+                                                src="{{ vich_uploader_asset(picture, 'imageFile') | imagine_filter('home_event_index') }}"
                                                 alt="card-img-top" style="width: 100%; height: auto;"></a>
                                 {% endif %}
                             {% endfor %}
@@ -94,7 +94,8 @@
                                     href="{{ path('event.show', {slug: event.slug, id: event.id}) }}">{{ event.title }}</a>
                         </h3>
                         <div class="entry-meta has-line">
-                            <span class="description posted-on has-icon"><a href="#">{{ event.formattedTakesPlaceAt }}</a></span>
+                            <span class="description posted-on has-icon"><a
+                                        href="#">{{ event.formattedTakesPlaceAt }}</a></span>
                             <span class="description byline has-icon"><a href="#">ECE COOK</a></span>
                             <span class="description map has-icon"><a href="#">{{ event.city }}</a></span>
                         </div>
@@ -124,20 +125,25 @@
                                 {% for picture in recipe.pictures %}
                                     {% if loop.first %}
                                         <a href="{{ path('recipe.show', {slug: recipe.slug, id: recipe.id}) }}"><img
-                                                    src="{{ vich_uploader_asset(picture, 'imageFile') }}"
+                                                    src="{{ vich_uploader_asset(picture, 'imageFile') | imagine_filter('home_recipe_index') }}"
                                                     alt="card-img-top"></a>
                                     {% endif %}
                                 {% endfor %}
                             {% endif %}
-                            <h3 class="entry-title mt-30"><a href="{{ path('recipe.show', {slug: recipe.slug, id: recipe.id}) }}">{{ recipe.title }}</a></h3>
+                            <h3 class="entry-title mt-30"><a
+                                        href="{{ path('recipe.show', {slug: recipe.slug, id: recipe.id}) }}">{{ recipe.title }}</a>
+                            </h3>
                             <div class="entry-meta">
-                                <span class="description posted-on has-icon"><a href="#">{{ recipe.formattedCreatedAt }}</a></span>
-                                <span class="description byline has-icon"><a href="#">{{ recipe.author.lastname }}</a></span>
+                                <span class="description posted-on has-icon"><a
+                                            href="#">{{ recipe.formattedCreatedAt }}</a></span>
+                                <span class="description byline has-icon"><a
+                                            href="#">{{ recipe.author.lastname }}</a></span>
                                 <span class="description comments-link has-icon"><a href="#">3 comments</a></span>
                             </div>
                             <div class="entry-summary">
                                 <p>{{ recipe.caption }}</p>
-                                <a href="{{ path('recipe.show', {slug: recipe.slug, id: recipe.id}) }}" class="more-link">Read more</a>
+                                <a href="{{ path('recipe.show', {slug: recipe.slug, id: recipe.id}) }}"
+                                   class="more-link">Read more</a>
                             </div>
                         </div>
                     {% endfor %}
@@ -219,7 +225,8 @@
                                 <span class="description"><a href="#">Executive Chef</a></span>
                             </div>
                             <div class="entry-summary">
-                                <p>A chef is a trained professional cook and tradesman who is proficient in all aspects
+                                <p>A chef is a trained professional cook and tradesman who is proficient in all
+                                    aspects
                                     of
                                     food
                                     preparation...
@@ -244,7 +251,8 @@
                                 <span class="description"><a href="#">Corporate Pastry Chef</a></span>
                             </div>
                             <div class="entry-summary">
-                                <p>A chef is a trained professional cook and tradesman who is proficient in all aspects
+                                <p>A chef is a trained professional cook and tradesman who is proficient in all
+                                    aspects
                                     of
                                     food
                                     preparation...
@@ -296,7 +304,8 @@
                                 <span class="description"><a href="#">Executive Chef</a></span>
                             </div>
                             <div class="entry-summary">
-                                <p>A chef is a trained professional cook and tradesman who is proficient in all aspects
+                                <p>A chef is a trained professional cook and tradesman who is proficient in all
+                                    aspects
                                     of
                                     food
                                     preparation...</p>
@@ -320,7 +329,8 @@
                                 <span class="description"><a href="#">Corporate Pastry Chef</a></span>
                             </div>
                             <div class="entry-summary">
-                                <p>A chef is a trained professional cook and tradesman who is proficient in all aspects
+                                <p>A chef is a trained professional cook and tradesman who is proficient in all
+                                    aspects
                                     of
                                     food
                                     preparation...
@@ -355,42 +365,6 @@
                 </div>
 
             </div>
-        </div>
-
-        <!--Shop-->
-        <div class="widget">
-            <div class="container">
-                <h2 class="big-title" style="margin-bottom: 60px">The shop</h2>
-
-                <div class="block-event">
-                    <div class="block-img p-right">
-                        <a href="#"><img
-                                    src="https://appetitedemo.files.wordpress.com/2015/07/smachno_19.jpg"
-                                    alt="card-recipe"/></a>
-                    </div>
-                    <div class="main-block">
-                        <h3 class="entry-title"><a href="#">BUY OUR PRODUCTS TO SOUTENIR US</a></h3>
-                        <div class="entry-meta">
-                            <span class="description comments-link has-icon"><a href="#">1€ sera reversé à nos associations partenaires</a></span>
-                        </div>
-                        <div class="entry-summary">
-                            <p>Although the terms flavoring and flavorant in common language denote the combined
-                                chemical
-                                sensations of taste and smell, the same terms are used in the fragrance and flavors
-                                industry
-                                to
-                                refer to edible chemicals and extracts that alter the flavor of food and food products
-                                through
-                                the sense of smell.</p>
-                            <a class="more-link">Read more</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <h2 class="big-title">Testimonials</h2>
         </div>
 
     </div>

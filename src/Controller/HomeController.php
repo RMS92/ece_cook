@@ -3,8 +3,10 @@
 
 namespace App\Controller;
 
+use App\Repository\ArticleRepository;
 use App\Repository\EventRepository;
 use App\Repository\RecipeRepository;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,11 +21,21 @@ class HomeController extends AbstractController
      * @var RecipeRepository
      */
     private RecipeRepository $recipeRepository;
+    /**
+     * @var ArticleRepository
+     */
+    private ArticleRepository $articleRepository;
+    /**
+     * @var UserRepository
+     */
+    private UserRepository $userRepository;
 
-    public function __construct(EventRepository $eventRepository, RecipeRepository $recipeRepository)
+    public function __construct(EventRepository $eventRepository, RecipeRepository $recipeRepository, ArticleRepository $articleRepository, UserRepository $userRepository)
     {
         $this->eventRepository = $eventRepository;
         $this->recipeRepository = $recipeRepository;
+        $this->articleRepository = $articleRepository;
+        $this->userRepository = $userRepository;
     }
 
     /**
@@ -34,11 +46,14 @@ class HomeController extends AbstractController
     {
         $events = $this->eventRepository->findLatest();
         $recipes = $this->recipeRepository->findLatest();
+        $articles = $this->articleRepository->findLatest();
+
 
         return $this->render('pages/home.html.twig', [
             'current_menu' => 'home',
             'events' => $events,
-            'recipes'=> $recipes
+            'recipes' => $recipes,
+            'articles' => $articles
         ]);
     }
 }

@@ -277,6 +277,22 @@ ul, li {
     margin-right: 6px;
 }
 
+.button-user {
+    background: #000;
+    border: none;
+    padding: 0;
+}
+
+.user-co::before {
+    content: '\f007';
+    font-size: 1.14rem;
+    color: white;
+}
+
+.user-co:hover {
+
+}
+
 .has-icon {
     -webkit-font-smoothing: antialiased;
     display: inline-block;

@@ -395,4 +395,5 @@ document.addEventListener('DOMContentLoaded', function() {
         onResize: true
 
     })
+
 })

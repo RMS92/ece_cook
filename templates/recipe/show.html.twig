@@ -8,7 +8,7 @@
     url(https://appetitedemo.files.wordpress.com/2015/07/smachno_26.jpg?w=1280&h=887&crop=1) no-repeat center center;">
         <div class="container transparent">
             <div class="entry-cats has-icon">
-                <a href="#">{{ recipe.category.title }}</a>
+                <a href="{{ path('category.show', {slug: recipe.category.slug, id: recipe.category.id}) }}">{{ recipe.category.title }}</a>
                 <span class="sep">/</span>
                 <span class="item-info">Difficulty</span>
                 {% if recipe.difficulty %}

@@ -30,7 +30,7 @@ class ArticleRepository extends ServiceEntityRepository
     public function findLatest(): array
     {
         return $this->findVisibleQuery()
-            ->setMaxResults('2')
+            ->setMaxResults('6')
             ->getQuery()
             ->getResult();
     }

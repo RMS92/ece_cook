@@ -28,8 +28,15 @@
            class="menu-item {% if current_menu is defined and current_menu == 'event' %}active{% endif %}">évènements</a>
         <a href="{{ path('article.index') }}"
            class="menu-item {% if current_menu is defined and current_menu == 'article' %}active{% endif %}">Boutique</a>
-        <a href="{{ path('admin.dashboard') }}"
-           class="menu-item {% if current_menu is defined and current_menu == 'admin' %}active{% endif %}">Dashboard</a>
+        {% if app.user %}
+            {% for role in app.user.roles %}
+                {% if role == 'ROLE_ADMIN' %}
+                    <a href="{{ path('admin.dashboard') }}"
+                       class="menu-item {% if current_menu is defined and current_menu == 'admin' %}active{% endif %}">Dashboard</a>
+                    <a class="menu-item"><button class="button-user user-co has-icon"></button></a>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
         <button class="clean-button has-icon search-button" id="hamburger-search-button"></button>
     </nav>
     <button id="hamburger-button" class="has-icon"><span>Menu</span></button>

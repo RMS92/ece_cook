@@ -82,6 +82,10 @@
     padding-left: 30px;
 }
 
+.pt-0 {
+    padding-top: 0;
+}
+
 .pb-0 {
     padding-bottom: 0;
 }

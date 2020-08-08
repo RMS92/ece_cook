@@ -8,7 +8,7 @@
     url(https://appetitedemo.files.wordpress.com/2015/07/smachno_01.jpg?w=1280&h=853&crop=1) no-repeat center center;">
         <div class="container transparent">
             <div class="item-title primary-font">
-                <a>La catégorie slug</a>
+                <a>{{ category.slug }}</a>
             </div>
         </div>
     </div>
@@ -20,7 +20,15 @@
         <div class="sidebar-flex">
             <div class="aside-left">
 
-                <div class="block-recipe block-flex border-top">
+                {% if category.recipes %}
+                    {% for recipe in category.recipes %}
+                        <div class="block-recipe block-flex border-top">
+                            {% include 'recipe/_recipe.html.twig' %}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+                {#<div class="block-recipe block-flex border-top">
                     <div class="block-img-recipes p-img-30">
                         <a href="#"><img
                                     src="https://appetitedemo.files.wordpress.com/2015/07/smachno_04.jpg?w=800&h=480&crop=1"
@@ -115,7 +123,7 @@
                             <a class="more-link">Read more</a>
                         </div>
                     </div>
-                </div>
+                </div>#}
 
                 <div class="border-top-main">
                     <button class="more-item">Older posts</button>

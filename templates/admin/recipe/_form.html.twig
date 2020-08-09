@@ -1,14 +1,112 @@
-{{ form_start(form) }}
-{{ form_rest(form) }}
-{% for picture in recipe.pictures %}
-    <div class="col" style="width: 100px; flex: none; margin: 5px">
-        <img src="{{ vich_uploader_asset(picture, 'imageFile') }}" width="100">
-        <a href="{{ path('admin.recipepicture.delete', {id: picture.id}) }}" class="clean-button" data-delete
-           data-token="{{ csrf_token('delete' ~ picture.id) }}">Supprimer</a>
+<div class="content register">
+
+    {% if recipe.title %}
+        <h2 class="big-title">{{ recipe.title }}</h2>
+    {% else %}
+        <h2 class="big-title">Nouvelle recette</h2>
+    {% endif %}
+
+    <div class="form">
+        {{ form_start(form) }}
+        <div class="form-row">
+            <div class="input-data">
+                {{ form_widget(form.title) }}
+                {{ form_label(form.title) }}
+                {{ form_errors(form.title) }}
+                <div class="underline">
+                </div>
+            </div>
+            <div class="input-data">
+                {{ form_widget(form.author) }}
+                {{ form_label(form.author) }}
+                {{ form_errors(form.author) }}
+                <div class="underline">
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-data">
+                {{ form_widget(form.difficulty) }}
+                {{ form_label(form.difficulty) }}
+                {{ form_errors(form.difficulty) }}
+                <div class="underline">
+                </div>
+            </div>
+            <div class="input-data">
+                {{ form_widget(form.duration) }}
+                {{ form_label(form.duration) }}
+                {{ form_errors(form.duration) }}
+                <div class="underline">
+                </div>
+            </div>
+            <div class="input-data">
+                {{ form_widget(form.category) }}
+                {{ form_label(form.category) }}
+                {{ form_errors(form.category) }}
+                <div class="underline">
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-data textarea">
+                {{ form_widget(form.caption) }}
+                {{ form_label(form.caption) }}
+                {{ form_errors(form.caption) }}
+                <div class="underline">
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-data textarea">
+                {{ form_widget(form.description) }}
+                {{ form_label(form.description) }}
+                {{ form_errors(form.description) }}
+                <div class="underline">
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-data file">
+                {{ form_widget(form.ingredients) }}
+                {{ form_label(form.ingredients) }}
+                {{ form_errors(form.ingredients) }}
+                <div class="underline">
+                </div>
+            </div>
+            <div class="input-data">
+                {{ form_widget(form.active) }}
+                {{ form_label(form.active) }}
+                {{ form_errors(form.active) }}
+                <div class="underline">
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-data">
+                {{ form_widget(form.pictureFiles) }}
+                {{ form_label(form.pictureFiles) }}
+                {{ form_errors(form.pictureFiles) }}
+                <div class="underline">
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            {% for picture in recipe.pictures %}
+                <div class="input-data">
+                    <div class="col" style="width: 100px; flex: none; margin: 5px">
+                        <img src="{{ vich_uploader_asset(picture, 'imageFile') }}" width="100">
+                        <a href="{{ path('admin.recipepicture.delete', {id: picture.id}) }}" class="clean-button"
+                           data-delete
+                           data-token="{{ csrf_token('delete' ~ picture.id) }}">Supprimer</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="form-row mb-0">
+            <div class="input-data-btn field">
+                <input type="submit" class="clean-button" VALUE="{{ button|default('Enregistrer') }}"/>
+            </div>
+        </div>
+        {{ form_end(form) }}
     </div>
-{% endfor %}
-<button type="submit" class="clean-button">{{ button|default('Enregistrer') }}</button>
-{{ form_end(form) }}
-
-
-
+</div>

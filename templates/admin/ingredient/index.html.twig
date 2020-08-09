@@ -13,27 +13,37 @@
 
         <div class="sidebar-flex">
             <div class="aside-left pr-30-995">
-                <a href="{{ path('admin.ingredient.new') }}" class="more-link">Créer</a>
-                <div class="grid-event">
-                    {% for ingredient in ingredients %}
-                        <div class="block-event flex-none">
-                            <h3 class="entry-title mt-30"><a href="#">{{ ingredient.name }}</a>
-                            </h3>
-                            <div class="entry-summary">
-                                <p></p>
-                            </div>
-                            <a href="{{ path('admin.ingredient.edit', {id: ingredient.id}) }}" class="more-link">Editer</a>
-
-                            <form method="POST" action="{{ path('admin.ingredient.delete', {id: ingredient.id}) }}"
-                                  style="display: inline-block"
-                                  onsubmit="return confirm('Êtes-vous vraiment sûr de vouloir supprimer cet ingrédient ?')">
-                                <input type="hidden" name="_method" value="DELETE">
-                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ ingredient.id) }}">
-                                <button class="more-link">Supprimer</button>
-                            </form>
-                            <span class="grid-sep"></span>
-                        </div>
-                    {% endfor %}
+                <div class="admin-container">
+                    <div class="infos-main widget_recent_entries border-top-main b-0">
+                        <h4 class="widget-title">Les ingrédients</h4>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th><a href="{{ path('admin.ingredient.new') }}" class="more-link">Nouveau</a></th>
+                            </tr>
+                            </thead>
+                            {% for ingredient in ingredients %}
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        {{ ingredient.name }}</td>
+                                    <td><a href="{{ path('admin.ingredient.edit', {id: ingredient.id}) }}"
+                                           class="more-link">Editer</a>
+                                        <form method="POST" action="{{ path('admin.ingredient.delete', {id: ingredient.id}) }}"
+                                              style="display: inline-block"
+                                              onsubmit="return confirm('Êtes-vous vraiment sûr de vouloir supprimer cet ingrédient ?')">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <input type="hidden" name="_token"
+                                                   value="{{ csrf_token('delete' ~ ingredient.id) }}">
+                                            <button class="more-link">Supprimer</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            {% endfor %}
+                        </table>
+                    </div>
                 </div>
             </div>
 

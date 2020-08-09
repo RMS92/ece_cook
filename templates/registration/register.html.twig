@@ -3,18 +3,74 @@
 {% block title 'Inscription' %}
 
 {% block body %}
-    {% for message in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ message }}</div>
-    {% endfor %}
 
-    <h1>Register</h1>
+    <div class="home-section pt-0 pb-0">
+        <div class="container pb-60">
+            <div class="content register">
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-    {{ form_rest(registrationForm) }}
-        <button type="submit" class="clean-button">Register</button>
-    {{ form_end(registrationForm) }}
+                <h2 class="big-title">Créer un compte</h2>
+
+                <div class="form">
+                    {{ form_start(registrationForm) }}
+                    <div class="form-row">
+                        <div class="input-data">
+                            {{ form_widget(registrationForm.email) }}
+                            {{ form_label(registrationForm.email) }}
+                            {{ form_errors(registrationForm.email) }}
+                            <div class="underline">
+                            </div>
+                        </div>
+                        <div class="input-data">
+                            {{ form_widget(registrationForm.username) }}
+                            {{ form_label(registrationForm.username) }}
+                            {{ form_errors(registrationForm.username) }}
+                            <div class="underline">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-data">
+                            {{ form_widget(registrationForm.lastname) }}
+                            {{ form_label(registrationForm.lastname) }}
+                            {{ form_errors(registrationForm.lastname) }}
+                            <div class="underline">
+                            </div>
+                        </div>
+                        <div class="input-data">
+                            {{ form_widget(registrationForm.firstname) }}
+                            {{ form_label(registrationForm.firstname) }}
+                            {{ form_errors(registrationForm.firstname) }}
+                            <div class="underline">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-data">
+                            {{ form_widget(registrationForm.plainPassword) }}
+                            {{ form_label(registrationForm.plainPassword) }}
+                            {{ form_errors(registrationForm.plainPassword) }}
+                            <div class="underline">
+                            </div>
+                        </div>
+                    </div>
+                    {% for message in app.flashes('verify_email_error') %}
+                        <div class="alert alert-danger mb-15" role="alert">{{ message }}</div>
+                    {% endfor %}
+                    <div class="form-row mb-0">
+                        <div class="input-data-btn field">
+                            <input type="submit" class="clean-button" VALUE="S'inscrire"/>
+                        </div>
+                    </div>
+                    {{ form_end(registrationForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {#{{ form_row(registrationForm.plainPassword, {
+         label: 'Password'
+     }) }}
+
+     <button type="submit" class="clean-button">Register</button>#}
+
 {% endblock %}

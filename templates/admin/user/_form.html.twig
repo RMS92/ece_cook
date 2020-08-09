@@ -1,11 +1,109 @@
-{{ form_start(form) }}
-{{ form_rest(form) }}
-{% if user.filename %}
-    <div class="col" style="width: 100px; flex: none; margin: 5px">
-        <img src="{{ vich_uploader_asset(user, 'imageFile') }}" width="100">
+<div class="content register">
+
+    {% if user.email %}
+        <h2 class="big-title">{{ user.email }}</h2>
+    {% else %}
+        <h2 class="big-title">Nouvel utilisateur</h2>
+    {% endif %}
+
+    <div class="form">
+        {{ form_start(form) }}
+        <div class="form-row">
+            <div class="input-data">
+                {{ form_widget(form.email) }}
+                {{ form_label(form.email) }}
+                {{ form_errors(form.email) }}
+                <div class="underline">
+                </div>
+            </div>
+            <div class="input-data">
+                {{ form_widget(form.username) }}
+                {{ form_label(form.username) }}
+                {{ form_errors(form.username) }}
+                <div class="underline">
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-data">
+                {{ form_widget(form.lastname) }}
+                {{ form_label(form.lastname) }}
+                {{ form_errors(form.lastname) }}
+                <div class="underline">
+                </div>
+            </div>
+            <div class="input-data">
+                {{ form_widget(form.firstname) }}
+                {{ form_label(form.firstname) }}
+                {{ form_errors(form.firstname) }}
+                <div class="underline">
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-data textarea">
+                {{ form_widget(form.description) }}
+                {{ form_label(form.description) }}
+                {{ form_errors(form.description) }}
+                <div class="underline">
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-data textarea">
+                {{ form_widget(form.function) }}
+                {{ form_label(form.function) }}
+                {{ form_errors(form.function) }}
+                <div class="underline">
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-data file">
+                {{ form_widget(form.password) }}
+                {{ form_label(form.password) }}
+                {{ form_errors(form.password) }}
+                <div class="underline">
+                </div>
+            </div>
+            <div class="input-data">
+                {{ form_widget(form.roles) }}
+                {{ form_label(form.roles) }}
+                {{ form_errors(form.roles) }}
+                <div class="underline">
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-data">
+                {{ form_widget(form.imageFile) }}
+                {{ form_label(form.imageFile) }}
+                {{ form_errors(form.imageFile) }}
+                <div class="underline">
+                </div>
+            </div>
+            {#<div class="input-data">
+                {% if user.filename %}
+                    <div class="col" style="width: 100px; flex: none; margin: 5px">
+                        <img src="{{ vich_uploader_asset(user, 'imageFile') }}" width="100">
+                    </div>
+                {% endif %}
+                <div class="underline">
+                </div>
+            </div>#}
+        </div>
+        {% for message in app.flashes('verify_email_error') %}
+            <div class="alert alert-danger mb-15" role="alert">{{ message }}</div>
+        {% endfor %}
+        <div class="form-row mb-0">
+            <div class="input-data-btn field">
+                <input type="submit" class="clean-button" VALUE="{{ button|default('Enregistrer') }}"/>
+            </div>
+        </div>
+        {{ form_end(form) }}
     </div>
-{% endif %}
-<button type="submit" class="clean-button">{{ button|default('Enregistrer') }}</button>
-{{ form_end(form) }}
+</div>
+
+
 
 

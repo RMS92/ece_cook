@@ -3,6 +3,12 @@ liip_imagine:
     # valid drivers options include "gd" or "gmagick" or "imagick"
     filter_sets:
         cache: ~
+        admin_grid_index:
+            quality: 75
+            filters:
+                thumbnail:
+                    size: [250, 150]
+                    mode: outbound
         home_event_index:
             quality: 75
             filters:

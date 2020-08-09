@@ -6,11 +6,12 @@
 
     <div class="home-section pt-0 pb-0">
         <div class="container pb-60">
+            <div class="content">
                 <h2 class="big-title">Se connecter</h2>
                 <form method="post">
 
                     {% if error %}
-                        <div class="alert alert-danger  mb-15">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        <div class="alert alert-danger mb-15">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                     {% endif %}
 
                     {% if app.user %}
@@ -35,7 +36,7 @@
                     <div class="pass">
                         <a href="{{ path('app_forgot_password_request') }}">Mot de passe oublié ?</a>
                     </div>
-                    <div class="field">
+                    <div class="field btn-field">
                         <input type="submit" class="clean-button" value="SE CONNECTER"/>
                     </div>
                 </form>
@@ -43,6 +44,7 @@
                     Pas encore de compte ?
                     <a href="{{ path('app_register') }}">S'inscrire</a>
                 </div>
+            </div>
         </div>
     </div>
     {#<form method="post">

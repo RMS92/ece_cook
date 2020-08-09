@@ -13,7 +13,7 @@
 
         <div class="sidebar-flex">
             <div class="aside-left pr-30-995">
-                <a href="{{ path('admin.event.new') }}" class="more-link">Créer</a>
+                <a href="{{ path('admin.event.new') }}" class="more-link">Nouvel évènement</a>
                 <div class="grid-event">
                     {% for event in events %}
                         <div class="block-event flex-none">
@@ -24,7 +24,7 @@
                                 {% for picture in event.pictures %}
                                     {% if loop.first %}
                                         <a href="{{ path('event.show', {slug: event.slug, id: event.id}) }}"><img
-                                                    src="{{ vich_uploader_asset(picture, 'imageFile') }}"
+                                                    src="{{ vich_uploader_asset(picture, 'imageFile') | imagine_filter('admin_grid_index') }}"
                                                     alt="card-img-top" style="width: 100%; height: auto;"></a>
                                     {% endif %}
                                 {% endfor %}

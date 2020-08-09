@@ -13,28 +13,38 @@
 
         <div class="sidebar-flex">
             <div class="aside-left pr-30-995">
-                <a href="{{ path('admin.category.new') }}" class="more-link">Créer</a>
-                <div class="grid-event">
-                    {% for category in categories %}
-                        <div class="block-event flex-none">
+                <div class="admin-container">
+                    <div class="infos-main widget_recent_entries border-top-main b-0">
+                        <h4 class="widget-title">Les utilisateurs</h4>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Titre</th>
+                                <th><a href="{{ path('admin.category.new') }}" class="more-link">Nouvelle</a></th>
+                            </tr>
+                            </thead>
+                            {% for category in categories %}
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        {{ category.title }}</td>
+                                    <td><a href="{{ path('admin.category.edit', {id: category.id}) }}"
+                                           class="more-link">Editer</a>
+                                        <form method="POST" action="{{ path('admin.category.delete', {id: category.id}) }}"
+                                              style="display: inline-block"
+                                              onsubmit="return confirm('Êtes-vous vraiment sûr de vouloir supprimer cette categorie ?')">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <input type="hidden" name="_token"
+                                                   value="{{ csrf_token('delete' ~ category.id) }}">
+                                            <button class="more-link">Supprimer</button>
+                                        </form>
 
-                            <h3 class="entry-title mt-30"><a href="#">{{ category.title }}</a>
-                            </h3>
-                            <div class="entry-summary">
-                                <p></p>
-                            </div>
-                            <a href="{{ path('admin.category.edit', {id: category.id}) }}" class="more-link">Editer</a>
-
-                            <form method="POST" action="{{ path('admin.category.delete', {id: category.id}) }}"
-                                  style="display: inline-block"
-                                  onsubmit="return confirm('Êtes-vous vraiment sûr de vouloir supprimer cette catégorie ?')">
-                                <input type="hidden" name="_method" value="DELETE">
-                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ category.id) }}">
-                                <button class="more-link">Supprimer</button>
-                            </form>
-                            <span class="grid-sep"></span>
-                        </div>
-                    {% endfor %}
+                                    </td>
+                                </tr>
+                                </tbody>
+                            {% endfor %}
+                        </table>
+                    </div>
                 </div>
             </div>
 

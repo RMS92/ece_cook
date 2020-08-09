@@ -1,12 +1,106 @@
-{{ form_start(form) }}
-{{ form_rest(form) }}
-{% for picture in event.pictures %}
-    <div class="col" style="width: 100px; flex: none; margin: 5px">
-        <img src="{{ vich_uploader_asset(picture, 'imageFile') }}" width="100">
-        <a href="{{ path('admin.eventpicture.delete', {id: picture.id}) }}" class="clean-button" data-delete
-           data-token="{{ csrf_token('delete' ~ picture.id) }}">Supprimer</a>
-    </div>
-{% endfor %}
-<button type="submit" class="clean-button">{{ button|default('Enregistrer') }}</button>
-{{ form_end(form) }}
+<div class="content register">
 
+    {% if event.title %}
+        <h2 class="big-title">{{ event.title }}</h2>
+    {% else %}
+        <h2 class="big-title">Nouvel évènement</h2>
+    {% endif %}
+
+    <div class="form">
+        {{ form_start(form) }}
+        <div class="form-row">
+            <div class="input-data">
+                {{ form_widget(form.title) }}
+                {{ form_label(form.title) }}
+                {{ form_errors(form.title) }}
+                <div class="underline">
+                </div>
+            </div>
+            <div class="input-data">
+                {{ form_widget(form.takesPlace_at) }}
+                {{ form_label(form.takesPlace_at) }}
+                {{ form_errors(form.takesPlace_at) }}
+                <div class="underline">
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-data textarea">
+                {{ form_widget(form.caption) }}
+                {{ form_label(form.caption) }}
+                {{ form_errors(form.caption) }}
+                <div class="underline">
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-data textarea">
+                {{ form_widget(form.description) }}
+                {{ form_label(form.description) }}
+                {{ form_errors(form.description) }}
+                <div class="underline">
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-data">
+                {{ form_widget(form.city) }}
+                {{ form_label(form.city) }}
+                {{ form_errors(form.city) }}
+                <div class="underline">
+                </div>
+            </div>
+            <div class="input-data">
+                {{ form_widget(form.address) }}
+                {{ form_label(form.address) }}
+                {{ form_errors(form.address) }}
+                <div class="underline">
+                </div>
+            </div>
+            <div class="input-data">
+                {{ form_widget(form.postal_code) }}
+                {{ form_label(form.postal_code) }}
+                {{ form_errors(form.postal_code) }}
+                <div class="underline">
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-data">
+                {{ form_widget(form.active) }}
+                {{ form_label(form.active) }}
+                {{ form_errors(form.active) }}
+                <div class="underline">
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-data">
+                {{ form_widget(form.pictureFiles) }}
+                {{ form_label(form.pictureFiles) }}
+                {{ form_errors(form.pictureFiles) }}
+                <div class="underline">
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            {% for picture in event.pictures %}
+                <div class="input-data">
+                    <div class="col" style="width: 100px; flex: none; margin: 5px">
+                        <img src="{{ vich_uploader_asset(picture, 'imageFile') }}" width="100">
+                        <a href="{{ path('admin.eventpicture.delete', {id: picture.id}) }}" class="clean-button"
+                           data-delete
+                           data-token="{{ csrf_token('delete' ~ picture.id) }}">Supprimer</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="form-row mb-0">
+            <div class="input-data-btn field">
+                <input type="submit" class="clean-button" VALUE="{{ button|default('Enregistrer') }}"/>
+            </div>
+        </div>
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+    </div>
+</div>

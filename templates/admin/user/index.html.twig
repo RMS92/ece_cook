@@ -13,29 +13,38 @@
 
         <div class="sidebar-flex">
             <div class="aside-left pr-30-995">
-                <a href="{{ path('admin.user.new') }}" class="more-link">Créer</a>
-                <div class="grid-event">
-                    {% for user in users %}
-                        <div class="block-event flex-none">
-                            {#{% if user.filename %}
-                            <a href="#"> <img src="{{ vich_uploader_asset(user, 'imageFile') }}" alt=""/> </a>
-                            {% endif %}#}
+                <div class="admin-container">
+                    <div class="infos-main widget_recent_entries border-top-main b-0">
+                        <h4 class="widget-title">Les utilisateurs</h4>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th><a href="{{ path('admin.user.new') }}" class="more-link">Nouveau</a></th>
+                            </tr>
+                            </thead>
+                            {% for user in users %}
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        {{ user.email }}</td>
+                                    <td><a href="{{ path('admin.user.edit', {id: user.id}) }}"
+                                           class="more-link">Editer</a>
+                                        <form method="POST" action="{{ path('admin.user.delete', {id: user.id}) }}"
+                                              style="display: inline-block"
+                                              onsubmit="return confirm('Êtes-vous vraiment sûr de vouloir supprimer cet utilisateur ?')">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <input type="hidden" name="_token"
+                                                   value="{{ csrf_token('delete' ~ user.id) }}">
+                                            <button class="more-link">Supprimer</button>
+                                        </form>
 
-                            <div class="entry-summary">
-                                <p>{{ user.email }}</p>
-                            </div>
-                            <a href="{{ path('admin.user.edit', {id: user.id}) }}" class="more-link">Editer</a>
-
-                            <form method="POST" action="{{ path('admin.user.delete', {id: user.id}) }}"
-                                  style="display: inline-block"
-                                  onsubmit="return confirm('Êtes-vous vraiment sûr de vouloir supprimer cet utilisateur ?')">
-                                <input type="hidden" name="_method" value="DELETE">
-                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
-                                <button class="more-link">Supprimer</button>
-                            </form>
-                            <span class="grid-sep"></span>
-                        </div>
-                    {% endfor %}
+                                    </td>
+                                </tr>
+                                </tbody>
+                            {% endfor %}
+                        </table>
+                    </div>
                 </div>
             </div>
 

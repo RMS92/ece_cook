@@ -6,6 +6,7 @@ use App\Entity\Category;
 use App\Entity\Ingredient;
 use App\Entity\Recipe;
 use App\Entity\User;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -19,8 +20,8 @@ class RecipeType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('caption')
-            ->add('description')
+            ->add('caption', CKEditorType::class)
+            ->add('description', CKEditorType::class)
             ->add('difficulty', ChoiceType::class, [
                 'choices' => $this->getDifficultyChoices()
             ])
@@ -31,12 +32,6 @@ class RecipeType extends AbstractType
                 'choice_label' => 'title',
                 'multiple' => false
             ])
-            ->add('ingredients', EntityType::class, [
-                'class' => Ingredient::class,
-                'choice_label' => 'name',
-                'required' => false,
-                'multiple' => true
-            ])
             ->add('author', EntityType::class, [
                 'class' => User::class,
                 'required' => true,
@@ -46,9 +41,10 @@ class RecipeType extends AbstractType
             ->add('pictureFiles', FileType::class, [
                 'required' => false,
                 'multiple' => true,
-                'label' => 'Ajouter une image',
-                'label_attr' => [
-                    'data-browse' => 'Parcourir'
+                'attr' => [
+                    'is' => 'drop-files',
+                    'label' => 'Déposer vos fichiers',
+                    'help' => 'Seul les fichiers svg sont acceptés'
                 ]
             ])
             ->add('active')

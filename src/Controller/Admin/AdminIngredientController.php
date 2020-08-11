@@ -48,7 +48,6 @@ class AdminIngredientController extends AbstractController
 
         return $this->render('admin/ingredient/index.html.twig', [
             'current_menu' => 'admin',
-            'current_sub_menu' => 'admin_ingredient',
             'ingredients' => $ingredients
         ]);
     }
@@ -74,7 +73,6 @@ class AdminIngredientController extends AbstractController
 
         return $this->render('admin/ingredient/new.html.twig', [
             'current_menu' => 'admin',
-            'current_sub_menu' => 'admin_ingredient',
             'ingredient' => $ingredient,
             'form' => $form->createView(),
         ]);
@@ -103,7 +101,6 @@ class AdminIngredientController extends AbstractController
 
         return $this->render('admin/ingredient/edit.html.twig', [
             'current_menu' => 'admin',
-            'current_sub_menu' => 'admin_event',
             'ingredient' => $ingredient,
             'form' => $form->createView(),
         ]);

@@ -3,10 +3,40 @@
 {% block title 'Changer votre mot de passe' %}
 
 {% block body %}
-    <h1>Reset your password</h1>
+    <div class="home-section pt-0 pb-0">
+        <div class="container pb-60">
+            <div class="content register">
+                <h2 class="big-title">Modifier mon mot de passe</h2>
+                <div class="form">
+                    {{ form_start(resetForm) }}
+                    <div class="form-row">
+                        <div class="input-data">
+                            {{ form_widget(resetForm.plainPassword.first) }}
+                            {{ form_label(resetForm.plainPassword.first) }}
+                            {{ form_errors(resetForm.plainPassword.first) }}
+                            <div class="underline">
 
-    {{ form_start(resetForm) }}
-        {{ form_row(resetForm.plainPassword) }}
-        <button class="btn btn-primary">Reset password</button>
-    {{ form_end(resetForm) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-data">
+                            {{ form_widget(resetForm.plainPassword.second) }}
+                            {{ form_label(resetForm.plainPassword.second) }}
+                            {{ form_errors(resetForm.plainPassword.second) }}
+                            <div class="underline">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row mb-0">
+                        <div class="input-data-btn field">
+                            <input type="submit" class="clean-button" VALUE="MODIFIER"/>
+                        </div>
+                    </div>
+                </div>
+                {{ form_end(resetForm) }}
+            </div>
+        </div>
+    </div>
 {% endblock %}

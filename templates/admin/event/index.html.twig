@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title '' %}
+{% block title 'Administration des évènements' %}
 
 {% block body %}
     <div class="container">
@@ -42,7 +42,7 @@
                                   onsubmit="return confirm('Êtes-vous vraiment sûr de vouloir supprimer cet évènement ?')">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ event.id) }}">
-                                <button class="more-link">Supprimer</button>
+                                <button class="more-link-delete">Supprimer</button>
                             </form>
                             <span class="grid-sep"></span>
                         </div>
@@ -50,7 +50,7 @@
                 </div>
             </div>
 
-            {{ adminSidebar() }}
+            {{ adminSidebar('admin_event') }}
         </div>
     </div>
 {% endblock %}

@@ -47,7 +47,6 @@ class AdminRecipeController extends AbstractController
 
         return $this->render('admin/recipe/index.html.twig', [
             'current_menu' => 'admin',
-            'current_sub_menu' => 'admin_recipe',
             'recipes' => $recipes
         ]);
     }
@@ -73,7 +72,6 @@ class AdminRecipeController extends AbstractController
 
         return $this->render('admin/recipe/new.html.twig', [
             'current_menu' => 'admin',
-            'current_sub_menu' => 'admin_recipe',
             'recipe' => $recipe,
             'form' => $form->createView(),
         ]);
@@ -102,7 +100,6 @@ class AdminRecipeController extends AbstractController
 
         return $this->render('admin/recipe/edit.html.twig', [
             'current_menu' => 'admin',
-            'current_sub_menu' => 'admin_recipe',
             'recipe' => $recipe,
             'form' => $form->createView(),
         ]);

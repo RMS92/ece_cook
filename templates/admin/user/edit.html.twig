@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title '' %}
+{% block title "Modifier l'utilisateur" ~ user.id %}
 
 {% block body %}
     <div class="container">
@@ -17,7 +17,7 @@
                 }}
             </div>
 
-            {{ adminSidebar() }}
+            {{ adminSidebar('admin_user') }}
         </div>
     </div>
 {% endblock %}

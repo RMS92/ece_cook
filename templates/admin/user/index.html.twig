@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title '' %}
+{% block title 'Administration des utilisateurs' %}
 
 {% block body %}
     <div class="container">
@@ -36,7 +36,7 @@
                                             <input type="hidden" name="_method" value="DELETE">
                                             <input type="hidden" name="_token"
                                                    value="{{ csrf_token('delete' ~ user.id) }}">
-                                            <button class="more-link">Supprimer</button>
+                                            <button class="more-link-delete">Supprimer</button>
                                         </form>
 
                                     </td>
@@ -48,7 +48,7 @@
                 </div>
             </div>
 
-            {{ adminSidebar() }}
+            {{ adminSidebar( 'admin_user' ) }}
         </div>
     </div>
 {% endblock %}

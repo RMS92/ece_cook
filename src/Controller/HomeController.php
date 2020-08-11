@@ -47,13 +47,15 @@ class HomeController extends AbstractController
         $events = $this->eventRepository->findLatest();
         $recipes = $this->recipeRepository->findLatest();
         $articles = $this->articleRepository->findLatest();
+        $users = $this->userRepository->findAll();
 
 
         return $this->render('pages/home.html.twig', [
             'current_menu' => 'home',
             'events' => $events,
             'recipes' => $recipes,
-            'articles' => $articles
+            'articles' => $articles,
+            'users' => $users
         ]);
     }
 }

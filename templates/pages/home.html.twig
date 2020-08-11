@@ -62,14 +62,13 @@
 {% block body %}
     <div class="home-section">
 
-        {% for message in app.flashes('success') %}
+        {% for messagea in app.flashes('success') %}
             <div class="alert alert-success">
                 {{ message }}
             </div>
         {% endfor %}
 
         <div class="container">
-
             <!-- Events !-->
             <h2 class="big-title" style="margin-bottom: 60px">Next events</h2>
 
@@ -77,13 +76,13 @@
                 <div class="block-event">
                     <div class="block-img {% if loop.index is odd %}p-right{% else %}p-left{% endif %}">
                         {% if  event.pictures is empty %}
-                            <img src="{{ 'images/smachno_07.jpg' }}" alt="card-img-top"
+                            <img src="{{ 'images/smachno_07.jpg' | imagine_filter('home_event') }}" alt="card-img-top"
                                  style="width: 100%; height: auto;">
                         {% else %}
                             {% for picture in event.pictures %}
                                 {% if loop.first %}
                                     <a href="{{ path('event.show', {slug: event.slug, id: event.id}) }}"><img
-                                                src="{{ vich_uploader_asset(picture, 'imageFile') | imagine_filter('home_event_index') }}"
+                                                src="{{ vich_uploader_asset(picture, 'imageFile') | imagine_filter('home_event') }}"
                                                 alt="card-img-top" style="width: 100%; height: auto;"></a>
                                 {% endif %}
                             {% endfor %}
@@ -94,10 +93,9 @@
                                     href="{{ path('event.show', {slug: event.slug, id: event.id}) }}">{{ event.title }}</a>
                         </h3>
                         <div class="entry-meta has-line">
-                            <span class="description posted-on has-icon"><a
-                                        href="#">{{ event.formattedTakesPlaceAt }}</a></span>
-                            <span class="description byline has-icon"><a href="#">ECE COOK</a></span>
-                            <span class="description map has-icon"><a href="#">{{ event.city }}</a></span>
+                            <span class="description posted-on has-icon">{{ event.formattedTakesPlaceAt }}</span>
+                            <span class="description byline has-icon"><a href="{{ path('home') }}">ECE COOK</a></span>
+                            <span class="description map has-icon">{{ event.city }}</span>
                         </div>
                         <div class="entry-summary">
                             <p>{{ event.caption }}</p>
@@ -112,20 +110,19 @@
         <!-- Recipes !-->
         <div class="widget">
             <div class="container">
-
                 <h2 class="big-title">Recent recipes</h2>
                 <div class="grid">
 
                     {% for recipe in recipes %}
                         <div class="block-recipe">
                             {% if  recipe.pictures is empty %}
-                                <img src="{{ 'images/smachno_07.jpg' }}" alt="card-img-top"
+                                <img src="{{ 'images/smachno_07.jpg' | imagine_filter('home_recipe') }}" alt="card-img-top"
                                      style="width: 100%; height: auto;">
                             {% else %}
                                 {% for picture in recipe.pictures %}
                                     {% if loop.first %}
                                         <a href="{{ path('recipe.show', {slug: recipe.slug, id: recipe.id}) }}"><img
-                                                    src="{{ vich_uploader_asset(picture, 'imageFile') | imagine_filter('home_recipe_index') }}"
+                                                    src="{{ vich_uploader_asset(picture, 'imageFile') | imagine_filter('home_recipe') }}"
                                                     alt="card-img-top"></a>
                                     {% endif %}
                                 {% endfor %}
@@ -134,11 +131,9 @@
                                         href="{{ path('recipe.show', {slug: recipe.slug, id: recipe.id}) }}">{{ recipe.title }}</a>
                             </h3>
                             <div class="entry-meta">
-                                <span class="description posted-on has-icon"><a
-                                            href="#">{{ recipe.formattedCreatedAt }}</a></span>
-                                <span class="description byline has-icon"><a
-                                            href="#">{{ recipe.author.lastname }}</a></span>
-                                <span class="description comments-link has-icon"><a href="#">3 comments</a></span>
+                                <span class="description posted-on has-icon">{{ recipe.formattedCreatedAt }}</span>
+                                <span class="description byline has-icon">{{ recipe.author.lastname }}</span>
+                                <span class="description time-home has-icon">{{ recipe.duration }} min</span>
                             </div>
                             <div class="entry-summary">
                                 <p>{{ recipe.caption }}</p>
@@ -147,61 +142,6 @@
                             </div>
                         </div>
                     {% endfor %}
-
-                    {#<div class="block-recipe">
-                        <a href="#"><img
-                                    src="https://appetitedemo.files.wordpress.com/2015/07/smachno_02.jpg?w=800&h=480&crop=1"
-                                    alt="card-recipe"/></a>
-                        <h3 class="entry-title"><a href="#">EVERYTHING YOU WANT TO KNOW ABOUT</a></h3>
-                        <div class="entry-meta">
-                            <span class="description posted-on has-icon"><a href="#">July 8, 2015</a></span>
-                            <span class="description byline has-icon"><a href="#">Taras DASHKEVYCH</a></span>
-                            <span class="description comments-link has-icon"><a href="#">2 comments</a></span>
-                        </div>
-                        <div class="entry-summary">
-                            <p>Pizza is an oven-baked flat bread generally topped with tomato sauce and cheese. It is
-                                commonly
-                                supplemented with a selection…</p>
-                            <a class="more-link">Read more</a>
-                        </div>
-                    </div>
-
-                    <div class="block-recipe">
-                        <a href="#"><img
-                                    src="https://appetitedemo.files.wordpress.com/2015/07/smachno_26.jpg?w=800&h=480&crop=1"
-                                    alt="card-recipe"/></a>
-                        <h3 class="entry-title"><a href="#">BEER ON TAP OR IN A BOTTLE?</a></h3>
-                        <div class="entry-meta">
-                            <span class="description posted-on has-icon"><a href="#">July 4, 2015</a></span>
-                            <span class="description byline has-icon"><a href="#">Taras DASHKEVYCH</a></span>
-                            <span class="description comments-link has-icon"><a href="#">1 comment</a></span>
-                        </div>
-                        <div class="entry-summary">
-                            <p>Beer is an alcoholic beverage produced by the saccharification of starch and fermentation
-                                of
-                                the
-                                resulting sugar. The starch and…</p>
-                            <a class="more-link">Read more</a>
-                        </div>
-                    </div>
-
-                    <div class="block-recipe">
-                        <a href="#"><img
-                                    src="https://appetitedemo.files.wordpress.com/2015/07/smachno_04.jpg?w=800&h=480&crop=1"
-                                    alt="card-recipe"/></a>
-                        <h3 class="entry-title"><a href="#">How to make sushi at home</a></h3>
-                        <div class="entry-meta">
-                            <span class="description posted-on has-icon"><a href="#">July 8, 2015</a></span>
-                            <span class="description byline has-icon"><a href="#">Taras DASHKEVYCH</a></span>
-                            <span class="description comments-link has-icon"><a href="#">3 comments</a></span>
-                        </div>
-                        <div class="entry-summary">
-                            <p>Sushi is a Japanese food consisting of cooked vinegared rice combined with other
-                                ingredients,
-                                seafood, vegetables and sometimes tropical fruits.…</p>
-                            <a class="more-link">Read more</a>
-                        </div>
-                    </div>#}
                 </div>
             </div>
         </div>
@@ -210,163 +150,34 @@
         <div class="container container-carousel">
             <h2 class="big-title">The staff</h2>
             <div id="carousel2">
-                <div class="item item-staff">
-                    <!-- Staff !-->
-                    <div class="block-event block">
 
-                        <a href="#"><img
-                                    src="https://appetitedemo.files.wordpress.com/2015/07/smachno_33.jpg?w=800&h=480&crop=1"
-                                    alt="card-recipe"/></a>
+                {% for user in users %}
+                    <div class="item item-staff">
+                        <!-- Staff !-->
+                        <div class="block-event block">
 
+                            {% if user.filename %}
+                                <img src="{{ vich_uploader_asset(user, 'imageFile') | imagine_filter('home_user')}}" alt="card-img-top">
+                            {% else %}
+                                <img src="{{ 'images/smachno_01.jpg' | imagine_filter('home_user')}}" alt="card-img-top">
+                            {% endif %}
 
-                        <div class="entry-card">
-                            <h3 class="entry-title mt-0"><a href="#">JONATAN DOE</a></h3>
-                            <div class="entry-meta">
-                                <span class="description"><a href="#">Executive Chef</a></span>
-                            </div>
-                            <div class="entry-summary">
-                                <p>A chef is a trained professional cook and tradesman who is proficient in all
-                                    aspects
-                                    of
-                                    food
-                                    preparation...
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item item-staff">
-                    <!-- Staff !-->
-
-                    <div class="block-event block">
-
-                        <a href="#"><img
-                                    src="https://appetitedemo.files.wordpress.com/2015/07/smachno_34.jpg?w=800&h=480&crop=1"
-                                    alt="card-recipe"/></a>
-
-                        <div class="entry-card">
-                            <h3 class="entry-title mt-0"><a href="#">CHRISTINA SMITH</a></h3>
-                            <div class="entry-meta">
-                                <span class="description"><a href="#">Corporate Pastry Chef</a></span>
-                            </div>
-                            <div class="entry-summary">
-                                <p>A chef is a trained professional cook and tradesman who is proficient in all
-                                    aspects
-                                    of
-                                    food
-                                    preparation...
-                                </p>
+                            <div class="entry-card">
+                                <h3 class="entry-title entry-title-no-hover mt-0">{{ user.firstname }} {{ user.lastname }}</h3>
+                                <div class="entry-meta">
+                                    <span class="description">{{ user.function }}</span>
+                                </div>
+                                <div class="entry-summary">
+                                    <p>
+                                        {{ user.description }}
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="item item-staff">
-
-                    <!-- Staff !-->
-                    <div class="block-event block">
-
-                        <a href="#"><img
-                                    src="https://appetitedemo.files.wordpress.com/2015/07/smachno_35.jpg?w=800&h=480&crop=1"
-                                    alt="card-recipe"/></a>
-
-                        <div class="entry-card">
-                            <h3 class="entry-title mt-0"><a href="#">JIMMY COLE</a></h3>
-                            <div class="entry-meta">
-                                <span class="description"><a href="#">Chef De Cuisine</a></span>
-                            </div>
-                            <div class="entry-summary">
-                                <p>This person is in charge of all activities related to the kitchen, which usually
-                                    includes
-                                    menu creation...
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item item-staff">
-
-
-                    <!-- Staff !-->
-
-                    <div class="block-event block">
-
-                        <a href="#"><img
-                                    src="https://appetitedemo.files.wordpress.com/2015/07/smachno_33.jpg?w=800&h=480&crop=1"
-                                    alt="card-recipe"/></a>
-
-
-                        <div class="entry-card">
-                            <h3 class="entry-title mt-0"><a href="#">JONATAN DOE</a></h3>
-                            <div class="entry-meta">
-                                <span class="description"><a href="#">Executive Chef</a></span>
-                            </div>
-                            <div class="entry-summary">
-                                <p>A chef is a trained professional cook and tradesman who is proficient in all
-                                    aspects
-                                    of
-                                    food
-                                    preparation...</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item item-staff">
-                    <!-- Staff !-->
-
-                    <div class="block-event block">
-
-                        <a href="#"><img
-                                    src="https://appetitedemo.files.wordpress.com/2015/07/smachno_34.jpg?w=800&h=480&crop=1"
-                                    alt="card-recipe"/></a>
-
-                        <div class="entry-card">
-                            <h3 class="entry-title mt-0"><a href="#">CHRISTINA SMITH</a></h3>
-                            <div class="entry-meta">
-                                <span class="description"><a href="#">Corporate Pastry Chef</a></span>
-                            </div>
-                            <div class="entry-summary">
-                                <p>A chef is a trained professional cook and tradesman who is proficient in all
-                                    aspects
-                                    of
-                                    food
-                                    preparation...
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item item-staff">
-                    <!-- Staff !-->
-
-                    <div class="block-event block">
-
-                        <a href="#"><img
-                                    src="https://appetitedemo.files.wordpress.com/2015/07/smachno_35.jpg?w=800&h=480&crop=1"
-                                    alt="card-recipe"/></a>
-
-                        <div class="entry-card">
-                            <h3 class="entry-title mt-0"><a href="#">JIMMY COLE</a></h3>
-                            <div class="entry-meta">
-                                <span class="description"><a href="#">Chef De Cuisine</a></span>
-                            </div>
-                            <div class="entry-summary">
-                                <p>This person is in charge of all activities related to the kitchen, which usually
-                                    includes
-                                    menu creation...
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                {% endfor %}
             </div>
         </div>
-
     </div>
 {% endblock %}
 

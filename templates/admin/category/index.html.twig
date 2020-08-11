@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title '' %}
+{% block title 'Administration des catégories' %}
 
 {% block body %}
     <div class="container">
@@ -15,12 +15,12 @@
             <div class="aside-left pr-30-995">
                 <div class="admin-container">
                     <div class="infos-main widget_recent_entries border-top-main b-0">
-                        <h4 class="widget-title">Les utilisateurs</h4>
+                        <h4 class="widget-title">Les catégories</h4>
                         <table>
                             <thead>
                             <tr>
                                 <th>Titre</th>
-                                <th><a href="{{ path('admin.category.new') }}" class="more-link">Nouvelle</a></th>
+                                <th><a href="{{ path('admin.category.new') }}" class="more-link">Nouveau</a></th>
                             </tr>
                             </thead>
                             {% for category in categories %}
@@ -36,7 +36,7 @@
                                             <input type="hidden" name="_method" value="DELETE">
                                             <input type="hidden" name="_token"
                                                    value="{{ csrf_token('delete' ~ category.id) }}">
-                                            <button class="more-link">Supprimer</button>
+                                            <button class="more-link-delete">Supprimer</button>
                                         </form>
 
                                     </td>
@@ -48,7 +48,7 @@
                 </div>
             </div>
 
-            {{ adminSidebar() }}
+            {{ adminSidebar('admin_category') }}
         </div>
     </div>
 {% endblock %}

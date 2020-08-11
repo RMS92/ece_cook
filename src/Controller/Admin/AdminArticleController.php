@@ -48,7 +48,6 @@ class AdminArticleController extends AbstractController
 
         return $this->render('admin/article/index.html.twig', [
             'current_menu' => 'admin',
-            'current_sub_menu' => 'admin_article',
             'articles' => $articles
         ]);
     }
@@ -74,7 +73,6 @@ class AdminArticleController extends AbstractController
 
         return $this->render('admin/article/new.html.twig', [
             'current_menu' => 'admin',
-            'current_sub_menu' => 'admin_article',
             'article' => $article,
             'form' => $form->createView(),
         ]);
@@ -103,7 +101,6 @@ class AdminArticleController extends AbstractController
 
         return $this->render('admin/article/edit.html.twig', [
             'current_menu' => 'admin',
-            'current_sub_menu' => 'admin_article',
             'article' => $article,
             'form' => $form->createView(),
         ]);

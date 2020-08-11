@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title '' %}
+{% block title 'Administration des recettes' %}
 
 {% block body %}
     <div class="container">
@@ -13,7 +13,7 @@
 
         <div class="sidebar-flex">
             <div class="aside-left pr-30-995">
-                <a href="{{ path('admin.recipe.new') }}" class="more-link">Nouvelle</a>
+                <a href="{{ path('admin.recipe.new') }}" class="more-link">Nouvelle recette</a>
                 <div class="grid-event">
                     {% for recipe in recipes %}
                         <div class="block-event flex-none">
@@ -42,7 +42,7 @@
                                   onsubmit="return confirm('Êtes-vous vraiment sûr de vouloir supprimer cette recette ?')">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ recipe.id) }}">
-                                <button class="more-link">Supprimer</button>
+                                <button class="more-link-delete">Supprimer</button>
                             </form>
                             <span class="grid-sep"></span>
                         </div>
@@ -50,7 +50,7 @@
                 </div>
             </div>
 
-            {{ adminSidebar() }}
+            {{ adminSidebar('admin_recipe') }}
         </div>
     </div>
 {% endblock %}

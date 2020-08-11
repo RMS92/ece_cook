@@ -16,13 +16,22 @@
                 <div class="underline">
                 </div>
             </div>
+        </div>
+        <div class="form-row">
             <div class="input-data">
                 {{ form_widget(form.imageFile) }}
-                {{ form_label(form.imageFile) }}
                 {{ form_errors(form.imageFile) }}
                 <div class="underline">
                 </div>
             </div>
+        </div>
+        <div class="form-row">
+            {% if category.filename %}
+                <li class="blocks-gallery-item-admin">
+                    <img class="wp-image" src="{{ vich_uploader_asset(category, 'imageFile') }}"
+                         alt="card-img-top" style="width: 25%; height: auto;text-align: center">
+                </li>
+            {% endif %}
         </div>
         <div class="form-row mb-0">
             <div class="input-data-btn field">

@@ -14,6 +14,7 @@ import '../css/form.css'
 
 import './modules/hamburger'
 import './modules/caroussel'
+import '@grafikart/drop-files-element'
 
 import Map from '../js/modules/map'
 import Address from "./modules/places";

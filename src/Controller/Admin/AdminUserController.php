@@ -53,7 +53,6 @@ class AdminUserController extends AbstractController
 
         return $this->render('admin/user/index.html.twig', [
             'current_menu' => 'admin',
-            'current_sub_menu' => 'admin_user',
             'users' => $users
         ]);
     }
@@ -86,7 +85,6 @@ class AdminUserController extends AbstractController
 
         return $this->render('admin/user/new.html.twig', [
             'current_menu' => 'admin',
-            'current_sub_menu' => 'admin_user',
             'user' => $user,
             'form' => $form->createView()
         ]);
@@ -121,7 +119,6 @@ class AdminUserController extends AbstractController
 
         return $this->render('admin/user/edit.html.twig', [
             'current_menu' => 'admin',
-            'current_sub_menu' => 'admin_user',
             'user' => $user,
             'form' => $form->createView(),
         ]);

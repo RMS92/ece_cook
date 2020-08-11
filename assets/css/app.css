@@ -25,7 +25,7 @@ h1, h2, h3, h4, h5, h6, .primary-font {
     font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
-a {
+a, button {
     color: inherit;
     text-decoration: none;
     transition: color .35s ease-in-out, opacity .35s ease-in-out, background-color .35s ease-in-out;
@@ -116,7 +116,7 @@ ul, li {
 }
 
 
-.more-link {
+.more-link, .more-link-delete, .more-link-edit {
     -webkit-box-shadow: none;
     border: 2px solid;
     box-shadow: none;
@@ -125,6 +125,24 @@ ul, li {
     line-height: 1.1;
     padding: .7rem 1rem;
     text-decoration: none;
+    cursor: pointer;
+}
+
+.more-link-delete {
+    font-size: 1rem;
+    border: 2px solid #B22222;
+    background: #B22222;
+    color: #FFF;
+}
+.more-link-delete:hover {
+    background: #FFF;
+    color: #B22222;
+}
+
+.more-lien {
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 5px;
 }
 
 .more-link:hover {
@@ -215,8 +233,17 @@ ul, li {
     color: #c7a84e;
 }
 
+.entry-title-no-hover:hover {
+    color: #383a3b;
+}
+
 .description {
     color: #969696;
+    text-transform: uppercase;
+    font-size: .79rem;
+}
+
+.description-no-hover {
     text-transform: uppercase;
     font-size: .79rem;
 }
@@ -255,6 +282,11 @@ ul, li {
     content: '\f017';
     margin-right: 4px;
     color: #c7a84e;
+}
+
+.time-home:before {
+    content: '\f017';
+    margin-right: 4px;
 }
 
 .posted-on::before {
@@ -711,7 +743,7 @@ b {
     margin: 0;
 }
 
-.blocks-gallery-item {
+.blocks-gallery-item, .blocks-gallery-item-admin {
     width: calc(50% - 15px);
     margin: 0 15px 15px 0;
     display: flex;
@@ -721,8 +753,13 @@ b {
     position: relative;
 }
 
-.blocks-gallery-item:nth-child(event) {
-    margin-right: 0;
+.blocks-gallery-item-admin {
+    margin-right: 15px;
+    margin-bottom: 0;
+}
+
+.blocks-gallery-item-admin:first-child {
+    margin-left: 15px;
 }
 
 .wp-image {
@@ -789,7 +826,7 @@ b {
         font-size: 1.57rem;
     }
 
-    .description {
+    .description, .description-no-hover {
         font-size: .85rem;
     }
 

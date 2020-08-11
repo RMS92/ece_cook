@@ -47,7 +47,6 @@ class AdminCategoryController extends AbstractController
 
         return $this->render('admin/category/index.html.twig', [
             'current_menu' => 'admin',
-            'current_sub_menu' => 'admin_category',
             'categories' => $categories
         ]);
     }
@@ -73,7 +72,6 @@ class AdminCategoryController extends AbstractController
 
         return $this->render('admin/category/new.html.twig', [
             'current_menu' => 'admin',
-            'current_sub_menu' => 'admin_category',
             'category' => $category,
             'form' => $form->createView(),
         ]);
@@ -102,7 +100,6 @@ class AdminCategoryController extends AbstractController
 
         return $this->render('admin/category/edit.html.twig', [
             'current_menu' => 'admin',
-            'current_sub_menu' => 'admin_category',
             'category' => $category,
             'form' => $form->createView(),
         ]);

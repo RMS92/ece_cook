@@ -9,21 +9,33 @@ liip_imagine:
                 thumbnail:
                     size: [250, 150]
                     mode: outbound
-        home_event_index:
+        home_event:
             quality: 75
             filters:
                 thumbnail:
                     size: [440, 294]
                     mode: outbound
-        home_recipe_index:
+        home_recipe:
             quality: 75
             filters:
                 thumbnail:
                     size: [455, 273]
+                    mode: outbound
+        home_user:
+            quality: 75
+            filters:
+                thumbnail:
+                    size: [315, 210]
                     mode: outbound
         recipe_index:
             quality: 75
             filters:
                 thumbnail:
                     size: [250, 250]
+                    mode: outbound
+        thumb_author:
+            quality: 75
+            filters:
+                thumbnail:
+                    size: [95, 95]
                     mode: outbound

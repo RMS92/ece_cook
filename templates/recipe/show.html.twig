@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title '' %}
+{% block title 'Recette ' ~ recipe.title %}
 
 {% block baseline %}
     <div class="item item-show th-swipe" style="background: linear-gradient(360deg, rgba(0, 0, 0, 0.1), rgba(54, 54, 54, 0.5) 39.24%, rgba(28,28,28,0.4)),
@@ -8,7 +8,7 @@
     url(https://appetitedemo.files.wordpress.com/2015/07/smachno_26.jpg?w=1280&h=887&crop=1) no-repeat center center;">
         <div class="container transparent">
             <div class="entry-cats has-icon">
-                <a href="{{ path('category.show', {slug: recipe.category.slug, id: recipe.category.id}) }}">{{ recipe.category.title }}</a>
+                <a href="{{ path('category.show', {slug: recipe.category.slug, id: recipe.category.id}) }}" class="item-info">{{ recipe.category.title }}</a>
                 <span class="sep">/</span>
                 <span class="item-info">Difficulty</span>
                 {% if recipe.difficulty %}
@@ -19,17 +19,14 @@
                         <span class="has-icon difficulty-empty"></span>
                     {% endfor %}
                 {% endif %}
-                <span class="sep">/</span>
-                <span class="item-info time has-icon">{{ recipe.duration }} min</span>
             </div>
             <div class="item-title mt-30 primary-font">
                 <a>{{ recipe.title }}</a>
             </div>
             <div class="entry-meta entry-meta-baseline">
-                <span class="description posted-on has-icon"><a href="#">{{ recipe.formattedCreatedAt }}</a></span>
-                <span class="description byline has-icon"><a
-                            href="#">{{ recipe.author.firstname }} {{ recipe.author.lastname }}</a></span>
-                {#<span class="description comments-link has-icon"><a href="#">3 comments</a></span>#}
+                <span class="description-no-hover posted-on has-icon">{{ recipe.formattedCreatedAt }}</span>
+                <span class="description-no-hover byline has-icon">{{ recipe.author.firstname }} {{ recipe.author.lastname }}</span>
+                <span class="description-no-hover time-home has-icon">{{ recipe.duration }} min</span>
             </div>
         </div>
     </div>
@@ -77,18 +74,18 @@
                         <img src="https://0.gravatar.com/avatar/9bef3042b6797401752a5fdab945e2b7?s=270&d=identicon&r=G"
                              alt=""/>
                         {% else %}
-                            <img src="{{ vich_uploader_asset(recipe.author, 'imageFile') }}">
+                            <img src="{{ vich_uploader_asset(recipe.author, 'imageFile') | imagine_filter('thumb_author') }}">
                         {% endif %}
                         <div class="author-bio">
                             <h3>
                                 Written by <br>
-                                <a href="https://appetitedemo.wordpress.com/author/tarasdashkevych/?demo">{{ recipe.author.firstname }}
+                                <a>{{ recipe.author.firstname }}
                                     {{ recipe.author.lastname }}</a>
                             </h3>
                             <p>{{ recipe.author.description }}</p>
                         </div>
                     </div>
-                    <div class="comments">
+                    {#<div class="comments">
                         <h3 class="entry-content-h3">3 Commentaires</h3>
                         <ol class="comments-list pl-0">
                             <li class="comment">
@@ -163,41 +160,12 @@
                             </li>
                         </ol>
                     </div>
-                    <p class="no-comments mt-30">Comments are closed.</p>
+                    <p class="no-comments mt-30">Comments are closed.</p>#}
                 </footer>
             </div>
 
             <div class="aside-right aside-right-show">
-                <aside class="aside">
-                    <div class="infos-main widget_recent_entries border-top-main b-0">
-                        <h4 class="widget-title">Recent posts</h4>
-                        <ul>
-                            <li><a href="#">How to Make Sushi at Home</a></li>
-                            <li><a href="#">5-Minute Breakfasts That Are Actually Healthy</a></li>
-                            <li><a href="#">Everything You Want to Know About Pizza</a></li>
-                        </ul>
-                    </div>
-                    <div class="infos-main widget_recent_entries border-top-main">
-                        <h4 class="widget-title">Recent comments</h4>
-                        <ul>
-                            <li>Taras Dashkevych on <a href="#">How to Make Sushi at Home</a></li>
-                            <li>Julia Doe on <a href="#">How to Make Sushi at Home</a></li>
-                            <li>Taras Dashkevych on <a href="#">How to Make Sushi at Home</a></li>
-                            <li>Taras Dashkevych on <a href="#">Everything You Want to Know About Pizza</a></li>
-                            <li>Julia Doe on <a href="#">Everything You Want to Know About Pizza</a></li>
-                        </ul>
-                    </div>
-                    <div class="infos-main widget_recent_entries border-top-main">
-                        <h4 class="widget-title">Categories</h4>
-                        <ul>
-                            <li><a href="#">Dessert</a></li>
-                            <li><a href="#">Drinks</a></li>
-                            <li><a href="#">Food</a></li>
-                            <li><a href="#">Seafood</a></li>
-                            <li><a href="#">Tips</a></li>
-                        </ul>
-                    </div>
-                </aside>
+                {{ sidebar() }}
             </div>
         </div>
     </div>

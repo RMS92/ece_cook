@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title '' %}
+{% block title 'Modifier la recette ' ~ recipe.title %}
 
 {% block body %}
     <div class="container">
@@ -17,7 +17,7 @@
                 }}
             </div>
 
-            {{ adminSidebar() }}
+            {{ adminSidebar('admin_recipe') }}
         </div>
     </div>
 {% endblock %}

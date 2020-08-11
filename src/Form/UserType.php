@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\User;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
@@ -21,22 +22,21 @@ class UserType extends AbstractType
             ->add('username')
             ->add('lastname')
             ->add('firstname')
-            ->add('description')
-            ->add('function', TextType::class, [
+            ->add('description', CKEditorType::class,[
                 'required' => false
             ])
-            ->add('roles', CollectionType::class, [
-                'entry_type' => ChoiceType::class,
-                'entry_options' => [
-                    'choices' => $this->getRolesChoices()
-                ]
+            ->add('function', CKEditorType::class, [
+                'required' => false
             ])
+            ->add('roles', CollectionType::class)
             ->add('password')
         ->add('imageFile', FileType::class, [
-            'required'=> false,
+            'required' => false,
             'multiple' => false,
-            'label_attr' => [
-                'data-browse' => 'Parcourir'
+            'attr' => [
+                'is' => 'drop-files',
+                'label' => 'Déposer vos fichiers',
+                'help' => 'Seul les fichiers svg sont acceptés'
             ]
         ]);
     }

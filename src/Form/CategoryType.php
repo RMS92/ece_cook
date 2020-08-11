@@ -17,8 +17,10 @@ class CategoryType extends AbstractType
             ->add('imageFile', FileType::class, [
                 'required' => false,
                 'multiple' => false,
-                'label_attr' => [
-                    'data-browse' => 'Parcourir'
+                'attr' => [
+                    'is' => 'drop-files',
+                    'label' => 'Déposer vos fichiers',
+                    'help' => 'Seul les fichiers svg sont acceptés'
                 ]
             ]);
     }

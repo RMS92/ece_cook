@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 
+{% block title 'Administration' %}
+
 {% block body %}
 
     <div class="container">
         <div class="sidebar-flex">
             <div class="aside-left pr-30-995">
-
             </div>
-
-            {{ adminSidebar() }}
+            {{ adminSidebar('') }}
         </div>
     </div>
 {% endblock %}

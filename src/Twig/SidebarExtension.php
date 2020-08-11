@@ -58,12 +58,14 @@ class SidebarExtension extends AbstractExtension
         return $this->twig->render('partials/sidebar.html.twig', [
             'categories' => $categories,
             'recipes' => $recipes,
-            'events' => $events
+            'events' => $events,
         ]);
     }
 
-    public function getAdminSidebar(): string
+    public function getAdminSidebar(?string $currentSubMenu): string
     {
-        return $this->twig->render('admin/partials/admin_sidebar.html.twig');
+        return $this->twig->render('admin/partials/admin_sidebar.html.twig', [
+            'current_sub_menu' => $currentSubMenu,
+        ]);
     }
 }

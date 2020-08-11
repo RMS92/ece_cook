@@ -24,7 +24,7 @@
                 </div>
             </div>
         </div>
-        <div class="form-row">
+        <div class="form-row mt-55-row">
             <div class="input-data">
                 {{ form_widget(form.lastname) }}
                 {{ form_label(form.lastname) }}
@@ -41,24 +41,16 @@
             </div>
         </div>
         <div class="form-row">
-            <div class="input-data textarea">
-                {{ form_widget(form.description) }}
-                {{ form_label(form.description) }}
-                {{ form_errors(form.description) }}
-                <div class="underline">
-                </div>
+            <div class="form-decal">
+                {{ form_row(form.function) }}
             </div>
         </div>
         <div class="form-row">
-            <div class="input-data textarea">
-                {{ form_widget(form.function) }}
-                {{ form_label(form.function) }}
-                {{ form_errors(form.function) }}
-                <div class="underline">
-                </div>
+            <div class="form-decal">
+                {{ form_row(form.description) }}
             </div>
         </div>
-        <div class="form-row">
+        <div class="form-row mt-55-row">
             <div class="input-data file">
                 {{ form_widget(form.password) }}
                 {{ form_label(form.password) }}
@@ -66,31 +58,27 @@
                 <div class="underline">
                 </div>
             </div>
-            <div class="input-data">
-                {{ form_widget(form.roles) }}
-                {{ form_label(form.roles) }}
-                {{ form_errors(form.roles) }}
-                <div class="underline">
-                </div>
+        </div>
+        <div class="form-row">
+            <div class="form-decal">
+                {{ form_row(form.roles) }}
             </div>
         </div>
         <div class="form-row">
             <div class="input-data">
                 {{ form_widget(form.imageFile) }}
-                {{ form_label(form.imageFile) }}
                 {{ form_errors(form.imageFile) }}
                 <div class="underline">
                 </div>
             </div>
-            {#<div class="input-data">
-                {% if user.filename %}
-                    <div class="col" style="width: 100px; flex: none; margin: 5px">
-                        <img src="{{ vich_uploader_asset(user, 'imageFile') }}" width="100">
-                    </div>
-                {% endif %}
-                <div class="underline">
-                </div>
-            </div>#}
+        </div>
+        <div class="form-row">
+            {% if user.filename %}
+                <li class="blocks-gallery-item-admin">
+                    <img class="wp-image" src="{{ vich_uploader_asset(user, 'imageFile') }}"
+                         alt="card-img-top" style="width: 25%; height: auto;text-align: center">
+                </li>
+            {% endif %}
         </div>
         {% for message in app.flashes('verify_email_error') %}
             <div class="alert alert-danger mb-15" role="alert">{{ message }}</div>

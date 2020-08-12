@@ -13,6 +13,7 @@
         "doctrine/doctrine-migrations-bundle": "^3.0",
         "doctrine/orm": "^2.7",
         "friendsofsymfony/ckeditor-bundle": "^2.2",
+        "knplabs/knp-paginator-bundle": "^5.3",
         "liip/imagine-bundle": "^2.3",
         "phpdocumentor/reflection-docblock": "^5.1",
         "select2/select2": "^4.0",

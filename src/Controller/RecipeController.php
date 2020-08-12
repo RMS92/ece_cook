@@ -30,11 +30,12 @@ class RecipeController extends AbstractController
 
     /**
      * @Route("/recettes", name="recipe.index")
+     * @param Request $request
      * @return Response
      */
-    public function index(): Response
+    public function index(Request $request): Response
     {
-        $recipes = $this->repository->findAllVisibleQuery();
+        $recipes = $this->repository->paginateAllVisible($request->query->getInt('page', 1));
 
         return $this->render('recipe/index.html.twig', [
             'current_menu' => 'recipe',

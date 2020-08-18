@@ -132,7 +132,7 @@
                             </h3>
                             <div class="entry-meta">
                                 <span class="description posted-on has-icon">{{ recipe.formattedCreatedAt }}</span>
-                                <span class="description byline has-icon">{{ recipe.author.lastname }}</span>
+                                <span class="description byline has-icon"><a href="{{ path('author.showRecipe', {id: recipe.author.id, slug: recipe.author.slug}) }}">{{ recipe.author.lastname }}</a></span>
                                 <span class="description time-home has-icon">{{ recipe.duration }} min</span>
                             </div>
                             <div class="entry-summary">

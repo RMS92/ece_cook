@@ -63,6 +63,25 @@ class RecipeRepository extends ServiceEntityRepository
         );
     }
 
+    /**
+     * @param int $page
+     * @param int $id
+     * @return PaginationInterface
+     */
+    public function paginateRecipeForUser(int $page, int $id): PaginationInterface
+    {
+        $query =  $this->findVisibleQuery()
+            ->join('r.author', 'a',)
+            ->andWhere('a.id = :id')
+            ->setParameter('id', $id);
+
+        return $this->paginator->paginate(
+            $query->getQuery(),
+            $page,
+            3
+        );
+    }
+
     public function findLatest(): array
     {
         return $this->findVisibleQuery()

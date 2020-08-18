@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Cocur\Slugify\Slugify;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -170,6 +171,12 @@ class User implements UserInterface, \Serializable
     {
         $this->lastname = $lastname;
         return $this;
+    }
+
+    public function getSlug()
+    {
+        $slugify = new Slugify();
+        return $slugify->slugify($this->lastname);
     }
 
     /**

@@ -1,11 +1,12 @@
 {% if  article.pictures is empty %}
-    <img src="{{ 'images/smachno_07.jpg' }}" alt="card-img-top"
-         style="width: 100%; height: auto;">
+    <a href="{{ path('article.show', {slug: article.slug, id: article.id}) }}">
+        <img src="{{ 'images/smachno_07.jpg' | imagine_filter('event_index') }}" alt="card-img-top"
+                    style="width: 100%; height: auto;"></a>
 {% else %}
     {% for picture in article.pictures %}
         {% if loop.first %}
             <a href="{{ path('article.show', {slug: article.slug, id: article.id}) }}"><img
-                        src="{{ vich_uploader_asset(picture, 'imageFile') }}"
+                        src="{{ vich_uploader_asset(picture, 'imageFile') | imagine_filter('event_index') }}"
                         alt="card-img-top" style="width: 100%; height: auto;"></a>
         {% endif %}
     {% endfor %}

@@ -1,3 +1,44 @@
 {% extends 'base.html.twig' %}
 
-{% block title 'Les recettes de ' %}
+{% block title 'Les recettes de ' ~ user.lastname %}
+
+{% block baseline %}
+    <div class="item item-normal th-swipe" style="background: linear-gradient(360deg, rgba(0, 0, 0, 0.1), rgba(54, 54, 54, 0.5) 39.24%, rgba(28, 28, 28, 0.4)),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(54, 54, 54, 0.5) 39.24%, rgba(28, 28, 28, 0.4)),
+    url(https://appetitedemo.files.wordpress.com/2015/07/smachno_01.jpg?w=1280&h=853&crop=1) no-repeat center center;">
+        <div class="container transparent">
+            <div class="item-title primary-font">
+                <a>{{ user.firstname }} {{ user.lastname }}</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+
+        <div class="sidebar-flex">
+            <div class="aside-left">
+
+                {% if recipes %}
+                    {% for recipe in recipes %}
+                        <div class="block-recipe block-flex border-top">
+                            {% include 'recipe/_recipe.html.twig' %}
+                        </div>
+                    {% endfor %}
+
+                    <div class="border-top-main">
+                        <div class="center">
+                            {{ knp_pagination_render(recipes) }}
+                        </div>
+                    </div>
+                {% endif %}
+
+            </div>
+            <div class="aside-right">
+                {{ sidebar() }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

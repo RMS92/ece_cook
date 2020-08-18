@@ -1,7 +1,8 @@
 <div class="block-img-recipes p-img-30">
     {% if  recipe.pictures is empty %}
-        <img src="{{ 'images/smachno_07.jpg' }}" alt="card-img-top"
-             style="width: 100%; height: auto;">
+        <a href="{{ path('recipe.show', {slug: recipe.slug, id: recipe.id }) }}"><img
+                    src="{{ 'images/smachno_07.jpg' | imagine_filter('recipe_index') }}" alt="card-img-top"
+                    style="width: 100%; height: auto;"></a>
     {% else %}
         {% for picture in recipe.pictures %}
             {% if loop.first %}
@@ -13,28 +14,31 @@
     {% endif %}
 </div>
 <div class="block-main-recipe">
-    <a href="{{ path('category.show', {slug: recipe.category.slug, id: recipe.category.id}) }}" class="category-link mt-30">{{ recipe.category.title }}</a>
-    <span class="sep">/</span>
-    <span class="item-info">Difficulty</span>
-    {% if recipe.difficulty %}
-        {% for i in 1..recipe.difficulty %}
-            <span class="has-icon difficulty"></span>
-        {% endfor %}
-        {% for i in recipe.difficulty..4 %}
-            <span class="has-icon difficulty-empty"></span>
-        {% endfor %}
-    {% endif %}
+        <a href="{{ path('category.show', {slug: recipe.category.slug, id: recipe.category.id}) }}"
+           class="category-link mt-30">{{ recipe.category.title }}</a>
+        <span class="sep">/</span>
+        <span class="item-info">Difficulty</span>
+        {% if recipe.difficulty %}
+            {% for i in 0..recipe.difficulty-1 %}
+                <span class="has-icon difficulty"></span>
+            {% endfor %}
+            {% for i in recipe.difficulty..4 %}
+                <span class="has-icon difficulty-empty"></span>
+            {% endfor %}
+        {% endif %}
     {#<span class="has-icon difficulty-half"></span>
     <span class="has-icon difficulty-empty"></span>#}
-    <h3 class="entry-title mt-10"><a href="{{ path('recipe.show', {slug: recipe.slug, id: recipe.id}) }}">{{ recipe.title }}</a></h3>
+    <h3 class="entry-title mt-10"><a
+                href="{{ path('recipe.show', {slug: recipe.slug, id: recipe.id}) }}">{{ recipe.title }}</a></h3>
     <div class="entry-meta">
         <span class="description posted-on has-icon">{{ recipe.formattedCreatedAt }}</span>
-        <span class="description byline has-icon">{{ recipe.author.lastname }}</span>
+        <span class="description byline has-icon"><a
+                    href="{{ path('author.showRecipe', {id: recipe.author.id, slug: recipe.author.slug}) }}">{{ recipe.author.lastname }}</a></span>
         <span class="description time-home has-icon">{{ recipe.duration }} min</span>
         {#<span class="description comments-link has-icon"><a href="#">3 comments</a></span>#}
     </div>
     <div class="entry-summary">
-        <p>{{ recipe.formattedCaption  }}</p>
+        <p>{{ recipe.formattedCaption }}</p>
         <a href="{{ path('recipe.show', {slug: recipe.slug, id: recipe.id}) }}" class="more-link">Read more</a>
     </div>
 </div>

@@ -45,6 +45,7 @@ class SidebarExtension extends AbstractExtension
     {
         return [
             new TwigFunction('sidebar', [$this, 'getSidebar'], ['is_safe' => ['html']]),
+            new TwigFunction('recipeForFooter', [$this, 'getRecipeForFooter'], ['is_safe' => ['html']]),
             new TwigFunction('adminSidebar', [$this, 'getAdminSidebar'], ['is_safe' => ['html']])
         ];
     }
@@ -60,6 +61,16 @@ class SidebarExtension extends AbstractExtension
             'recipes' => $recipes,
             'events' => $events,
         ]);
+    }
+
+    public function getRecipeForFooter(): string
+    {
+        $recipes = $this->recipeRepository->findForSidebar();
+
+        return $this->twig->render('partials/recipe_footer.html.twig', [
+            'recipes' => $recipes,
+        ]);
+
     }
 
     public function getAdminSidebar(?string $currentSubMenu): string

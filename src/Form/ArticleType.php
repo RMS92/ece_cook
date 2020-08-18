@@ -3,7 +3,6 @@
 namespace App\Form;
 
 use App\Entity\Article;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -15,8 +14,8 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('caption', CKEditorType::class)
-            ->add('description', CKEditorType::class)
+            ->add('caption')
+            ->add('description')
             ->add('pictureFiles', FileType::class, [
                 'required' => false,
                 'multiple' => true,

@@ -21,26 +21,6 @@ class RecipePictureRepository extends ServiceEntityRepository
         parent::__construct($registry, RecipePicture::class);
     }
 
-    /**
-     * @param Recipe[] $recipes
-     * @return ArrayCollection
-     */
-    public function findForRecipes(array $recipes): ArrayCollection
-    {
-        $pictures = $this->createQueryBuilder('p')
-            ->select('p')
-            ->where('p.recipe IN (:recipes)')
-            ->groupBy('p.recipe')
-            ->getQuery()
-            ->setParameter('recipes', $recipes)
-            ->getResult();
-        $pictures = array_reduce($pictures, function (array $acc, RecipePicture $picture){
-            $acc[$picture->getRecipe()->getId()] = $picture;
-            return $acc;
-        }, []);
-        return new ArrayCollection($pictures);
-    }
-
     // /**
     //  * @return RecipePicture[] Returns an array of RecipePicture objects
     //  */

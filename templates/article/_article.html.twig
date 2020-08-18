@@ -15,7 +15,7 @@
             href="{{ path('article.show', {slug: article.slug, id: article.id}) }}">{{ article.title }}</a>
 </h3>
 <div class="entry-summary">
-    <p class="mt-0">{{ article.caption }}</p>
+    <p class="mt-0">{{ article.formattedCaption }}</p>
     <a class="more-link" href="{{ path('article.show', {slug: article.slug, id: article.id}) }}">Read more</a>
 </div>
 <span class="grid-sep"></span>

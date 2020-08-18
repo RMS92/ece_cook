@@ -98,7 +98,7 @@
                             <span class="description map has-icon">{{ event.city }}</span>
                         </div>
                         <div class="entry-summary">
-                            <p>{{ event.caption }}</p>
+                            <p>{{ event.formattedCaption }}</p>
                             <a href="{{ path('event.show', {slug: event.slug, id: event.id}) }}" class="more-link">Read
                                 more</a>
                         </div>
@@ -136,7 +136,7 @@
                                 <span class="description time-home has-icon">{{ recipe.duration }} min</span>
                             </div>
                             <div class="entry-summary">
-                                <p>{{ recipe.caption }}</p>
+                                <p>{{ recipe.formattedCaption }}</p>
                                 <a href="{{ path('recipe.show', {slug: recipe.slug, id: recipe.id}) }}"
                                    class="more-link">Read more</a>
                             </div>
@@ -169,7 +169,7 @@
                                 </div>
                                 <div class="entry-summary">
                                     <p>
-                                        {{ user.description }}
+                                        {{ user.formattedDescription }}
                                     </p>
                                 </div>
                             </div>

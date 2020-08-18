@@ -24,8 +24,8 @@
                 </div>
             </div>
         </div>
-        <div class="form-row mt-55-row">
-            <div class="input-data">
+        <div class="form-row">
+            <div class="input-data mt-15-row">
                 {{ form_widget(form.lastname) }}
                 {{ form_label(form.lastname) }}
                 {{ form_errors(form.lastname) }}
@@ -41,17 +41,23 @@
             </div>
         </div>
         <div class="form-row">
-            <div class="form-decal">
-                {{ form_row(form.function) }}
+            <div class="input-data textarea mt-15-row">
+                {{ form_widget(form.function) }}
+                {{ form_label(form.function) }}
+                {{ form_errors(form.function) }}
+                <div class="underline"></div>
             </div>
         </div>
         <div class="form-row">
-            <div class="form-decal">
-                {{ form_row(form.description) }}
+            <div class="input-data textarea mt-15-row">
+                {{ form_widget(form.description) }}
+                {{ form_label(form.description) }}
+                {{ form_errors(form.description) }}
+                <div class="underline"></div>
             </div>
         </div>
-        <div class="form-row mt-55-row">
-            <div class="input-data file">
+        <div class="form-row">
+            <div class="input-data file mt-15-row" style="padding-top: 10px">
                 {{ form_widget(form.password) }}
                 {{ form_label(form.password) }}
                 {{ form_errors(form.password) }}

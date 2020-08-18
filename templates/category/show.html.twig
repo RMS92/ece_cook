@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title "La catégorie " %}
+{% block title category.title %}
 
 {% block baseline %}
     <div class="item item-normal th-swipe" style="background: linear-gradient(360deg, rgba(0, 0, 0, 0.1), rgba(54, 54, 54, 0.5) 39.24%, rgba(28, 28, 28, 0.4)),
@@ -20,114 +20,20 @@
         <div class="sidebar-flex">
             <div class="aside-left">
 
-                {% if category.recipes %}
-                    {% for recipe in category.recipes %}
+                {% if recipes %}
+                    {% for recipe in recipes %}
                         <div class="block-recipe block-flex border-top">
                             {% include 'recipe/_recipe.html.twig' %}
                         </div>
                     {% endfor %}
+
+                    <div class="border-top-main">
+                        <div class="center">
+                            {{ knp_pagination_render(recipes) }}
+                        </div>
+                    </div>
                 {% endif %}
 
-                {#<div class="block-recipe block-flex border-top">
-                    <div class="block-img-recipes p-img-30">
-                        <a href="#"><img
-                                    src="https://appetitedemo.files.wordpress.com/2015/07/smachno_04.jpg?w=800&h=480&crop=1"
-                                    alt="card-recipe"/></a>
-                    </div>
-                    <div class="block-main-recipe">
-                        <a href="#" class="category-link mt-30">Seafood</a>
-                        <span class="sep">/</span>
-                        <span class="item-info">Difficulty</span>
-                        <span class="has-icon difficulty"></span>
-                        <span class="has-icon difficulty"></span>
-                        <span class="has-icon difficulty"></span>
-                        <span class="has-icon difficulty-half"></span>
-                        <span class="has-icon difficulty-empty"></span>
-                        <span class="sep">/</span>
-                        <span class="item-info time has-icon">25 min</span>
-                        <h3 class="entry-title mt-10"><a href="#">How to make sushi at home</a></h3>
-                        <div class="entry-meta">
-                            <span class="description posted-on has-icon"><a href="#">July 8, 2015</a></span>
-                            <span class="description byline has-icon"><a href="#">Taras DASHKEVYCH</a></span>
-                            <span class="description comments-link has-icon"><a href="#">3 comments</a></span>
-                        </div>
-                        <div class="entry-summary">
-                            <p>Sushi is a Japanese food consisting of cooked vinegared rice combined with other
-                                ingredients,
-                                seafood, vegetables and sometimes tropical fruits.…</p>
-                            <a class="more-link">Read more</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="block-recipe block-flex border-top">
-                    <div class="block-img-recipes p-img-30">
-                        <a href="#"><img
-                                    src="https://appetitedemo.files.wordpress.com/2015/07/smachno_02.jpg?w=800&h=480&crop=1"
-                                    alt="card-recipe"/></a>
-                    </div>
-                    <div class="block-main-recipe">
-                        <a href="#" class="category-link mt-30 mb-10">Seafood</a>
-                        <span class="sep">/</span>
-                        <span class="item-info">Difficulty</span>
-                        <span class="has-icon difficulty"></span>
-                        <span class="has-icon difficulty"></span>
-                        <span class="has-icon difficulty"></span>
-                        <span class="has-icon difficulty"></span>
-                        <span class="has-icon difficulty-empty"></span>
-                        <span class="sep">/</span>
-                        <span class="item-info time has-icon">35 min</span>
-                        <h3 class="entry-title mt-10"><a href="#">EVERYTHING YOU WANT TO KNOW ABOUT</a></h3>
-                        <div class="entry-meta">
-                            <span class="description posted-on has-icon"><a href="#">July 8, 2015</a></span>
-                            <span class="description byline has-icon"><a href="#">Taras DASHKEVYCH</a></span>
-                            <span class="description comments-link has-icon"><a href="#">2 comments</a></span>
-                        </div>
-                        <div class="entry-summary">
-                            <p>Pizza is an oven-baked flat bread generally topped with tomato sauce and cheese. It is
-                                commonly
-                                supplemented with a selection…</p>
-                            <a class="more-link">Read more</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="block-recipe block-flex border-top">
-                    <div class="block-img-recipes p-img-30">
-                        <a href="#"><img
-                                    src="https://appetitedemo.files.wordpress.com/2015/07/smachno_26.jpg?w=800&h=480&crop=1"
-                                    alt="card-recipe"/></a>
-                    </div>
-                    <div class="block-main-recipe">
-                        <a href="#" class="category-link mt-30 mb-10">Seafood</a>
-                        <span class="sep">/</span>
-                        <span class="item-info">Difficulty</span>
-                        <span class="has-icon difficulty"></span>
-                        <span class="has-icon difficulty"></span>
-                        <span class="has-icon difficulty"></span>
-                        <span class="has-icon difficulty"></span>
-                        <span class="has-icon difficulty"></span>
-                        <span class="sep">/</span>
-                        <span class="item-info time has-icon">55 min</span>
-                        <h3 class="entry-title mt-10"><a href="#">BEER ON TAP OR IN A BOTTLE?</a></h3>
-                        <div class="entry-meta">
-                            <span class="description posted-on has-icon"><a href="#">July 4, 2015</a></span>
-                            <span class="description byline has-icon"><a href="#">Taras DASHKEVYCH</a></span>
-                            <span class="description comments-link has-icon"><a href="#">1 comment</a></span>
-                        </div>
-                        <div class="entry-summary">
-                            <p>Beer is an alcoholic beverage produced by the saccharification of starch and fermentation
-                                of
-                                the
-                                resulting sugar. The starch and…</p>
-                            <a class="more-link">Read more</a>
-                        </div>
-                    </div>
-                </div>#}
-
-                <div class="border-top-main">
-                    <button class="more-item">Older posts</button>
-                </div>
             </div>
             <div class="aside-right">
                 {{ sidebar() }}

@@ -31,11 +31,13 @@ class EventController extends AbstractController
 
     /**
      * @Route("/évènements", name="event.index")
+     * @param Request $request
      * @return Response
      */
-    public function index(): Response
+    public function index(Request $request): Response
     {
-        $events = $this->repository->findAllVisibleQuery();
+        $events = $this->repository->paginateAllVisible($request->query->getInt('page', 1));
+
         return $this->render('event/index.html.twig', [
             'current_menu' => 'event',
             'events' => $events

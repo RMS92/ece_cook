@@ -7,6 +7,8 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Query;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
+use Knp\Component\Pager\Pagination\PaginationInterface;
+use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * @method Event|null find($id, $lockMode = null, $lockVersion = null)
@@ -16,16 +18,30 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class EventRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    /**
+     * @var PaginatorInterface
+     */
+    private PaginatorInterface $paginator;
+
+    public function __construct(ManagerRegistry $registry, PaginatorInterface $paginator)
     {
         parent::__construct($registry, Event::class);
+        $this->paginator = $paginator;
     }
 
-    public function findAllVisibleQuery(): array
+    /**
+     * @param int $page
+     * @return PaginationInterface
+     */
+    public function paginateAllVisible(int $page): PaginationInterface
     {
-        return $this->findVisibleQuery()
-            ->getQuery()
-            ->getResult();
+        $query =  $this->findVisibleQuery();
+
+        return $this->paginator->paginate(
+            $query->getQuery(),
+            $page,
+            4
+        );
     }
 
     public function findLatest(): array

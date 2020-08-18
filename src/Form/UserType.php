@@ -3,12 +3,12 @@
 namespace App\Form;
 
 use App\Entity\User;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -22,10 +22,10 @@ class UserType extends AbstractType
             ->add('username')
             ->add('lastname')
             ->add('firstname')
-            ->add('description', CKEditorType::class,[
+            ->add('description', TextareaType::class,[
                 'required' => false
             ])
-            ->add('function', CKEditorType::class, [
+            ->add('function', TextareaType::class, [
                 'required' => false
             ])
             ->add('roles', CollectionType::class)

@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Entity\Category;
 use App\Repository\CategoryRepository;
+use App\Repository\RecipeRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,11 +23,16 @@ class CategoryController extends AbstractController
      * @var EntityManagerInterface
      */
     private EntityManagerInterface $em;
+    /**
+     * @var RecipeRepository
+     */
+    private RecipeRepository $recipeRepository;
 
-    public function __construct(CategoryRepository $repository, EntityManagerInterface $em)
+    public function __construct(CategoryRepository $repository, RecipeRepository $recipeRepository, EntityManagerInterface $em)
     {
         $this->repository = $repository;
         $this->em = $em;
+        $this->recipeRepository = $recipeRepository;
     }
 
     /**
@@ -45,9 +51,12 @@ class CategoryController extends AbstractController
             ], 301);
         }
 
+        $recipes = $this->recipeRepository->paginateRecipeForCategory($request->query->getInt('page', 1), $category->getId());
+
         return $this->render('category/show.html.twig', [
             'current_menu' => 'recipe',
-            'category' => $category
+            'category' => $category,
+            'recipes' => $recipes
         ]);
     }
 }

@@ -195,6 +195,17 @@ class User implements UserInterface, \Serializable
         return $this->description;
     }
 
+    public function getFormattedDescription(): ?string
+    {
+        $limit = 250;
+        if(mb_strlen($this->description) <= $limit) {
+            return $this->description;
+        }
+        $lastSpace = mb_strpos($this->description, ' ', $limit);
+
+        return mb_substr($this->description, 0, $lastSpace) . '...';
+    }
+
     public function setDescription(?string $description): self
     {
         $this->description = $description;

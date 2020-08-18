@@ -34,7 +34,7 @@
         {#<span class="description comments-link has-icon"><a href="#">3 comments</a></span>#}
     </div>
     <div class="entry-summary">
-        <p>{{ recipe.caption }}</p>
+        <p>{{ recipe.formattedCaption  }}</p>
         <a href="{{ path('recipe.show', {slug: recipe.slug, id: recipe.id}) }}" class="more-link">Read more</a>
     </div>
 </div>

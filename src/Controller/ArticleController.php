@@ -31,11 +31,12 @@ class ArticleController extends AbstractController
 
     /**
      * @Route("/boutique", name="article.index")
+     * @param Request $request
      * @return Response
      */
-    public function index(): Response
+    public function index(Request $request): Response
     {
-        $articles = $this->repository->findAllVisibleQuery();
+        $articles = $this->repository->paginateAllVisible($request->query->getInt('page', 1));
 
         return $this->render('article/index.html.twig', [
             'current_menu' => 'article',

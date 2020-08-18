@@ -17,8 +17,8 @@ class EventType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('caption', CKEditorType::class)
-            ->add('description', CKEditorType::class)
+            ->add('caption')
+            ->add('description')
             ->add('city')
             ->add('address', TextType::class, [
                 'attr' => [

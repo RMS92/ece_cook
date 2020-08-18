@@ -23,13 +23,19 @@
             </div>
         </div>
         <div class="form-row">
-            <div class="form-decal">
-                {{ form_row(form.caption) }}
+            <div class="input-data textarea mt-15-row">
+                {{ form_widget(form.caption) }}
+                {{ form_label(form.caption) }}
+                {{ form_errors(form.caption) }}
+                <div class="underline"></div>
             </div>
         </div>
         <div class="form-row">
-            <div class="form-decal">
-                {{ form_row(form.description) }}
+            <div class="input-data textarea mt-15-row">
+                {{ form_widget(form.description) }}
+                {{ form_label(form.description) }}
+                {{ form_errors(form.description) }}
+                <div class="underline"></div>
             </div>
         </div>
         <div class="form-row">
@@ -37,16 +43,15 @@
                 {{ form_row(form.address) }}
             </div>
         </div>
-        <div class="form-row mt-55-row">
-
-            <div class="input-data">
+        <div class="form-row">
+            <div class="input-data mt-15-row" style="padding-top: 10px">
                 {{ form_widget(form.city) }}
                 {{ form_label(form.city) }}
                 {{ form_errors(form.city) }}
                 <div class="underline">
                 </div>
             </div>
-            <div class="input-data">
+            <div class="input-data" style="padding-top: 10px">
                 {{ form_widget(form.postal_code) }}
                 {{ form_label(form.postal_code) }}
                 {{ form_errors(form.postal_code) }}

@@ -27,7 +27,9 @@
                 {% endfor %}
 
                 <div class="border-top-main">
-                    <button class="more-item">Older posts</button>
+                    <div class="center">
+                        {{ knp_pagination_render(recipes) }}
+                    </div>
                 </div>
             </div>
             <div class="aside-right">

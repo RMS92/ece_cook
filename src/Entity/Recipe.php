@@ -137,6 +137,17 @@ class Recipe
         return $this->caption;
     }
 
+    public function getFormattedCaption(): ?string
+    {
+        $limit = 250;
+        if(mb_strlen($this->caption) <= $limit) {
+            return $this->caption;
+        }
+        $lastSpace = mb_strpos($this->caption, ' ', $limit);
+
+        return mb_substr($this->caption, 0, $lastSpace) . '...';
+    }
+
     public function setCaption(string $caption): self
     {
         $this->caption = $caption;

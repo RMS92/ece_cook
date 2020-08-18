@@ -130,17 +130,15 @@
     margin: 30px 0;
 }
 
-.container .form .mt-55-row {
-    margin-top: 55px;
+.container .form .form-row .mt-15-row {
+    margin-top: 15px;
 }
 .form .form-row .input-data{
     width: 100%;
     margin: 0 20px;
     position: relative;
 }
-.form .form-row .textarea{
-    height: 70px;
-}
+
 .input-data input,
 .textarea textarea{
     display: block;
@@ -157,6 +155,7 @@
     color: #3498db;
 }
 .textarea textarea{
+    height: auto;
     resize: none;
     padding-top: 10px;
 }

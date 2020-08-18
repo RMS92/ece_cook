@@ -18,13 +18,19 @@
             </div>
         </div>
         <div class="form-row">
-            <div class="form-decal">
-                {{ form_row(form.caption) }}
+            <div class="input-data textarea mt-15-row">
+                {{ form_widget(form.caption) }}
+                {{ form_label(form.caption) }}
+                {{ form_errors(form.caption) }}
+                <div class="underline"></div>
             </div>
         </div>
         <div class="form-row">
-            <div class="form-decal">
-                {{ form_row(form.description) }}
+            <div class="input-data textarea mt-15-row">
+                {{ form_widget(form.description) }}
+                {{ form_label(form.description) }}
+                {{ form_errors(form.description) }}
+                <div class="underline"></div>
             </div>
         </div>
         <div class="form-row">
@@ -35,8 +41,8 @@
                 {{ form_row(form.category) }}
             </div>
         </div>
-        <div class="form-row mt-55-row">
-            <div class="input-data">
+        <div class="form-row">
+            <div class="input-data mt-15-row">
                 {{ form_widget(form.duration) }}
                 {{ form_label(form.duration) }}
                 {{ form_errors(form.duration) }}
@@ -60,7 +66,8 @@
                 <li class="blocks-gallery-item-admin">
                     <img class="wp-image" src="{{ vich_uploader_asset(picture, 'imageFile') }}"
                          alt="card-img-top" style="width: 100%; height: auto;">
-                    <a href="{{ path('admin.recipepicture.delete', {id: picture.id}) }}" class="more-link-delete more-lien"
+                    <a href="{{ path('admin.recipepicture.delete', {id: picture.id}) }}"
+                       class="more-link-delete more-lien"
                        data-delete
                        data-token="{{ csrf_token('delete' ~ picture.id) }}">Supprimer</a>
                 </li>

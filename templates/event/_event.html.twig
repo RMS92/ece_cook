@@ -15,7 +15,7 @@
             href="{{ path('event.show', {slug: event.slug, id: event.id}) }}">{{ event.title }}</a>
 </h3>
 <div class="entry-summary">
-    <p class="mt-0">{{ event.caption }}</p>
+    <p class="mt-0">{{ event.formattedCaption }}</p>
     <a class="more-link" href="{{ path('event.show', {slug: event.slug, id: event.id}) }}">Read more</a>
 </div>
 <span class="grid-sep"></span>

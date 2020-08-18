@@ -37,22 +37,30 @@ class RecipeRepository extends ServiceEntityRepository
     {
         $query =  $this->findVisibleQuery();
 
-        $recipes = $this->paginator->paginate(
+        return $this->paginator->paginate(
             $query->getQuery(),
             $page,
-            4
+            3
         );
+    }
 
-        $pictures = $this->getEntityManager()->getRepository(RecipePicture::class)->findForRecipes((array)$recipes->getItems());
+    /**
+     * @param int $page
+     * @param int $id
+     * @return PaginationInterface
+     */
+    public function paginateRecipeForCategory(int $page, int $id): PaginationInterface
+    {
+        $query =  $this->findVisibleQuery()
+            ->join('r.category', 'c',)
+            ->andWhere('c.id = :id')
+            ->setParameter('id', $id);
 
-        foreach ($recipes as $recipe) {
-            /** @var $recipe Recipe */
-            if($pictures->containsKey($recipe->getId())) {
-
-            }
-        }
-
-        return $recipes;
+        return $this->paginator->paginate(
+            $query->getQuery(),
+            $page,
+            3
+        );
     }
 
     public function findLatest(): array

@@ -260,6 +260,10 @@ ul, li {
     font-size: .9rem;
 }
 
+.entry-cats a:hover {
+    opacity: .5;
+}
+
 .difficulty::after {
     content: "\f005";
     margin-left: 4px;
@@ -477,7 +481,7 @@ ul, li {
 
 .entry-card {
     text-align: center;
-    padding: 30px;
+    padding: 30px 15px;
 }
 
 .border-top {
@@ -598,6 +602,10 @@ ul, li {
 .sep {
     margin: 0 .25rem;
     opacity: .5;
+}
+
+.entry-meta-baseline > * + * {
+    margin-left: .85rem;
 }
 
 .entry-meta-baseline a, .entry-meta-baseline .comments-link::before, .entry-meta-baseline .byline::before, .entry-meta-baseline .posted-on::before, .entry-meta-baseline .map::before {

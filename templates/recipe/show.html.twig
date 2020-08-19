@@ -5,14 +5,14 @@
 {% block baseline %}
     <div class="item item-show th-swipe" style="background: linear-gradient(360deg, rgba(0, 0, 0, 0.1), rgba(54, 54, 54, 0.5) 39.24%, rgba(28,28,28,0.4)),
     linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(54, 54, 54, 0.5) 39.24%, rgba(28, 28, 28, 0.4)),
-    url(https://appetitedemo.files.wordpress.com/2015/07/smachno_26.jpg?w=1280&h=887&crop=1) no-repeat center center;">
+    url({{ vich_uploader_asset(recipe.picture, 'imageFile') | imagine_filter('baseline_image') }}) no-repeat center center;">
         <div class="container transparent">
             <div class="entry-cats has-icon">
                 <a href="{{ path('category.show', {slug: recipe.category.slug, id: recipe.category.id}) }}" class="item-info">{{ recipe.category.title }}</a>
                 <span class="sep">/</span>
                 <span class="item-info">Difficulty</span>
                 {% if recipe.difficulty %}
-                    {% for i in 1..recipe.difficulty %}
+                    {% for i in 0..recipe.difficulty-1 %}
                         <span class="has-icon difficulty"></span>
                     {% endfor %}
                     {% for i in recipe.difficulty..4 %}
@@ -23,9 +23,9 @@
             <div class="item-title mt-30 primary-font">
                 <a>{{ recipe.title }}</a>
             </div>
-            <div class="entry-meta entry-meta-baseline">
+            <div class="entry-meta-baseline">
                 <span class="description-no-hover posted-on has-icon">{{ recipe.formattedCreatedAt }}</span>
-                <span class="description-no-hover byline has-icon">{{ recipe.author.firstname }} {{ recipe.author.lastname }}</span>
+                <span class="description-no-hover byline has-icon"><a href="{{ path('author.showRecipe', {id: recipe.author.id, slug: recipe.author.slug}) }}">{{ recipe.author.firstname }} {{ recipe.author.lastname }}</a></span>
                 <span class="description-no-hover time-home has-icon">{{ recipe.duration }} min</span>
             </div>
         </div>

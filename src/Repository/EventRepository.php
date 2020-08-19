@@ -65,7 +65,7 @@ class EventRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('e')
             ->select('e')
             ->andWhere('e.active = true')
-            ->orderBy('e.created_at', 'DESC');
+            ->orderBy('e.takesPlace_at', 'DESC');
     }
 
     // /**

@@ -30,7 +30,7 @@
                                 {% endfor %}
                             {% endif %}
 
-                            <h3 class="entry-title mt-30"><a href="#">{{ article.title }}</a>
+                            <h3 class="entry-title mt-30"><a href="{{ path('article.show', {slug: article.slug, id: article.id}) }}">{{ article.title }}</a>
                             </h3>
                             <div class="entry-summary">
                                 <p></p>

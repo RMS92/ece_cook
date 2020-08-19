@@ -17,11 +17,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Recipe
 {
     const DIFFICULTY = [
-        0 => 1,
-        1 => 2,
-        2 => 3,
-        3 => 4,
-        4 => 5,
+        0 => 0,
+        1 => 1,
+        2 => 2,
+        3 => 3,
+        4 => 4,
+        5 => 5
     ];
 
     /**
@@ -139,7 +140,7 @@ class Recipe
 
     public function getFormattedCaption(): ?string
     {
-        $limit = 250;
+        $limit = 200;
         if(mb_strlen($this->caption) <= $limit) {
             return $this->caption;
         }
@@ -226,6 +227,14 @@ class Recipe
     public function getPictures(): Collection
     {
         return $this->pictures;
+    }
+
+    public function getPicture(): ?RecipePicture
+    {
+        if ($this->pictures->isEmpty()) {
+            return null;
+        }
+        return $this->pictures->first();
     }
 
     public function addPicture(RecipePicture $picture): self

@@ -9,6 +9,12 @@ liip_imagine:
                 thumbnail:
                     size: [250, 150]
                     mode: outbound
+        baseline_image:
+            quality: 75
+            filters:
+                thumbnail:
+                    size: [1280, 855]
+                    mode: outbound
         home_event:
             quality: 75
             filters:
@@ -38,6 +44,12 @@ liip_imagine:
             filters:
                 thumbnail:
                     size: [270, 188]
+                    mode: outbound
+        event_content:
+            quality: 75
+            filters:
+                thumbnail:
+                    size: [175, 120]
                     mode: outbound
         thumb_author:
             quality: 75

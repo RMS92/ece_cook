@@ -5,10 +5,10 @@
 {% block baseline %}
     <div class="item item-normal th-swipe" style="background: linear-gradient(360deg, rgba(0, 0, 0, 0.1), rgba(54, 54, 54, 0.5) 39.24%, rgba(28, 28, 28, 0.4)),
     linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(54, 54, 54, 0.5) 39.24%, rgba(28, 28, 28, 0.4)),
-    url(https://appetitedemo.files.wordpress.com/2015/07/smachno_09.jpg?w=1280&h=852&crop=1) no-repeat center center;">
+    url({{ 'images/smachno_09.jpg' | imagine_filter('baseline_image') }}) no-repeat center center;">
         <div class="container transparent">
             <div class="item-title primary-font">
-                <a>Le t-shirt {{ article.title }}</a>
+                <a>{{ article.title }}</a>
             </div>
         </div>
     </div>
@@ -33,7 +33,7 @@
                         {% endfor %}
                     </ul>
                 </div>
-                <h3 class="entry-content-h3">La T-shirt {{ article.title }}</h3>
+                <h3 class="entry-content-h3">{{ article.title }}</h3>
                 <div class="entry-summary mt-30 entry-text">
                     <p class="mt-0">
                         {{ article.description }}

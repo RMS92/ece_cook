@@ -295,7 +295,6 @@ class Event
             return null;
         }
         return $this->pictures->first();
-
     }
 
     public function addPicture(EventPicture $picture): self

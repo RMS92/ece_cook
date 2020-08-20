@@ -540,6 +540,14 @@ ul, li {
     transition: color .35s ease-in-out, opacity .35s ease-in-out, background-color .35s ease-in-out;
 }
 
+.infos-main-a a {
+    color: #FFF;
+}
+
+.infos-main-a a:hover {
+    color: #B22222;
+}
+
 .infos-main a:hover {
     color: #c7a84e;
     text-decoration: none;

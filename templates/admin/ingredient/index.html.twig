@@ -16,15 +16,15 @@
                 <div class="admin-container">
                     <div class="infos-main widget_recent_entries border-top-main b-0">
                         <h4 class="widget-title">Les ingrédients</h4>
-                        <table>
+                        <table style="text-align: center">
                             <thead>
                             <tr>
                                 <th>Nom</th>
                                 <th><a href="{{ path('admin.ingredient.new') }}" class="more-link">Nouveau</a></th>
                             </tr>
                             </thead>
-                            {% for ingredient in ingredients %}
                                 <tbody>
+                                {% for ingredient in ingredients %}
                                 <tr>
                                     <td>
                                         {{ ingredient.name }}</td>
@@ -40,8 +40,8 @@
                                         </form>
                                     </td>
                                 </tr>
+                                {% endfor %}
                                 </tbody>
-                            {% endfor %}
                         </table>
                     </div>
                 </div>

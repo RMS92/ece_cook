@@ -46,7 +46,7 @@
                     <ul class="block-gallery-grid">
                         {% for picture in recipe.pictures %}
                             <li class="blocks-gallery-item">
-                                <img class="wp-image" src="{{ vich_uploader_asset(picture, 'imageFile') }}"
+                                <img class="wp-image" src="{{ vich_uploader_asset(picture, 'imageFile') | imagine_filter('event_content') }}"
                                      alt="card-img-top" style="width: 100%; height: auto;">
                             </li>
                         {% endfor %}

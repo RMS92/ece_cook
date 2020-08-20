@@ -53,6 +53,21 @@
                 {{ form_row(form.difficulty) }}
             </div>
         </div>
+
+        <div class="infos-main-a widget_recent_entries b-0" style="padding: 0 20px">
+            <h4 class="widget-title">Ingrédients</h4>
+            <ul>
+                {% for ingredient in recipe.ingredients %}
+                    <li>{{ ingredient.name }}
+                        <a href="{{ path('admin.recipeingredient.delete', {id: ingredient.id}) }}"
+                           class="more-link-delete more-lien"
+                           style=""
+                           data-delete
+                           data-token="{{ csrf_token('delete' ~ ingredient.id) }}">Supprimer</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
         <div class="form-row">
             <div class="input-data">
                 {{ form_widget(form.pictureFiles) }}

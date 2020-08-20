@@ -10,6 +10,7 @@ use App\Repository\IngredientRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -121,5 +122,26 @@ class AdminIngredientController extends AbstractController
             $this->addFlash('success', "L'ingrédient a bien été supprimé.");
         }
         return $this->redirectToRoute('admin.ingredient.index');
+    }
+
+    /**
+     * @Route("/recipe-ingredient/{id}", name="admin.recipeingredient.delete", methods="DELETE")
+     * @param Ingredient $ingredient
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function deleteRecipeIngredient(Ingredient $ingredient, Request $request)
+    {
+        $data = json_decode($request->getContent(), true);
+
+        if ($this->isCsrfTokenValid('delete'. $ingredient->getId(), $data['_token'])) {
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($ingredient);
+            $entityManager->flush();
+            return new JsonResponse(['success' => 1]);
+        }
+
+        return new JsonResponse(['error' => 'Token invalide'], 400);
     }
 }

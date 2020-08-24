@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class AdminEventController
  * @package App\Controller\Admin
- * @Route("/admin/évènements")
+ * @Route("/front_5694/admin/évènements")
  * @IsGranted("ROLE_ADMIN")
  */
 class AdminEventController extends AbstractController

@@ -204,7 +204,7 @@ class User implements UserInterface, \Serializable
 
     public function getFormattedDescription(): ?string
     {
-        $limit = 250;
+        $limit = 200;
         if(mb_strlen($this->description) <= $limit) {
             return $this->description;
         }

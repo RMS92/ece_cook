@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class AdminRecipeController
  * @package App\Controller\Admin
- * @Route("/admin/recettes")
+ * @Route("/front_5694/admin/recettes")
  * @IsGranted("ROLE_ADMIN")
  */
 class AdminRecipeController extends AbstractController

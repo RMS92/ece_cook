@@ -7,8 +7,8 @@
     text-align: center;
     padding: 60px 15px;
     max-width: 450px;
-    -webkit-box-shadow: 0 1px 15px 0 rgba(0, 0, 0, .2);
-    box-shadow: 0 1px 15px 0 rgba(0, 0, 0, .2);
+    -webkit-box-shadow: 0 1px 4px hsla(0, 0%, 73%, .5);
+    box-shadow: 0 1px 4px hsla(0, 0%, 73%, .5);
     background: #fff;
 }
 
@@ -30,6 +30,7 @@
 .field input{
     height: 100%;
     width: 100%;
+    padding: 0 15px;
     background: transparent;
     border-color: rgba(0, 0, 0, .2);
     border-radius: 5px;

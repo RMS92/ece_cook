@@ -60,14 +60,11 @@
 {% endblock %}
 
 {% block body %}
+    {% for message in app.flashes('success') %}
+        <div class="notifications" data-status="1" data-message="{{ message }}">
+        </div>
+    {% endfor %}
     <div class="home-section">
-
-        {% for message in app.flashes('success') %}
-            <div class="alert alert-success">
-                {{ message }}
-            </div>
-        {% endfor %}
-
         <div class="container">
             <!-- Events !-->
             <h2 class="big-title" style="margin-bottom: 60px">Next events</h2>

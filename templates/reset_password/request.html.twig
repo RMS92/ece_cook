@@ -7,7 +7,8 @@
         <div class="container pb-60">
 
             {% for flashError in app.flashes('reset_password_error') %}
-                <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+                <div class="notifications" data-status="0" data-message="{{ message }}">
+                </div>
             {% endfor %}
 
             <div class="content register">

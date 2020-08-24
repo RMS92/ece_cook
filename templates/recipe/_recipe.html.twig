@@ -22,9 +22,11 @@
             {% for i in 0..recipe.difficulty-1 %}
                 <span class="has-icon difficulty"></span>
             {% endfor %}
-            {% for i in recipe.difficulty..4 %}
-                <span class="has-icon difficulty-empty"></span>
-            {% endfor %}
+            {% if recipe.difficulty != 5 %}
+                {% for i in recipe.difficulty..4 %}
+                    <span class="has-icon difficulty-empty"></span>
+                {% endfor %}
+            {% endif %}
         {% endif %}
     {#<span class="has-icon difficulty-half"></span>
     <span class="has-icon difficulty-empty"></span>#}

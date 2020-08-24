@@ -14,12 +14,12 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Class PictureController
+ * Class AdminPictureController
  * @package App\Controller\Admin
- * @Route("/admin")
+ * @Route("/front_5694/admin")
  * @IsGranted("ROLE_ADMIN")
  */
-class PictureController extends AbstractController
+class AdminPictureController extends AbstractController
 {
     /**
      * @Route("/event-picture/{id}", name="admin.eventpicture.delete", methods="DELETE")

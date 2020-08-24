@@ -11,7 +11,8 @@
                 <form method="post">
 
                     {% if error %}
-                        <div class="alert alert-danger mb-15">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        <div class="notifications" data-status="0" data-message="{{ error.messageKey|trans(error.messageData, 'security') }}">
+                        </div>
                     {% endif %}
 
                     {% if app.user %}
@@ -24,11 +25,11 @@
                     <div class="field">
 
                         <input type="email" value="{{ last_username }}" name="email" id="inputEmail"
-                               placeholder="  EMAIL" class="form-control" required>
+                               placeholder="EMAIL" class="form-control" required>
                     </div>
                     <div class="field space">
 
-                        <input type="password" name="password" id="inputPassword" placeholder="  MOT DE PASSE"
+                        <input type="password" name="password" id="inputPassword" placeholder="MOT DE PASSE"
                                class="form-control pass-key" required>
                         <input type="hidden" name="_csrf_token"
                                value="{{ csrf_token('authenticate') }}">

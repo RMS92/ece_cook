@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class AdminArticleController
  * @package App\Controller\Admin
- * @Route("/admin/articles")
+ * @Route("/front_5694/admin/articles")
  * @IsGranted("ROLE_ADMIN")
  */
 class AdminArticleController extends AbstractController

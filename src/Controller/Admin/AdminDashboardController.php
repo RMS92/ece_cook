@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class AdminDashboardController
  * @package App\Controller\Admin
- * @Route("/admin")
+ * @Route("/front_5694/admin")
  * @IsGranted("ROLE_ADMIN")
  */
 class AdminDashboardController extends AbstractController

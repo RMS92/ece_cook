@@ -15,9 +15,11 @@
                     {% for i in 0..recipe.difficulty-1 %}
                         <span class="has-icon difficulty"></span>
                     {% endfor %}
-                    {% for i in recipe.difficulty..4 %}
-                        <span class="has-icon difficulty-empty"></span>
-                    {% endfor %}
+                    {% if recipe.difficulty != 5 %}
+                        {% for i in recipe.difficulty..4 %}
+                            <span class="has-icon difficulty-empty"></span>
+                        {% endfor %}
+                    {% endif %}
                 {% endif %}
             </div>
             <div class="item-title mt-30 primary-font">
@@ -72,9 +74,9 @@
                     <div class="author-container">
                         {% if recipe.author.filename is empty %}
                         <img src="https://0.gravatar.com/avatar/9bef3042b6797401752a5fdab945e2b7?s=270&d=identicon&r=G"
-                             alt=""/>
+                             alt="img-author"/>
                         {% else %}
-                            <img src="{{ vich_uploader_asset(recipe.author, 'imageFile') | imagine_filter('thumb_author') }}">
+                            <img src="{{ vich_uploader_asset(recipe.author, 'imageFile') | imagine_filter('thumb_author') }}" alt="img-author">
                         {% endif %}
                         <div class="author-bio">
                             <h3>

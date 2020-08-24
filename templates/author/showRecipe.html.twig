@@ -5,7 +5,7 @@
 {% block baseline %}
     <div class="item item-normal th-swipe" style="background: linear-gradient(360deg, rgba(0, 0, 0, 0.1), rgba(54, 54, 54, 0.5) 39.24%, rgba(28, 28, 28, 0.4)),
     linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(54, 54, 54, 0.5) 39.24%, rgba(28, 28, 28, 0.4)),
-    url({{ 'images/smachno_28.jpg' }}) no-repeat center center;">
+    url({{ 'images/smachno_28.jpg' | imagine_filter('baseline_image') }}) no-repeat center center;">
         <div class="container transparent">
             <div class="item-title primary-font">
                 <a>{{ user.firstname }} {{ user.lastname }}</a>

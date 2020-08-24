@@ -30,11 +30,10 @@ class HomeController extends AbstractController
      */
     private UserRepository $userRepository;
 
-    public function __construct(EventRepository $eventRepository, RecipeRepository $recipeRepository, ArticleRepository $articleRepository, UserRepository $userRepository)
+    public function __construct(EventRepository $eventRepository, RecipeRepository $recipeRepository, UserRepository $userRepository)
     {
         $this->eventRepository = $eventRepository;
         $this->recipeRepository = $recipeRepository;
-        $this->articleRepository = $articleRepository;
         $this->userRepository = $userRepository;
     }
 
@@ -46,7 +45,6 @@ class HomeController extends AbstractController
     {
         $events = $this->eventRepository->findLatest();
         $recipes = $this->recipeRepository->findLatest();
-        $articles = $this->articleRepository->findLatest();
         $users = $this->userRepository->findAll();
 
 
@@ -54,7 +52,6 @@ class HomeController extends AbstractController
             'current_menu' => 'home',
             'events' => $events,
             'recipes' => $recipes,
-            'articles' => $articles,
             'users' => $users
         ]);
     }

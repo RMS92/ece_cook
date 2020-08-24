@@ -18,7 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class AdminIngredientController
  * @package App\Controller\Admin
- * @Route("/admin/ingrédients")
+ * @Route("/front_5694/admin/ingrédients")
  * @IsGranted("ROLE_ADMIN")
  */
 class AdminIngredientController extends AbstractController

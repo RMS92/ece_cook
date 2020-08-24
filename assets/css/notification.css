@@ -1,0 +1,92 @@
+.notifications {
+    position: fixed;
+    top: 130px;
+    border-radius: 4px;
+    z-index: 2000;
+    margin-left: 15px;
+    color: #383a3b;
+    left: unset;
+    right: 15px;
+    max-width: 400px;
+}
+
+.notification {
+    position: relative;
+    cursor: pointer;
+    border-bottom: 1px solid #cacaca;
+}
+
+.notification:last-child {
+    border-bottom: none;
+    box-shadow: 0 0 0 transparent;
+}
+
+.notifications h2 {
+    font-size: .9rem;
+    margin: 0;
+    padding: 10px 0 0 0;
+}
+
+.notifications p {
+    margin: 0;
+    padding: 10px 0;
+    font-size: .9rem;
+}
+
+.left {
+    text-align: center;
+    padding: 0 10px;
+}
+
+.notifications .img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: rgba(0,0,0, 0.4) -1px 0 1px inset;
+}
+
+.right {
+    position: absolute;
+    height: 100%;
+    width: 60px;
+    padding: 0 5px;
+    top: 0;
+    right: 0;
+    border-left: 1px solid rgba(0,0,0,0.2);
+}
+
+.notifications .infos {
+    margin-top: 0;
+    margin-left: 0;
+    padding-left: 0;
+    background-color: #383a3b;
+    border-radius: 4px;
+    box-shadow: #383a3b 43px 0 0 inset;
+    color: #FFF;
+}
+
+.infos {
+    padding-right: 59px;
+    width: 100%;
+    border-right: none;
+}
+
+@media only screen and (min-width: 500px) {
+    .notifications {
+        top: 70px;
+    }
+
+    .notifications p {
+        margin: 0;
+        padding: 15px 0;
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 995px) {
+    .notifications {
+        top: 62px;
+    }
+}

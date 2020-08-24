@@ -351,6 +351,14 @@ ul, li {
     color: #383a3b;
 }
 
+.item-staff .entry-summary p {
+    padding: 0 15px;
+}
+
+.hidden {
+    display: none;
+}
+
 .footer {
     padding: 45px 0;
     background: #383a3b;
@@ -660,14 +668,16 @@ ul, li {
 
 .author-container {
     padding: 30px;
+    justify-content: space-between;
+    align-items: start;
     background-color: #f2f2f2;
 }
 
 .author-container img {
+    display: block;
     margin-bottom: 0;
-    margin-right: 30px;
-    height: 90px;
     width: 90px;
+    height: 90px;
 }
 
 .author-bio h3 {
@@ -772,10 +782,6 @@ b {
 .blocks-gallery-item-admin {
     margin-right: 15px;
     margin-bottom: 0;
-}
-
-.blocks-gallery-item-admin:first-child {
-    margin-left: 15px;
 }
 
 .wp-image {
@@ -907,12 +913,20 @@ b {
         padding: 120px 15px;
     }
 
+    .author-container img {
+        margin-top: 13px;
+    }
+
     .author-container {
         display: flex;
     }
 
     .author-bio p, .entry-text, .ingredient-item, b, .comment-content {
         font-size: 1.14rem;
+    }
+
+    .author-bio {
+        padding-left: 30px;
     }
 
     .comment-body {
@@ -999,6 +1013,10 @@ b {
     /*event.show*/
     .blocks-gallery-item {
         width: calc(32% - 10px);
+    }
+
+    .blocks-gallery-item-admin:first-child {
+        margin-left: 15px;
     }
 
     .localisation-map {

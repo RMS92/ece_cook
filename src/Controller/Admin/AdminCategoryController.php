@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class AdminCategoryController
  * @package App\Controller\Admin
- * @Route("/admin/catégories")
+ * @Route("/front_5694/admin/catégories")
  * @IsGranted("ROLE_ADMIN")
  */
 class AdminCategoryController extends AbstractController

@@ -15,8 +15,8 @@
     text-align: unset;
     padding: 0;
     background-color: #fff;
-    box-shadow: 0 1px 15px 0 rgba(0, 0, 0, .2);
-    -webkit-box-shadow: 0 1px 15px 0 rgba(0, 0, 0, .2);
+    -webkit-box-shadow: 0 1px 4px hsla(0, 0%, 73%, .5);
+    box-shadow: 0 1px 4px hsla(0, 0%, 73%, .5);
     border-radius: 5px;
     margin: 0 10px 60px 15px;
     transition: transform 0.3s;

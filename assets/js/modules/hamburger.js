@@ -85,35 +85,24 @@ window.addEventListener('scroll', function (e) {
     }
 })
 
-/*var dropdownmenu = document.querySelectorAll('#hamburger-sidebar-body #dropdown-menu')
-var dropdownli = document.querySelectorAll('#hamburger-sidebar-body #dropdown-li')
-
 window.onresize = function () {
-    if (window.innerWidth > 1100) {
+    if (window.innerWidth > 995) {
         parent.classList.remove(activatedclass)
-        for (var i = 0; i < dropdownmenu.length; i++) {
-            dropdownmenu[i].classList.remove('show')
-            dropdownli[i].classList.remove('show')
-        }
+
     }
 };
 
-
-var pos;
+/*var pos;
 window.addEventListener('scroll', function (e) {
 
     pos = window.scrollY
-    if (pos > 300) {
+    if (pos > 995) {
         parent.classList.add('hidden')
         parent.classList.remove(activatedclass)
-        for (var i = 0; i < dropdownmenu.length; i++) {
-            dropdownmenu[i].classList.remove('show')
-            dropdownli[i].classList.remove('show')
-        }
     }
 
-    if (pos < 200) {
+    if (pos < 995) {
         parent.classList.remove('hidden')
     }
-});*/
-
+});
+*/

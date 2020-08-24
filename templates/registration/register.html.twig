@@ -54,7 +54,8 @@
                         </div>
                     </div>
                     {% for message in app.flashes('verify_email_error') %}
-                        <div class="alert alert-danger mb-15" role="alert">{{ message }}</div>
+                        <div class="notifications" data-status="0" data-message="{{ message }}">
+                        </div>
                     {% endfor %}
                     <div class="form-row mb-0">
                         <div class="input-data-btn field">
